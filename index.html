@@ -4,32 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Howard AI Newsroom</title>
+  <title>Howard AI — Assistant Intelligence</title>
 
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../assets/style.css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
     <div class="container navbar">
 
-      <a href="../index.html" class="logo">
-        <img src="../logo-light.png" alt="Howard AI Logo">
+      <a href="./index.html" class="logo">
+        <img src="./logo-light.png" alt="Howard AI Logo">
       </a>
 
       <nav class="main-nav">
 
         <div class="nav-item">
+          <a href="./index.html">Home</a>
+        </div>
+
+        <div class="nav-item">
           <a href="#">About</a>
 
           <div class="dropdown">
-            <a href="./index.html">Overview</a>
-            <a href="./howardai.html">Howard AI</a>
-            <a href="./leadership.html">Leadership</a>
-            <a href="./newsroom.html">Newsroom</a>
-            <a href="./investors.html">Investors</a>
+            <a href="./about/index.html">Overview</a>
+            <a href="./about/howardai.html">Howard AI</a>
+            <a href="./about/leadership.html">Leadership</a>
+            <a href="./about/newsroom.html">Newsroom</a>
+            <a href="./about/investors.html">Investors</a>
           </div>
         </div>
 
@@ -37,10 +43,10 @@
           <a href="#">Store</a>
 
           <div class="dropdown">
-            <a href="../store/index.html">All Products</a>
-            <a href="../store/home.html">Howard Home</a>
-            <a href="../store/pro.html">Howard Pro</a>
-            <a href="../store/enterprise.html">Enterprise</a>
+            <a href="./store/index.html">All Products</a>
+            <a href="./store/home.html">Howard Home</a>
+            <a href="./store/pro.html">Howard Pro</a>
+            <a href="./store/enterprise.html">Enterprise</a>
           </div>
         </div>
 
@@ -48,10 +54,10 @@
           <a href="#">Support</a>
 
           <div class="dropdown">
-            <a href="../support/index.html">Support Hub</a>
-            <a href="../support/contact.html">Contact</a>
-            <a href="../support/about-support.html">About Support</a>
-            <a href="../support/faqs.html">FAQs</a>
+            <a href="./support/index.html">Support Hub</a>
+            <a href="./support/contact.html">Contact</a>
+            <a href="./support/about-support.html">About Support</a>
+            <a href="./support/faqs.html">FAQs</a>
           </div>
         </div>
 
@@ -60,66 +66,134 @@
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-content">
 
       <div class="hero-tag">
-        Howard AI Newsroom
+        Houston-Based Local AI Infrastructure
       </div>
 
-      <h1 class="section-title">
-        Latest Updates
+      <h1>
+        Assistant Intelligence.
       </h1>
 
-      <p class="section-subtitle">
-        Product updates, launch milestones, Houston expansion news, and company announcements.
+      <p>
+        Howard installs locally hosted AI assistants for homes and businesses across Houston. No cloud dependency. No data centers. Just real execution, real support, and an AI assistant that actually gets things done.
       </p>
 
-      <div id="news-container" class="news-grid"></div>
+      <div class="hero-buttons">
+
+        <a href="./store/index.html" class="btn btn-primary">
+          Explore Howard
+        </a>
+
+        <a href="./about/newsroom.html" class="btn btn-secondary">
+          Visit Newsroom
+        </a>
+
+      </div>
 
     </div>
   </section>
 
-  <script>
-    async function loadNews() {
-      try {
+  <!-- FEATURES -->
 
-        const response = await fetch('./news.json');
-        const articles = await response.json();
+  <section class="section">
+    <div class="container">
 
-        const container = document.getElementById('news-container');
+      <h2 class="section-title">
+        Cloud AI talks.<br>
+        Howard acts.
+      </h2>
 
-        articles.forEach(article => {
+      <p class="section-subtitle">
+        Howard isn't another chatbot sitting in a browser tab. He's a locally hosted assistant with his own phone number, dedicated hardware, and the ability to execute real-world tasks.
+      </p>
 
-          const card = document.createElement('div');
+      <div class="grid grid-3" style="margin-top: 50px;">
 
-          card.classList.add('news-card');
+        <div class="card">
+          <h3>Locally Hosted</h3>
 
-          card.innerHTML = `
-            <div class="news-meta">${article.date}</div>
-            <h2>${article.title}</h2>
-            <p>${article.description}</p>
-          `;
+          <p>
+            Your data stays inside your home or office. No external cloud servers. No hidden storage. No privacy fine print.
+          </p>
+        </div>
 
-          container.appendChild(card);
+        <div class="card">
+          <h3>Actually Executes</h3>
 
-        });
+          <p>
+            Howard books flights, manages schedules, emails clients, handles administrative work, and integrates directly into your workflow.
+          </p>
+        </div>
 
-      } catch (error) {
+        <div class="card">
+          <h3>Houston Support</h3>
 
-        console.error(error);
+          <p>
+            Every install is handled by real local technicians. If something breaks, someone shows up — not a chatbot.
+          </p>
+        </div>
 
-        document.getElementById('news-container').innerHTML = `
-          <div class="news-card">
-            <h2>Error Loading News</h2>
-            <p>Please try again later.</p>
-          </div>
-        `;
-      }
-    }
+      </div>
 
-    loadNews();
-  </script>
+    </div>
+  </section>
+
+  <!-- PRODUCT TIERS -->
+
+  <section class="section">
+    <div class="container">
+
+      <h2 class="section-title">
+        Built for every level of demand.
+      </h2>
+
+      <div class="grid grid-3" style="margin-top: 50px;">
+
+        <div class="card">
+          <h3>Howard Home</h3>
+
+          <p>
+            RTX-class hardware for households and personal productivity.
+          </p>
+
+          <br>
+
+          <strong>$3,000 + $100/month</strong>
+        </div>
+
+        <div class="card">
+          <h3>Howard Pro</h3>
+
+          <p>
+            Mid-tier GPU server designed for small businesses and growing teams.
+          </p>
+
+          <br>
+
+          <strong>$6,000 + $150/month</strong>
+        </div>
+
+        <div class="card">
+          <h3>Howard Enterprise</h3>
+
+          <p>
+            High-demand infrastructure for offices requiring enterprise-level execution.
+          </p>
+
+          <br>
+
+          <strong>$8,000 + $200/month</strong>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
 
 </body>
 </html>
