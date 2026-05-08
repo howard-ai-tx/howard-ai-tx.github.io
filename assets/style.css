@@ -448,3 +448,61 @@ footer {
   }
 
 }
+
+/* ---------- EXECUTIVES ---------- */
+
+.executive-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 40px;
+}
+
+.executive-card {
+  transition: 0.25s ease;
+}
+
+.executive-card:hover {
+  transform: translateY(-4px);
+}
+
+.executive-image {
+  aspect-ratio: 1 / 1;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(235,199,54,0.18),
+      rgba(255,255,255,0.04)
+    );
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  margin-bottom: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255,255,255,0.4);
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.executive-card h2 {
+  font-size: 1.45rem;
+
+  margin-bottom: 6px;
+
+  letter-spacing: -0.03em;
+}
+
+.executive-card p {
+  color: #a8a8a8;
+
+  font-size: 1rem;
+}
