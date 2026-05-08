@@ -456,18 +456,18 @@ header {
   margin-bottom: 28px;
 }
 
-/* ---------- SOCIALS ---------- */
+/* ---------- SOCIAL ICONS ---------- */
 
 .footer-socials {
   display: flex;
-  gap: 18px;
+  gap: 14px;
 }
 
 .footer-socials a {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
   background: rgba(255,255,255,0.03);
 
@@ -477,7 +477,24 @@ header {
   align-items: center;
   justify-content: center;
 
+  overflow: hidden;
+
   transition: 0.2s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255,255,255,0.06);
+}
+
+.footer-socials img {
+  width: 14px;
+  height: 14px;
+
+  object-fit: contain;
+
+  display: block;
 }
 
 .footer-socials a:hover {
