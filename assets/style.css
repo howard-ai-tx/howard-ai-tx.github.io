@@ -462,6 +462,8 @@ footer {
 }
 
 .executive-card {
+  width: 320px;
+
   transition: 0.25s ease;
 }
 
