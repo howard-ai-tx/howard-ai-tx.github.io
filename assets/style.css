@@ -139,14 +139,14 @@ header {
 .dropdown {
   position: absolute;
 
-  top: calc(100% + 22px);
+  top: 100%;
   left: 50%;
 
   transform: translateX(-50%) translateY(8px);
 
   min-width: 230px;
 
-  padding: 14px;
+  padding: 18px 14px 14px;
 
   background: rgba(18,18,18,0.96);
 
