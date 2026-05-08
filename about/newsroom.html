@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Howard AI</title>
+  <title>Howard AI Newsroom</title>
 
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
@@ -66,37 +66,147 @@
     </div>
   </header>
 
-  <!-- PLACEHOLDER -->
+  <!-- HERO -->
 
-  <section class="hero">
-    <div class="container hero-content">
+  <section class="section">
+    <div class="container">
 
       <div class="hero-tag">
-        Howard AI
+        Howard AI Newsroom
       </div>
 
-      <h1>
-        Coming Soon.
+      <h1 class="section-title">
+        Latest Updates
       </h1>
 
-      <p>
-        This section of the Howard AI website is currently under development. More information, features, and updates will be added soon.
+      <p class="section-subtitle">
+        Product updates, launch milestones, Houston expansion news, and company announcements from Howard AI.
       </p>
-
-      <div class="hero-buttons">
-
-        <a href="../index.html" class="btn btn-primary">
-          Return Home
-        </a>
-
-        <a href="../about/newsroom.html" class="btn btn-secondary">
-          Visit Newsroom
-        </a>
-
-      </div>
 
     </div>
   </section>
+
+  <!-- NEWS FEED -->
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+
+      <div id="featured-story"></div>
+
+      <div id="news-container" class="news-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    async function loadNews() {
+
+      try {
+
+        const response = await fetch('./news.json');
+        const articles = await response.json();
+
+        const featuredContainer =
+          document.getElementById('featured-story');
+
+        const newsContainer =
+          document.getElementById('news-container');
+
+        if (articles.length > 0) {
+
+          const featured = articles[0];
+
+          featuredContainer.innerHTML = `
+
+            <div class="card" style="
+              margin-bottom: 32px;
+              padding: 48px;
+            ">
+
+              <div class="news-meta">
+                FEATURED • ${featured.date}
+              </div>
+
+              <h2 style="
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+                line-height: 1.05;
+              ">
+                ${featured.title}
+              </h2>
+
+              <p style="
+                font-size: 1.1rem;
+                color: #bdbdbd;
+                max-width: 800px;
+              ">
+                ${featured.description}
+              </p>
+
+            </div>
+
+          `;
+
+          articles.slice(1).forEach(article => {
+
+            const card = document.createElement('div');
+
+            card.classList.add('news-card');
+
+            card.innerHTML = `
+
+              <div class="news-meta">
+                ${article.date}
+              </div>
+
+              <h2>
+                ${article.title}
+              </h2>
+
+              <p>
+                ${article.description}
+              </p>
+
+            `;
+
+            newsContainer.appendChild(card);
+
+          });
+
+        }
+
+      } catch (error) {
+
+        console.error('Failed to load newsroom:', error);
+
+        document.getElementById('news-container').innerHTML = `
+
+          <div class="news-card">
+
+            <div class="news-meta">
+              ERROR
+            </div>
+
+            <h2>
+              Unable to load newsroom.
+            </h2>
+
+            <p>
+              Please try again later.
+            </p>
+
+          </div>
+
+        `;
+      }
+    }
+
+    loadNews();
+
+  </script>
 
 </body>
 </html>
