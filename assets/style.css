@@ -510,3 +510,82 @@ footer {
 
   font-size: 1rem;
 }
+
+/* ---------- EXECUTIVE PROFILE ---------- */
+
+.executive-profile {
+  display: grid;
+
+  grid-template-columns: 420px 1fr;
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+.executive-profile-image {
+  aspect-ratio: 1 / 1;
+
+  border-radius: 36px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(235,199,54,0.18),
+      rgba(255,255,255,0.04)
+    );
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255,255,255,0.4);
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.executive-profile-content h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  line-height: 0.95;
+
+  margin-bottom: 14px;
+
+  letter-spacing: -0.05em;
+}
+
+.executive-profile-content h2 {
+  color: #c4c4c4;
+
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  margin-bottom: 36px;
+}
+
+.executive-profile-content p {
+  color: #a8a8a8;
+
+  font-size: 1.05rem;
+
+  line-height: 1.95;
+
+  margin-bottom: 26px;
+
+  max-width: 760px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 950px) {
+
+  .executive-profile {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+}
