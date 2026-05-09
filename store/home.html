@@ -3,35 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Howard AI</title>
-
+  <title>Howard Home — Howard AI</title>
+  
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+  <style>
+    /* Scoped styles for the Product Content to prevent breaking global Header/Footer */
+    :root {
+      --y:#EBC736; --yk:#c9a820;
+      --blk:#0D0D0D; --wht:#FFFFFF;
+      --warm:#2A2A2A; --off:#F5F5F0; --mid:#888888;
+    }
+    
+    .product-page-body { font-family:'DM Sans',sans-serif; background:var(--off); color:var(--blk); overflow-x:hidden }
+    .product-container { max-width:1100px; margin:0 auto; padding:0 2rem }
+
+    /* HERO */
+    .hero-prod { min-height:80vh; display:flex; align-items:center; background:var(--off); padding:5rem 0 }
+    .eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--mid); margin-bottom:1.1rem }
+    .hero-prod h1 { font-size:clamp(3.2rem,7vw,6rem); font-weight:700; letter-spacing:-0.03em; line-height:1.0; color:var(--blk); margin-bottom:0.75rem }
+    .price-line { font-size:1.15rem; color:var(--mid); margin-bottom:2.5rem; font-weight:400 }
+    .price-line strong { color:var(--blk); font-weight:600 }
+
+    /* ANNOTATIONS */
+    .say-does { font-size:clamp(1.8rem,4vw,3.2rem); font-weight:700; letter-spacing:-0.025em; line-height:1.25; margin-bottom:1.75rem; display:flex; flex-wrap:wrap; align-items:center; gap:0.3em }
+    .word-wrap { position:relative; display:inline-block }
+    .anno-svg { position:absolute; pointer-events:none; overflow:visible }
+    .circle-anno { top:50%; left:50%; transform:translate(-50%,-50%); width:120%; height:175% }
+    .underline-anno { bottom:-8px; left:-4%; width:108%; height:14px }
+
+    .hero-sub { max-width:520px; font-size:1rem; line-height:1.75; color:var(--warm); margin-bottom:2.25rem }
+    .btn-row { display:flex; gap:0.875rem; flex-wrap:wrap }
+    .btn-p { display:inline-flex; align-items:center; padding:0.8rem 1.6rem; border-radius:10px; font-size:0.9rem; font-weight:600; text-decoration:none; cursor:pointer; border:none; transition:opacity 0.2s }
+    .btn-y { background:var(--y); color:var(--blk); opacity:0.45; cursor:not-allowed }
+    .btn-dark { background:var(--blk); color:var(--wht) }
+
+    /* HARDWARE & SECTIONS */
+    .hw-section { background:var(--wht); padding:6rem 0 }
+    .hw-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center }
+    .hw-placeholder { background:var(--off); border-radius:20px; aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; border:2px dashed rgba(0,0,0,0.1) }
+    .hw-icon-box { width:60px; height:60px; background:var(--y); border-radius:14px; display:flex; align-items:center; justify-content:center }
+    .hw-copy h2 { font-size:clamp(1.6rem,2.8vw,2.4rem); font-weight:700; letter-spacing:-0.025em; line-height:1.2; margin-bottom:1.1rem }
+    .spec-row { display:flex; justify-content:space-between; align-items:center; padding:0.7rem 1rem; background:var(--off); border-radius:10px; font-size:0.875rem; margin-bottom:0.6rem }
+
+    .tasks-section { padding:7rem 0; background:var(--off) }
+    .tasks-header { text-align:center; margin-bottom:4rem }
+    .tasks-list { display:flex; flex-direction:column; gap:1.5rem; max-width:740px; margin:0 auto }
+    .task-card { display:flex; align-items:flex-start; gap:1.25rem; padding:1.75rem; background:var(--wht); border-radius:18px; border:1px solid rgba(0,0,0,0.06); box-shadow:0 2px 12px rgba(0,0,0,0.04); opacity:0; transform:translateY(28px); transition:opacity 0.55s ease, transform 0.55s ease }
+    .task-card.vis { opacity:1; transform:translateY(0) }
+    .task-icon-box { flex-shrink:0; width:50px; height:50px; background:var(--y); border-radius:13px; display:flex; align-items:center; justify-content:center }
+    .task-cmd { font-size:1rem; font-weight:500; color:var(--blk); line-height:1.5; font-style:italic }
+
+    .priv-section-p { background:var(--blk); color:var(--wht); padding:7rem 0 }
+    .priv-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center }
+    .pillar { display:flex; align-items:flex-start; gap:1rem; padding:1.1rem 1.25rem; background:var(--warm); border-radius:14px; border-left:3px solid var(--y); margin-bottom:1rem }
+
+    .pricing-section-p { background:var(--off); padding:7rem 0; text-align:center }
+    .price-card-p { display:inline-flex; flex-direction:column; align-items:center; background:var(--wht); border-radius:24px; padding:2.75rem 3.25rem; border:1px solid rgba(0,0,0,0.07); box-shadow:0 4px 28px rgba(0,0,0,0.06); min-width:320px; color: var(--blk) }
+    .p-main { font-size:3.2rem; font-weight:700; letter-spacing:-0.035em; color:var(--blk); line-height:1; margin-bottom:0.35rem }
+    .p-item { display:flex; align-items:center; gap:0.6rem; font-size:0.875rem; color:var(--warm); margin-bottom:0.55rem; text-align: left; }
+    .p-check { width:18px; height:18px; background:var(--y); border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center }
+
+    .fu { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease }
+    .fu.vis { opacity:1; transform:translateY(0) }
+
+    @media(max-width:700px){
+      .hw-grid,.priv-grid{grid-template-columns:1fr;gap:2.5rem}
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
     <div class="container navbar">
-
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
-
       <nav class="main-nav">
-
-        <div class="nav-item">
-          <a href="../index.html">Home</a>
-        </div>
-
-        <!-- ABOUT -->
-
+        <div class="nav-item"><a href="../index.html">Home</a></div>
         <div class="nav-item">
           <a href="#">About</a>
-
           <div class="dropdown">
             <a href="../about/index.html">Overview</a>
             <a href="../about/leadership.html">Leadership</a>
@@ -39,12 +95,8 @@
             <a href="../about/investors.html">Investors</a>
           </div>
         </div>
-
-        <!-- STORE -->
-
         <div class="nav-item">
           <a href="#">Store</a>
-
           <div class="dropdown">
             <a href="../store/index.html">All Products</a>
             <a href="../store/home.html">Howard Home</a>
@@ -52,156 +104,206 @@
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
         </div>
-
-        <!-- SUPPORT -->
-
         <div class="nav-item">
           <a href="#">Support</a>
-
           <div class="dropdown">
             <a href="../support/contact.html">Contact</a>
             <a href="../support/about-support.html">About Support</a>
             <a href="../support/faqs.html">FAQs</a>
           </div>
         </div>
-
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
+  <main class="product-page-body">
+    
+    <section class="hero-prod">
+      <div class="product-container">
+        <div class="eyebrow">Howard AI — For the Home</div>
+        <h1>Howard Home.</h1>
+        <p class="price-line">Starting at <strong>$3,000</strong> + $100/month</p>
 
-  <section class="hero">
-
-    <div class="container hero-content">
-
-      <div class="hero-tag">
-        Howard AI
-      </div>
-
-      <h1>
-        Coming Soon.
-      </h1>
-
-      <p>
-        This section of the Howard AI website is currently under development and will be available soon.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="../index.html" class="btn btn-primary">
-          Return Home
-        </a>
-
-        <a href="../support/contact.html" class="btn btn-secondary">
-          Contact Us
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer class="site-footer">
-
-    <div class="container footer-grid">
-
-      <!-- LEFT -->
-
-      <div class="footer-brand">
-
-        <img
-          src="../logo-light.png"
-          alt="Howard AI Logo"
-          class="footer-logo"
-        >
-
-        <p class="footer-copyright">
-          Copyright Placeholder — Howard AI
-        </p>
-
-        <p class="footer-description">
-          Howard AI builds locally hosted AI assistants for Houston homes and businesses.
-        </p>
-
-        <div class="footer-socials">
-
-          <a href="https://instagram.com" target="_blank">
-            <img
-              src="../assets/icons/instagram.svg"
-              alt="Instagram"
-            >
-          </a>
-
-          <a href="https://linkedin.com" target="_blank">
-            <img
-              src="../assets/icons/linkedin.svg"
-              alt="LinkedIn"
-            >
-          </a>
-
-          <a href="https://x.com" target="_blank">
-            <img
-              src="../assets/icons/x.svg"
-              alt="X"
-            >
-          </a>
-
+        <div class="say-does" id="sayDoes">
+          <span>Howard doesn't</span>
+          <span class="word-wrap" id="wSay">
+            say,
+            <svg class="anno-svg circle-anno" id="circleAnno" viewBox="0 0 100 56" preserveAspectRatio="none">
+              <ellipse cx="50" cy="28" rx="47" ry="24" fill="none" stroke="#EBC736" stroke-width="3.5" id="circleEl" stroke-dasharray="330" stroke-dashoffset="330" style="transition:stroke-dashoffset 0.95s cubic-bezier(0.4,0,0.2,1)"/>
+            </svg>
+          </span>
+          <span>it</span>
+          <span class="word-wrap" id="wDoes">
+            does.
+            <svg class="anno-svg underline-anno" id="underlineAnno" viewBox="0 0 100 14" preserveAspectRatio="none">
+              <path d="M2,9 Q25,4 50,9 Q75,13 98,7" fill="none" stroke="#EBC736" stroke-width="4" id="underlineEl" stroke-dasharray="210" stroke-dashoffset="210" style="transition:stroke-dashoffset 0.75s cubic-bezier(0.4,0,0.2,1) 0.5s"/>
+            </svg>
+          </span>
         </div>
 
+        <p class="hero-sub">
+          Howard is a locally hosted AI assistant — installed in your home, connected to your life. He books your flights, manages your inbox, handles the things on your list. No cloud. No fine print. Just results.
+        </p>
+
+        <div class="btn-row">
+          <button class="btn-p btn-y" disabled title="Pre-orders coming soon">Pre-Order Howard Home</button>
+          <button class="btn-p btn-dark">Ask a Question</button>
+        </div>
       </div>
+    </section>
 
-      <!-- RIGHT -->
+    <section class="hw-section">
+      <div class="product-container">
+        <div class="hw-grid">
+          <div class="hw-placeholder">
+            <div class="hw-icon-box"><i class="ti ti-device-desktop"></i></div>
+            <p>Hardware photo — coming soon</p>
+          </div>
+          <div class="hw-copy fu">
+            <h2>Dedicated hardware.<br>Planted in your home.</h2>
+            <p>Howard Home runs on RTX-class GPU hardware installed by our Houston technicians directly in your house. Ethernet-connected. Always on. Zero cloud dependency.</p>
+            <div class="spec-row"><span class="sl">Hardware class</span><span class="sv">RTX-class GPU</span></div>
+            <div class="spec-row"><span class="sl">Data storage</span><span class="sv">Local only</span></div>
+            <div class="spec-row"><span class="sl">Upfront cost</span><span class="sv">$3,000</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="tasks-section">
+      <div class="product-container">
+        <div class="tasks-header fu">
+          <h2>Just say the word.<br>Howard handles the rest.</h2>
+          <p>Text or call Howard from anywhere. He doesn't suggest — he executes.</p>
+        </div>
+        <div class="tasks-list">
+          <div class="task-card" data-delay="0">
+            <div class="task-icon-box"><i class="ti ti-plane"></i></div>
+            <div>
+              <div class="task-lbl">Travel</div>
+              <div class="task-cmd">Hey Howard, book a flight for four to Barbados this Saturday morning.</div>
+            </div>
+          </div>
+          <div class="task-card" data-delay="160">
+            <div class="task-icon-box"><i class="ti ti-mail"></i></div>
+            <div>
+              <div class="task-lbl">Inbox</div>
+              <div class="task-cmd">Oh Howard, could you check for any important emails and reply to them?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="priv-section-p">
+      <div class="product-container">
+        <div class="priv-grid">
+          <div class="priv-copy fu">
+            <h2>Your home.<br>Your data.<br><span style="color:var(--y)">Full stop.</span></h2>
+            <p>Every other AI assistant runs on a cloud server. Howard lives in your house. If you ever want him gone, unplug him.</p>
+          </div>
+          <div class="pillars fu">
+            <div class="pillar">
+              <i class="ti ti-home"></i>
+              <div><h4>Stays in your home</h4><p>No external data center ever sees your activity.</p></div>
+            </div>
+            <div class="pillar">
+              <i class="ti ti-cloud-off"></i>
+              <div><h4>Zero cloud dependency</h4><p>Core intelligence runs fully offline.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-section-p">
+      <div class="product-container">
+        <h2 class="fu">Simple, transparent pricing.</h2>
+        <div class="price-card-p fu" style="margin-top: 2rem">
+          <div class="p-eyebrow">Howard Home</div>
+          <div class="p-main">$3,000</div>
+          <div class="p-monthly">then <strong>$100/month</strong></div>
+          <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>RTX-class hardware, installed</div>
+          <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>Local Houston phone support</div>
+          <button class="btn-p btn-y" disabled style="width:100%; justify-content:center; margin-top:1.5rem">Coming Soon</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright Placeholder — Howard AI</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank"><img src="../assets/icons/instagram.svg" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="../assets/icons/linkedin.svg" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="../assets/icons/x.svg" alt="X"></a>
+        </div>
+      </div>
       <div class="footer-links-grid">
-
-        <!-- ABOUT -->
-
         <div class="footer-column">
-
           <h3>About</h3>
-
           <a href="../about/index.html">Overview</a>
           <a href="../about/leadership.html">Leadership</a>
           <a href="../about/newsroom.html">Newsroom</a>
           <a href="../about/investors.html">Investors</a>
-
         </div>
-
-        <!-- STORE -->
-
         <div class="footer-column">
-
           <h3>Store</h3>
-
           <a href="../store/index.html">All Products</a>
           <a href="../store/home.html">Howard Home</a>
           <a href="../store/pro.html">Howard Pro</a>
           <a href="../store/enterprise.html">Enterprise</a>
-
         </div>
-
-        <!-- SUPPORT -->
-
         <div class="footer-column">
-
           <h3>Support</h3>
-
           <a href="../support/contact.html">Contact</a>
           <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
-
         </div>
-
       </div>
-
     </div>
-
   </footer>
 
+  <script>
+    const io = (cb, opts) => new IntersectionObserver(cb, opts);
+    
+    // Animation logic
+    const sayDoes = document.getElementById('sayDoes');
+    const circleEl = document.getElementById('circleEl');
+    const underlineEl = document.getElementById('underlineEl');
+
+    if(sayDoes) {
+      const sdObs = io(entries => {
+        if(entries[0].isIntersecting){
+          setTimeout(()=>{ circleEl.style.strokeDashoffset='0'; }, 180);
+          setTimeout(()=>{ underlineEl.style.strokeDashoffset='0'; }, 420);
+          sdObs.disconnect();
+        }
+      }, {threshold:0.6});
+      sdObs.observe(sayDoes);
+    }
+
+    document.querySelectorAll('.task-card').forEach(card => {
+      const obs = io(entries => {
+        if(entries[0].isIntersecting){
+          const d = parseInt(card.dataset.delay||0);
+          setTimeout(()=>card.classList.add('vis'), d);
+          obs.disconnect();
+        }
+      }, {threshold:0.15});
+      obs.observe(card);
+    });
+
+    document.querySelectorAll('.fu').forEach(el => {
+      const obs = io(entries => {
+        if(entries[0].isIntersecting){ el.classList.add('vis'); obs.disconnect(); }
+      }, {threshold:0.1});
+      obs.observe(el);
+    });
+  </script>
 </body>
 </html>
