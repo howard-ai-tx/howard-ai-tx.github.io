@@ -38,9 +38,9 @@
 
     .hero-sub { max-width:520px; font-size:1rem; line-height:1.75; color:var(--warm); margin-bottom:2.25rem }
     .btn-row { display:flex; gap:0.875rem; flex-wrap:wrap }
-    .btn-p { display:inline-flex; align-items:center; padding:0.8rem 1.6rem; border-radius:10px; font-size:0.9rem; font-weight:600; text-decoration:none; cursor:pointer; border:none; transition:opacity 0.2s }
-    .btn-y { background:var(--y); color:var(--blk); opacity:0.45; cursor:not-allowed }
-    .btn-dark { background:var(--blk); color:var(--wht) }
+    .btn-prod { display:inline-flex; align-items:center; padding:0.8rem 1.6rem; border-radius:10px; font-size:0.9rem; font-weight:600; text-decoration:none; cursor:pointer; border:none; transition:opacity 0.2s }
+    .btn-y-prod { background:var(--y); color:var(--blk); opacity:0.45; cursor:not-allowed }
+    .btn-dark-prod { background:var(--blk); color:var(--wht) }
 
     /* HARDWARE & SECTIONS */
     .hw-section { background:var(--wht); padding:6rem 0 }
@@ -56,14 +56,15 @@
     .task-card { display:flex; align-items:flex-start; gap:1.25rem; padding:1.75rem; background:var(--wht); border-radius:18px; border:1px solid rgba(0,0,0,0.06); box-shadow:0 2px 12px rgba(0,0,0,0.04); opacity:0; transform:translateY(28px); transition:opacity 0.55s ease, transform 0.55s ease }
     .task-card.vis { opacity:1; transform:translateY(0) }
     .task-icon-box { flex-shrink:0; width:50px; height:50px; background:var(--y); border-radius:13px; display:flex; align-items:center; justify-content:center }
+    .task-lbl { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); margin-bottom:0.35rem }
     .task-cmd { font-size:1rem; font-weight:500; color:var(--blk); line-height:1.5; font-style:italic }
 
-    .priv-section-p { background:var(--blk); color:var(--wht); padding:7rem 0 }
+    .priv-section-prod { background:var(--blk); color:var(--wht); padding:7rem 0 }
     .priv-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center }
     .pillar { display:flex; align-items:flex-start; gap:1rem; padding:1.1rem 1.25rem; background:var(--warm); border-radius:14px; border-left:3px solid var(--y); margin-bottom:1rem }
 
-    .pricing-section-p { background:var(--off); padding:7rem 0; text-align:center }
-    .price-card-p { display:inline-flex; flex-direction:column; align-items:center; background:var(--wht); border-radius:24px; padding:2.75rem 3.25rem; border:1px solid rgba(0,0,0,0.07); box-shadow:0 4px 28px rgba(0,0,0,0.06); min-width:320px; color: var(--blk) }
+    .pricing-section-prod { background:var(--off); padding:7rem 0; text-align:center }
+    .price-card-prod { display:inline-flex; flex-direction:column; align-items:center; background:var(--wht); border-radius:24px; padding:2.75rem 3.25rem; border:1px solid rgba(0,0,0,0.07); box-shadow:0 4px 28px rgba(0,0,0,0.06); min-width:320px; color: var(--blk) }
     .p-main { font-size:3.2rem; font-weight:700; letter-spacing:-0.035em; color:var(--blk); line-height:1; margin-bottom:0.35rem }
     .p-item { display:flex; align-items:center; gap:0.6rem; font-size:0.875rem; color:var(--warm); margin-bottom:0.55rem; text-align: left; }
     .p-check { width:18px; height:18px; background:var(--y); border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center }
@@ -146,8 +147,8 @@
         </p>
 
         <div class="btn-row">
-          <button class="btn-p btn-y" disabled title="Pre-orders coming soon">Pre-Order Howard Home</button>
-          <button class="btn-p btn-dark">Ask a Question</button>
+          <button class="btn-prod btn-y-prod" disabled title="Pre-orders coming soon">Pre-Order Howard Home</button>
+          <button class="btn-prod btn-dark-prod">Ask a Question</button>
         </div>
       </div>
     </section>
@@ -163,6 +164,7 @@
             <h2>Dedicated hardware.<br>Planted in your home.</h2>
             <p>Howard Home runs on RTX-class GPU hardware installed by our Houston technicians directly in your house. Ethernet-connected. Always on. Zero cloud dependency.</p>
             <div class="spec-row"><span class="sl">Hardware class</span><span class="sv">RTX-class GPU</span></div>
+            <div class="spec-row"><span class="sl">Connection</span><span class="sv">Ethernet — wired</span></div>
             <div class="spec-row"><span class="sl">Data storage</span><span class="sv">Local only</span></div>
             <div class="spec-row"><span class="sl">Upfront cost</span><span class="sv">$3,000</span></div>
           </div>
@@ -185,17 +187,24 @@
             </div>
           </div>
           <div class="task-card" data-delay="160">
+            <div class="task-icon-box"><i class="ti ti-bolt"></i></div>
+            <div>
+              <div class="task-lbl">Home management</div>
+              <div class="task-cmd">Howard, take a look through my energy bills and tell me some ways to save money.</div>
+            </div>
+          </div>
+          <div class="task-card" data-delay="320">
             <div class="task-icon-box"><i class="ti ti-mail"></i></div>
             <div>
               <div class="task-lbl">Inbox</div>
-              <div class="task-cmd">Oh Howard, could you check for any important emails and reply to them?</div>
+              <div class="task-cmd">Oh Howard, could you check for any important emails in my inbox or my junk and reply to them?</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="priv-section-p">
+    <section class="priv-section-prod">
       <div class="product-container">
         <div class="priv-grid">
           <div class="priv-copy fu">
@@ -205,27 +214,28 @@
           <div class="pillars fu">
             <div class="pillar">
               <i class="ti ti-home"></i>
-              <div><h4>Stays in your home</h4><p>No external data center ever sees your activity.</p></div>
+              <div><h4>Stays in your home</h4><p>Howard runs on hardware installed inside your property. No external data center ever sees your activity.</p></div>
             </div>
             <div class="pillar">
               <i class="ti ti-cloud-off"></i>
-              <div><h4>Zero cloud dependency</h4><p>Core intelligence runs fully offline.</p></div>
+              <div><h4>Zero cloud dependency</h4><p>Howard's core intelligence runs fully offline.</p></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pricing-section-p">
+    <section class="pricing-section-prod">
       <div class="product-container">
         <h2 class="fu">Simple, transparent pricing.</h2>
-        <div class="price-card-p fu" style="margin-top: 2rem">
+        <div class="price-card-prod fu" style="margin-top: 2rem">
           <div class="p-eyebrow">Howard Home</div>
           <div class="p-main">$3,000</div>
           <div class="p-monthly">then <strong>$100/month</strong></div>
           <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>RTX-class hardware, installed</div>
+          <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>API updates & security patches</div>
           <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>Local Houston phone support</div>
-          <button class="btn-p btn-y" disabled style="width:100%; justify-content:center; margin-top:1.5rem">Coming Soon</button>
+          <button class="btn-prod btn-y-prod" disabled style="width:100%; justify-content:center; margin-top:1.5rem">Pre-Order — Coming Soon</button>
         </div>
       </div>
     </section>
