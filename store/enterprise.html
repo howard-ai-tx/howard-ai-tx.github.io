@@ -3,35 +3,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Howard AI</title>
-
+  <title>Howard Enterprise — Assistant Intelligence</title>
+  
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+  <style>
+    :root {
+      --y: #EBC736;
+      --navy: #101827; /* New Enterprise Base */
+      --foundry: #334155; /* Subtle Professional Blue */
+      --blk: #0D0D0D;
+      --wht: #FFFFFF;
+      --slate-off: #F8FAFC;
+    }
+
+    .ent-page { 
+      font-family: 'DM Sans', sans-serif; 
+      background: var(--wht); 
+      color: var(--navy); 
+      overflow-x: hidden; 
+    }
+
+    .ent-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HERO - ARCHITECTURAL & BOLD */
+    .hero-ent { 
+      padding: 140px 0 100px; 
+      background: linear-gradient(180deg, var(--navy) 0%, var(--blk) 100%);
+      color: var(--wht);
+      text-align: left;
+      border-radius: 0 0 60px 60px;
+    }
+
+    .ent-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--y);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero-ent h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 2rem;
+      max-width: 900px;
+    }
+
+    .hero-ent p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    /* SPECIFICATION STRIP */
+    .spec-strip {
+      display: flex;
+      gap: 4rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+    }
+
+    .spec-item span { display: block; font-size: 0.7rem; color: var(--y); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .spec-item p { font-size: 1.1rem; font-weight: 600; color: var(--wht); margin: 0; }
+
+    /* BENTO GRID - ENTERPRISE FEATURES */
+    .ent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 100px 0;
+    }
+
+    .ent-card {
+      background: var(--slate-off);
+      padding: 3rem;
+      border-radius: 32px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .ent-card:hover { border-color: var(--y); background: var(--wht); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+    .ent-card i { font-size: 2.5rem; color: var(--navy); margin-bottom: 2rem; display: block; }
+    .ent-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--navy); }
+    .ent-card p { font-size: 1rem; line-height: 1.6; color: var(--foundry); }
+
+    /* PRIVACY SECTION - THE FOUNDATION */
+    .privacy-ent {
+      background: var(--navy);
+      padding: 120px 0;
+      color: var(--wht);
+      border-radius: 60px;
+      margin-bottom: 100px;
+    }
+
+    .priv-flex { display: flex; align-items: center; gap: 6rem; }
+    .priv-copy { flex: 1; }
+    .priv-visual { 
+        flex: 1; 
+        height: 350px; 
+        background: rgba(255,255,255,0.03); 
+        border: 1px solid rgba(255,255,255,0.1); 
+        border-radius: 40px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* DATA SECURITY BADGE */
+    .secure-badge {
+        padding: 2rem;
+        border: 2px solid var(--y);
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    /* CTA - THE ENTERPRISE BUTTON */
+    .ent-cta {
+      text-align: center;
+      padding: 120px 0;
+    }
+
+    .btn-ent {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: var(--navy);
+      color: var(--wht);
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-ent:hover { background: var(--blk); transform: translateY(-2px); }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .ent-grid { grid-template-columns: 1fr; }
+      .priv-flex { flex-direction: column; text-align: center; }
+      .spec-strip { flex-wrap: wrap; gap: 2rem; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
     <div class="container navbar">
-
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
-
       <nav class="main-nav">
-
-        <div class="nav-item">
-          <a href="../index.html">Home</a>
-        </div>
-
-        <!-- ABOUT -->
-
+        <div class="nav-item"><a href="../index.html">Home</a></div>
         <div class="nav-item">
           <a href="#">About</a>
-
           <div class="dropdown">
             <a href="../about/index.html">Overview</a>
             <a href="../about/leadership.html">Leadership</a>
@@ -39,12 +178,8 @@
             <a href="../about/investors.html">Investors</a>
           </div>
         </div>
-
-        <!-- STORE -->
-
         <div class="nav-item">
           <a href="#">Store</a>
-
           <div class="dropdown">
             <a href="../store/index.html">All Products</a>
             <a href="../store/home.html">Howard Home</a>
@@ -52,156 +187,153 @@
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
         </div>
-
-        <!-- SUPPORT -->
-
         <div class="nav-item">
           <a href="#">Support</a>
-
           <div class="dropdown">
             <a href="../support/contact.html">Contact</a>
             <a href="../support/about-support.html">About Support</a>
             <a href="../support/faqs.html">FAQs</a>
           </div>
         </div>
-
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="container hero-content">
-
-      <div class="hero-tag">
-        Howard AI
+  <main class="ent-page">
+    
+    <section class="hero-ent">
+      <div class="ent-container">
+        <span class="ent-label reveal">Howard Enterprise</span>
+        <h1 class="reveal">Built for the high-demand professional office.</h1>
+        <p class="reveal">The DGX Spark-class assistant. Vertically integrated, locally hosted, and engineered for the complexity of law firms and executive offices.</p>
+        
+        <div class="spec-strip reveal">
+          <div class="spec-item">
+            <span>Hardware class</span>
+            <p>DGX Spark-class</p>
+          </div>
+          <div class="spec-item">
+            <span>Connection</span>
+            <p>Dedicated Fiber / Ethernet</p>
+          </div>
+          <div class="spec-item">
+            <span>Maintenance</span>
+            <p>On-site Technician Fleet</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h1>
-        Coming Soon.
-      </h1>
+    <section class="ent-container">
+      <div class="ent-grid">
+        
+        <div class="ent-card reveal">
+          <i class="ti ti-briefcase"></i>
+          <h3>Administrative Execution</h3>
+          <p>Howard doesn't just suggest replies. He manages client intake, schedules depositions, and handles vendor communications through a dedicated office number.</p>
+        </div>
 
-      <p>
-        This section of the Howard AI website is currently under development and will be available soon.
-      </p>
+        <div class="ent-card reveal">
+          <i class="ti ti-lock"></i>
+          <h3>Zero-Cloud Sovereignty</h3>
+          <p>For legal firms, data exposure is a liability. Howard Enterprise ensures client information never leaves your physical premises. No cloud, no risk.</p>
+        </div>
 
-      <div class="hero-buttons">
-
-        <a href="../index.html" class="btn btn-primary">
-          Return Home
-        </a>
-
-        <a href="../support/contact.html" class="btn btn-secondary">
-          Contact Us
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer class="site-footer">
-
-    <div class="container footer-grid">
-
-      <!-- LEFT -->
-
-      <div class="footer-brand">
-
-        <img
-          src="../logo-light.png"
-          alt="Howard AI Logo"
-          class="footer-logo"
-        >
-
-        <p class="footer-copyright">
-          Copyright Placeholder — Howard AI
-        </p>
-
-        <p class="footer-description">
-          Howard AI builds locally hosted AI assistants for Houston homes and businesses.
-        </p>
-
-        <div class="footer-socials">
-
-          <a href="https://instagram.com" target="_blank">
-            <img
-              src="../assets/icons/instagram.svg"
-              alt="Instagram"
-            >
-          </a>
-
-          <a href="https://linkedin.com" target="_blank">
-            <img
-              src="../assets/icons/linkedin.svg"
-              alt="LinkedIn"
-            >
-          </a>
-
-          <a href="https://x.com" target="_blank">
-            <img
-              src="../assets/icons/x.svg"
-              alt="X"
-            >
-          </a>
-
+        <div class="ent-card reveal">
+          <i class="ti ti-credit-card"></i>
+          <h3>Managed Disbursements</h3>
+          <p>Equip Howard with a dedicated firm spending card. Configurable limits and a trust-ladder system allow him to handle filing fees and travel independently.</p>
         </div>
 
       </div>
+    </section>
 
-      <!-- RIGHT -->
+    <section class="ent-container">
+      <div class="privacy-ent reveal">
+        <div class="ent-container">
+          <div class="priv-flex">
+            <div class="priv-copy">
+              <span class="ent-label" style="color: var(--y);">Security Audit</span>
+              <h2 style="font-size: 3rem; margin-bottom: 2rem;">Hardware-Level Protection.</h2>
+              <p style="color: #94a3b8; font-size: 1.15rem; margin-bottom: 2.5rem;">In an era of data breaches, Howard offers the only physical solution. By running on local DGX hardware, your firm eliminates third-party AI data harvesting entirely.</p>
+              <div style="display: flex; gap: 1rem;">
+                <div class="secure-badge"><i class="ti ti-shield-check" style="margin:0; color: var(--y);"></i></div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <strong>Local Data Retention</strong>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">100% On-Premise Execution</p>
+                </div>
+              </div>
+            </div>
+            <div class="priv-visual">
+                <i class="ti ti-server" style="font-size: 8rem; color: rgba(255,255,255,0.05);"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="ent-cta">
+      <div class="ent-container reveal">
+        <span class="ent-label" style="color: var(--navy);">Deployment</span>
+        <h2 style="font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1.5rem;">Secure your firm’s intelligence.</h2>
+        <p style="color: var(--foundry); max-width: 600px; margin: 0 auto 3rem; font-size: 1.2rem;">Howard Enterprise begins at $8,000 upfront + $200/mo.<br>Includes priority dispatch and full fleet support.</p>
+        <a href="../support/contact.html" class="btn-ent">Inquire for Office Installation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright Placeholder — Howard AI</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank"><img src="../assets/icons/instagram.svg" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="../assets/icons/linkedin.svg" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="../assets/icons/x.svg" alt="X"></a>
+        </div>
+      </div>
       <div class="footer-links-grid">
-
-        <!-- ABOUT -->
-
         <div class="footer-column">
-
           <h3>About</h3>
-
           <a href="../about/index.html">Overview</a>
           <a href="../about/leadership.html">Leadership</a>
           <a href="../about/newsroom.html">Newsroom</a>
           <a href="../about/investors.html">Investors</a>
-
         </div>
-
-        <!-- STORE -->
-
         <div class="footer-column">
-
           <h3>Store</h3>
-
           <a href="../store/index.html">All Products</a>
           <a href="../store/home.html">Howard Home</a>
           <a href="../store/pro.html">Howard Pro</a>
           <a href="../store/enterprise.html">Enterprise</a>
-
         </div>
-
-        <!-- SUPPORT -->
-
         <div class="footer-column">
-
           <h3>Support</h3>
-
           <a href="../support/contact.html">Contact</a>
           <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
-
         </div>
-
       </div>
-
     </div>
-
   </footer>
+
+  <script>
+    const reveal = () => {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+  </script>
 
 </body>
 </html>
