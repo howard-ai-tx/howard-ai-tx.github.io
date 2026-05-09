@@ -547,6 +547,9 @@ header {
 .executive-card {
   width: 320px;
 
+  display: flex;
+  flex-direction: column;
+
   transition: 0.25s ease;
 }
 
@@ -557,6 +560,7 @@ header {
 /* ---------- EXECUTIVE CARD IMAGE ---------- */
 
 .executive-image {
+  width: 100%;
   aspect-ratio: 1 / 1;
 
   border-radius: 28px;
