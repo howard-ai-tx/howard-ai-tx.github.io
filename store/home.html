@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Howard Home — Howard AI</title>
+  <title>Howard Home — Assistant Intelligence</title>
   
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
@@ -12,68 +12,176 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 
   <style>
-    /* Scoped styles for the Product Content to prevent breaking global Header/Footer */
     :root {
-      --y:#EBC736; --yk:#c9a820;
-      --blk:#0D0D0D; --wht:#FFFFFF;
-      --warm:#2A2A2A; --off:#F5F5F0; --mid:#888888;
+      --y:#EBC736;
+      --blk:#0D0D0D;
+      --wht:#FFFFFF;
+      --warm-text:#4A4439;
+      --off-warm:#F9F7F2; /* Creamy, homey background */
+      --soft-border: rgba(74, 68, 57, 0.08);
+    }
+
+    .home-page { 
+      font-family:'DM Sans', sans-serif; 
+      background: var(--off-warm); 
+      color: var(--warm-text);
+      overflow-x: hidden;
+    }
+
+    .home-container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HERO - WARM & WELCOMING */
+    .hero-home { 
+      padding: 120px 0 80px; 
+      text-align: center;
     }
     
-    .product-page-body { font-family:'DM Sans',sans-serif; background:var(--off); color:var(--blk); overflow-x:hidden }
-    .product-container { max-width:1100px; margin:0 auto; padding:0 2rem }
+    .home-badge {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: var(--wht);
+      border: 1px solid var(--soft-border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--y);
+      margin-bottom: 2rem;
+    }
 
-    /* HERO */
-    .hero-prod { min-height:80vh; display:flex; align-items:center; background:var(--off); padding:5rem 0 }
-    .eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--mid); margin-bottom:1.1rem }
-    .hero-prod h1 { font-size:clamp(3.2rem,7vw,6rem); font-weight:700; letter-spacing:-0.03em; line-height:1.0; color:var(--blk); margin-bottom:0.75rem }
-    .price-line { font-size:1.15rem; color:var(--mid); margin-bottom:2.5rem; font-weight:400 }
-    .price-line strong { color:var(--blk); font-weight:600 }
+    .hero-home h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--blk);
+      margin-bottom: 1.5rem;
+    }
 
-    /* ANNOTATIONS */
-    .say-does { font-size:clamp(1.8rem,4vw,3.2rem); font-weight:700; letter-spacing:-0.025em; line-height:1.25; margin-bottom:1.75rem; display:flex; flex-wrap:wrap; align-items:center; gap:0.3em }
-    .word-wrap { position:relative; display:inline-block }
-    .anno-svg { position:absolute; pointer-events:none; overflow:visible }
-    .circle-anno { top:50%; left:50%; transform:translate(-50%,-50%); width:120%; height:175% }
-    .underline-anno { bottom:-8px; left:-4%; width:108%; height:14px }
+    .hero-home p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: var(--warm-text);
+      opacity: 0.9;
+    }
 
-    .hero-sub { max-width:520px; font-size:1rem; line-height:1.75; color:var(--warm); margin-bottom:2.25rem }
-    .btn-row { display:flex; gap:0.875rem; flex-wrap:wrap }
-    .btn-prod { display:inline-flex; align-items:center; padding:0.8rem 1.6rem; border-radius:10px; font-size:0.9rem; font-weight:600; text-decoration:none; cursor:pointer; border:none; transition:opacity 0.2s }
-    .btn-y-prod { background:var(--y); color:var(--blk); opacity:0.45; cursor:not-allowed }
-    .btn-dark-prod { background:var(--blk); color:var(--wht) }
+    /* THE VISUAL - A FRIENDLY BOX */
+    .hardware-showcase {
+      background: var(--wht);
+      border-radius: 40px;
+      padding: 4rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 100px;
+      border: 1px solid var(--soft-border);
+    }
 
-    /* HARDWARE & SECTIONS */
-    .hw-section { background:var(--wht); padding:6rem 0 }
-    .hw-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center }
-    .hw-placeholder { background:var(--off); border-radius:20px; aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; border:2px dashed rgba(0,0,0,0.1) }
-    .hw-icon-box { width:60px; height:60px; background:var(--y); border-radius:14px; display:flex; align-items:center; justify-content:center }
-    .hw-copy h2 { font-size:clamp(1.6rem,2.8vw,2.4rem); font-weight:700; letter-spacing:-0.025em; line-height:1.2; margin-bottom:1.1rem }
-    .spec-row { display:flex; justify-content:space-between; align-items:center; padding:0.7rem 1rem; background:var(--off); border-radius:10px; font-size:0.875rem; margin-bottom:0.6rem }
+    .howard-box-mockup {
+      width: 180px;
+      height: 180px;
+      background: var(--y);
+      border-radius: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 30px rgba(235, 199, 54, 0.2);
+      margin-bottom: 2rem;
+    }
 
-    .tasks-section { padding:7rem 0; background:var(--off) }
-    .tasks-header { text-align:center; margin-bottom:4rem }
-    .tasks-list { display:flex; flex-direction:column; gap:1.5rem; max-width:740px; margin:0 auto }
-    .task-card { display:flex; align-items:flex-start; gap:1.25rem; padding:1.75rem; background:var(--wht); border-radius:18px; border:1px solid rgba(0,0,0,0.06); box-shadow:0 2px 12px rgba(0,0,0,0.04); opacity:0; transform:translateY(28px); transition:opacity 0.55s ease, transform 0.55s ease }
-    .task-card.vis { opacity:1; transform:translateY(0) }
-    .task-icon-box { flex-shrink:0; width:50px; height:50px; background:var(--y); border-radius:13px; display:flex; align-items:center; justify-content:center }
-    .task-lbl { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); margin-bottom:0.35rem }
-    .task-cmd { font-size:1rem; font-weight:500; color:var(--blk); line-height:1.5; font-style:italic }
+    /* THE TASK BUBBLES - CONVERSATIONAL */
+    .conversation-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 100px;
+    }
 
-    .priv-section-prod { background:var(--blk); color:var(--wht); padding:7rem 0 }
-    .priv-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center }
-    .pillar { display:flex; align-items:flex-start; gap:1rem; padding:1.1rem 1.25rem; background:var(--warm); border-radius:14px; border-left:3px solid var(--y); margin-bottom:1rem }
+    .bubble {
+      padding: 1.25rem 1.75rem;
+      border-radius: 25px;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      position: relative;
+      max-width: 85%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
 
-    .pricing-section-prod { background:var(--off); padding:7rem 0; text-align:center }
-    .price-card-prod { display:inline-flex; flex-direction:column; align-items:center; background:var(--wht); border-radius:24px; padding:2.75rem 3.25rem; border:1px solid rgba(0,0,0,0.07); box-shadow:0 4px 28px rgba(0,0,0,0.06); min-width:320px; color: var(--blk) }
-    .p-main { font-size:3.2rem; font-weight:700; letter-spacing:-0.035em; color:var(--blk); line-height:1; margin-bottom:0.35rem }
-    .p-item { display:flex; align-items:center; gap:0.6rem; font-size:0.875rem; color:var(--warm); margin-bottom:0.55rem; text-align: left; }
-    .p-check { width:18px; height:18px; background:var(--y); border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center }
+    .bubble.user {
+      background: var(--wht);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      border: 1px solid var(--soft-border);
+    }
 
-    .fu { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease }
-    .fu.vis { opacity:1; transform:translateY(0) }
+    .bubble.howard {
+      background: var(--y);
+      color: var(--blk);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      font-weight: 500;
+    }
 
-    @media(max-width:700px){
-      .hw-grid,.priv-grid{grid-template-columns:1fr;gap:2.5rem}
+    /* THE CORE VALUES - TEXT FOCUS */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 120px;
+    }
+
+    .value-item h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--blk);
+    }
+
+    .value-item p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    /* THE PITCH - PRIVACY IS PEACE OF MIND */
+    .peace-section {
+      background: var(--blk);
+      color: var(--wht);
+      padding: 100px 0;
+      border-radius: 60px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .peace-section h2 {
+      font-size: 3rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-homey {
+      display: inline-block;
+      padding: 1.2rem 2.5rem;
+      background: var(--y);
+      color: var(--blk);
+      border-radius: 100px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-homey:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .value-grid { grid-template-columns: 1fr; }
+      .hero-home h1 { font-size: 3rem; }
     }
   </style>
 </head>
@@ -117,128 +225,64 @@
     </div>
   </header>
 
-  <main class="product-page-body">
+  <main class="home-page">
     
-    <section class="hero-prod">
-      <div class="product-container">
-        <div class="eyebrow">Howard AI — For the Home</div>
-        <h1>Howard Home.</h1>
-        <p class="price-line">Starting at <strong>$3,000</strong> + $100/month</p>
+    <section class="hero-home">
+      <div class="home-container">
+        <span class="home-badge reveal">Now accepting Houston waitlist</span>
+        <h1 class="reveal">Welcome home,<br>Howard.</h1>
+        <p class="reveal">The locally-hosted assistant that lives in your home, keeps your secrets, and handles your "to-do" list so you don't have to.</p>
+      </div>
+    </section>
 
-        <div class="say-does" id="sayDoes">
-          <span>Howard doesn't</span>
-          <span class="word-wrap" id="wSay">
-            say,
-            <svg class="anno-svg circle-anno" id="circleAnno" viewBox="0 0 100 56" preserveAspectRatio="none">
-              <ellipse cx="50" cy="28" rx="47" ry="24" fill="none" stroke="#EBC736" stroke-width="3.5" id="circleEl" stroke-dasharray="330" stroke-dashoffset="330" style="transition:stroke-dashoffset 0.95s cubic-bezier(0.4,0,0.2,1)"/>
-            </svg>
-          </span>
-          <span>it</span>
-          <span class="word-wrap" id="wDoes">
-            does.
-            <svg class="anno-svg underline-anno" id="underlineAnno" viewBox="0 0 100 14" preserveAspectRatio="none">
-              <path d="M2,9 Q25,4 50,9 Q75,13 98,7" fill="none" stroke="#EBC736" stroke-width="4" id="underlineEl" stroke-dasharray="210" stroke-dashoffset="210" style="transition:stroke-dashoffset 0.75s cubic-bezier(0.4,0,0.2,1) 0.5s"/>
-            </svg>
-          </span>
+    <section class="home-container">
+      <div class="hardware-showcase reveal">
+        <div class="howard-box-mockup">
+          <i class="ti ti-home-heart" style="font-size: 4rem; color: #fff;"></i>
         </div>
+        <h2 style="color:var(--blk); margin-bottom: 0.5rem;">Installed in person.</h2>
+        <p style="color:var(--mid);">A friendly local face will set Howard up in your home.</p>
+      </div>
+    </section>
 
-        <p class="hero-sub">
-          Howard is a locally hosted AI assistant — installed in your home, connected to your life. He books your flights, manages your inbox, handles the things on your list. No cloud. No fine print. Just results.
-        </p>
+    <section class="home-container">
+      <div class="conversation-stream">
+        <div class="bubble user reveal">"Hey Howard, could you find a local plumber for the kitchen leak and book them for tomorrow morning?"</div>
+        <div class="bubble howard reveal">"Of course. I've found a top-rated plumber in The Woodlands. They're coming at 9:00 AM. I've sent you the confirmation."</div>
+        <div class="bubble user reveal">"Also, I think we're paying too much for electricity. Can you check?"</div>
+        <div class="bubble howard reveal">"I'm on it. I’m analyzing your last 3 months of usage and comparing Houston providers now."</div>
+      </div>
+    </section>
 
-        <div class="btn-row">
-          <button class="btn-prod btn-y-prod" disabled title="Pre-orders coming soon">Pre-Order Howard Home</button>
-          <button class="btn-prod btn-dark-prod">Ask a Question</button>
+    <section class="home-container">
+      <div class="value-grid">
+        <div class="value-item reveal">
+          <h3>Your data stays home.</h3>
+          <p>Unlike other AIs that send your voice and requests to a giant data center, Howard lives on a dedicated box in your house. He works for you, and only you.</p>
+        </div>
+        <div class="value-item reveal">
+          <h3>Actually gets it done.</h3>
+          <p>Howard doesn't just give you "tips." He has his own phone number and spending card to actually book the flight, buy the groceries, or call the repairman.</p>
+        </div>
+        <div class="value-item reveal">
+          <h3>Vertically Integrated.</h3>
+          <p>From the hardware build to the Ford Transit van that pulls into your driveway, we handle every single step. No third-party contractors, just Howard AI experts.</p>
+        </div>
+        <div class="value-item reveal">
+          <h3>The "Unplug" Promise.</h3>
+          <p>We believe in privacy you can touch. If you ever want Howard to stop listening, just pull the plug. It’s that simple.</p>
         </div>
       </div>
     </section>
 
-    <section class="hw-section">
-      <div class="product-container">
-        <div class="hw-grid">
-          <div class="hw-placeholder">
-            <div class="hw-icon-box"><i class="ti ti-device-desktop"></i></div>
-            <p>Hardware photo — coming soon</p>
-          </div>
-          <div class="hw-copy fu">
-            <h2>Dedicated hardware.<br>Planted in your home.</h2>
-            <p>Howard Home runs on RTX-class GPU hardware installed by our Houston technicians directly in your house. Ethernet-connected. Always on. Zero cloud dependency.</p>
-            <div class="spec-row"><span class="sl">Hardware class</span><span class="sv">RTX-class GPU</span></div>
-            <div class="spec-row"><span class="sl">Connection</span><span class="sv">Ethernet — wired</span></div>
-            <div class="spec-row"><span class="sl">Data storage</span><span class="sv">Local only</span></div>
-            <div class="spec-row"><span class="sl">Upfront cost</span><span class="sv">$3,000</span></div>
-          </div>
-        </div>
+    <section class="home-container">
+      <div class="peace-section reveal">
+        <h2>Ready for a little more help?</h2>
+        <p style="margin-bottom: 2.5rem; opacity: 0.8; font-size: 1.1rem;">Howard Home starts at $3,000 + $100/mo.<br>Includes professional installation & local support.</p>
+        <a href="../support/contact.html" class="btn-homey">Join the Houston Batch</a>
       </div>
     </section>
 
-    <section class="tasks-section">
-      <div class="product-container">
-        <div class="tasks-header fu">
-          <h2>Just say the word.<br>Howard handles the rest.</h2>
-          <p>Text or call Howard from anywhere. He doesn't suggest — he executes.</p>
-        </div>
-        <div class="tasks-list">
-          <div class="task-card" data-delay="0">
-            <div class="task-icon-box"><i class="ti ti-plane"></i></div>
-            <div>
-              <div class="task-lbl">Travel</div>
-              <div class="task-cmd">Hey Howard, book a flight for four to Barbados this Saturday morning.</div>
-            </div>
-          </div>
-          <div class="task-card" data-delay="160">
-            <div class="task-icon-box"><i class="ti ti-bolt"></i></div>
-            <div>
-              <div class="task-lbl">Home management</div>
-              <div class="task-cmd">Howard, take a look through my energy bills and tell me some ways to save money.</div>
-            </div>
-          </div>
-          <div class="task-card" data-delay="320">
-            <div class="task-icon-box"><i class="ti ti-mail"></i></div>
-            <div>
-              <div class="task-lbl">Inbox</div>
-              <div class="task-cmd">Oh Howard, could you check for any important emails in my inbox or my junk and reply to them?</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="priv-section-prod">
-      <div class="product-container">
-        <div class="priv-grid">
-          <div class="priv-copy fu">
-            <h2>Your home.<br>Your data.<br><span style="color:var(--y)">Full stop.</span></h2>
-            <p>Every other AI assistant runs on a cloud server. Howard lives in your house. If you ever want him gone, unplug him.</p>
-          </div>
-          <div class="pillars fu">
-            <div class="pillar">
-              <i class="ti ti-home"></i>
-              <div><h4>Stays in your home</h4><p>Howard runs on hardware installed inside your property. No external data center ever sees your activity.</p></div>
-            </div>
-            <div class="pillar">
-              <i class="ti ti-cloud-off"></i>
-              <div><h4>Zero cloud dependency</h4><p>Howard's core intelligence runs fully offline.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing-section-prod">
-      <div class="product-container">
-        <h2 class="fu">Simple, transparent pricing.</h2>
-        <div class="price-card-prod fu" style="margin-top: 2rem">
-          <div class="p-eyebrow">Howard Home</div>
-          <div class="p-main">$3,000</div>
-          <div class="p-monthly">then <strong>$100/month</strong></div>
-          <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>RTX-class hardware, installed</div>
-          <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>API updates & security patches</div>
-          <div class="p-item"><div class="p-check"><i class="ti ti-check"></i></div>Local Houston phone support</div>
-          <button class="btn-prod btn-y-prod" disabled style="width:100%; justify-content:center; margin-top:1.5rem">Pre-Order — Coming Soon</button>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -279,41 +323,19 @@
   </footer>
 
   <script>
-    const io = (cb, opts) => new IntersectionObserver(cb, opts);
-    
-    // Animation logic
-    const sayDoes = document.getElementById('sayDoes');
-    const circleEl = document.getElementById('circleEl');
-    const underlineEl = document.getElementById('underlineEl');
-
-    if(sayDoes) {
-      const sdObs = io(entries => {
-        if(entries[0].isIntersecting){
-          setTimeout(()=>{ circleEl.style.strokeDashoffset='0'; }, 180);
-          setTimeout(()=>{ underlineEl.style.strokeDashoffset='0'; }, 420);
-          sdObs.disconnect();
+    const reveal = () => {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
         }
-      }, {threshold:0.6});
-      sdObs.observe(sayDoes);
+      });
     }
-
-    document.querySelectorAll('.task-card').forEach(card => {
-      const obs = io(entries => {
-        if(entries[0].isIntersecting){
-          const d = parseInt(card.dataset.delay||0);
-          setTimeout(()=>card.classList.add('vis'), d);
-          obs.disconnect();
-        }
-      }, {threshold:0.15});
-      obs.observe(card);
-    });
-
-    document.querySelectorAll('.fu').forEach(el => {
-      const obs = io(entries => {
-        if(entries[0].isIntersecting){ el.classList.add('vis'); obs.disconnect(); }
-      }, {threshold:0.1});
-      obs.observe(el);
-    });
+    window.addEventListener('scroll', reveal);
+    reveal();
   </script>
+
 </body>
 </html>
