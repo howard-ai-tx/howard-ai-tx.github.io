@@ -591,15 +591,24 @@ header {
 .executive-card h2 {
   font-size: 1.45rem;
 
+  margin-top: 4px;
+
   margin-bottom: 6px;
 
   letter-spacing: -0.03em;
+
+  min-height: 44px;
+
+  display: flex;
+  align-items: flex-end;
 }
 
 .executive-card p {
   color: #a8a8a8;
 
   font-size: 1rem;
+
+  min-height: 28px;
 }
 
 /* ---------- EXECUTIVE PROFILE ---------- */
