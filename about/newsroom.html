@@ -12,8 +12,6 @@
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
     <div class="container navbar">
 
@@ -61,10 +59,46 @@
 
       </nav>
 
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+
+        <details>
+          <summary>About</summary>
+          <div class="mobile-submenu">
+            <a href="../about/index.html">Overview</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </details>
+
+        <details>
+          <summary>Store</summary>
+          <div class="mobile-submenu">
+            <a href="../store/index.html">All Products</a>
+            <a href="../store/home.html">Howard Home</a>
+            <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
+          </div>
+        </details>
+
+        <details>
+          <summary>Support</summary>
+          <div class="mobile-submenu">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </details>
+      </div>
+
     </div>
   </header>
-
-  <!-- HERO -->
 
   <section class="section">
     <div class="container">
@@ -84,8 +118,6 @@
     </div>
   </section>
 
-  <!-- NEWS FEED -->
-
   <section class="section" style="padding-top: 0;">
     <div class="container">
 
@@ -96,214 +128,98 @@
     </div>
   </section>
 
-  <!-- SCRIPT -->
-
   <script>
-
     async function loadNews() {
-
       try {
-
         const response = await fetch('./news.json');
         const articles = await response.json();
 
-        const featuredContainer =
-          document.getElementById('featured-story');
-
-        const newsContainer =
-          document.getElementById('news-container');
+        const featuredContainer = document.getElementById('featured-story');
+        const newsContainer = document.getElementById('news-container');
 
         if (articles.length > 0) {
-
           const featured = articles[0];
-
           featuredContainer.innerHTML = `
-
-            <div class="card" style="
-              margin-bottom: 32px;
-              padding: 48px;
-            ">
-
-              <div class="news-meta">
-                FEATURED • ${featured.date}
-              </div>
-
-              <h2 style="
-                font-size: 2.8rem;
-                margin-bottom: 20px;
-                line-height: 1.05;
-              ">
-                ${featured.title}
-              </h2>
-
-              <p style="
-                font-size: 1.1rem;
-                color: #bdbdbd;
-                max-width: 800px;
-              ">
-                ${featured.description}
-              </p>
-
+            <div class="card" style="margin-bottom: 32px; padding: 48px;">
+              <div class="news-meta">FEATURED • ${featured.date}</div>
+              <h2 style="font-size: 2.8rem; margin-bottom: 20px; line-height: 1.05;">${featured.title}</h2>
+              <p style="font-size: 1.1rem; color: #bdbdbd; max-width: 800px;">${featured.description}</p>
             </div>
-
           `;
 
           articles.slice(1).forEach(article => {
-
             const card = document.createElement('div');
-
             card.classList.add('news-card');
-
             card.innerHTML = `
-
-              <div class="news-meta">
-                ${article.date}
-              </div>
-
-              <h2>
-                ${article.title}
-              </h2>
-
-              <p>
-                ${article.description}
-              </p>
-
+              <div class="news-meta">${article.date}</div>
+              <h2>${article.title}</h2>
+              <p>${article.description}</p>
             `;
-
             newsContainer.appendChild(card);
-
           });
-
         }
-
       } catch (error) {
-
         console.error('Failed to load newsroom:', error);
-
         document.getElementById('news-container').innerHTML = `
-
           <div class="news-card">
-
-            <div class="news-meta">
-              ERROR
-            </div>
-
-            <h2>
-              Unable to load newsroom.
-            </h2>
-
-            <p>
-              Please try again later.
-            </p>
-
+            <div class="news-meta">ERROR</div>
+            <h2>Unable to load newsroom.</h2>
+            <p>Please try again later.</p>
           </div>
-
         `;
       }
     }
 
     loadNews();
-
   </script>
   
-<!-- FOOTER -->
-
-<footer class="site-footer">
-
-  <div class="container footer-grid">
-
-    <!-- LEFT -->
-
-    <div class="footer-brand">
-
-      <img
-        src="../logo-light.png"
-        alt="Howard AI Logo"
-        class="footer-logo"
-      >
-
-      <p class="footer-copyright">
-        Copyright Placeholder — Howard AI
-      </p>
-
-      <p class="footer-description">
-        Howard AI builds locally hosted AI assistants for Houston homes and businesses.
-      </p>
-
-<div class="footer-socials">
-
-        <a href="https://instagram.com" target="_blank">
-          <img
-            src="/instagram.png"
-            alt="Instagram"
-          >
-        </a>
-
-        <a href="https://linkedin.com" target="_blank">
-          <img
-            src="/linkedin.png"
-            alt="LinkedIn"
-          >
-        </a>
-
-        <a href="https://x.com" target="_blank">
-          <img
-            src="/x.png"
-            alt="X"
-          >
-        </a>
-
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright Placeholder — Howard AI</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank"><img src="/instagram.png" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="/linkedin.png" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="/x.png" alt="X"></a>
+        </div>
       </div>
 
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h3>About</h3>
+          <a href="./about/index.html">Overview</a>
+          <a href="./about/leadership.html">Leadership</a>
+          <a href="./about/newsroom.html">Newsroom</a>
+          <a href="./about/investors.html">Investors</a>
+        </div>
+        <div class="footer-column">
+          <h3>Store</h3>
+          <a href="./store/index.html">All Products</a>
+          <a href="./store/home.html">Howard Home</a>
+          <a href="./store/pro.html">Howard Pro</a>
+          <a href="./store/enterprise.html">Enterprise</a>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <a href="./support/contact.html">Contact</a>
+          <a href="./support/about-support.html">About Support</a>
+          <a href="./support/faqs.html">FAQs</a>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- RIGHT -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    <div class="footer-links-grid">
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
 
-      <!-- ABOUT -->
-
-      <div class="footer-column">
-
-        <h3>About</h3>
-
-        <a href="./about/index.html">Overview</a>
-        <a href="./about/leadership.html">Leadership</a>
-        <a href="./about/newsroom.html">Newsroom</a>
-        <a href="./about/investors.html">Investors</a>
-
-      </div>
-
-      <!-- STORE -->
-
-      <div class="footer-column">
-
-        <h3>Store</h3>
-
-        <a href="./store/index.html">All Products</a>
-        <a href="./store/home.html">Howard Home</a>
-        <a href="./store/pro.html">Howard Pro</a>
-        <a href="./store/enterprise.html">Enterprise</a>
-
-      </div>
-
-      <!-- SUPPORT -->
-
-      <div class="footer-column">
-
-        <h3>Support</h3>
-
-        <a href="./support/contact.html">Contact</a>
-        <a href="./support/about-support.html">About Support</a>
-        <a href="./support/faqs.html">FAQs</a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</footer>
-  
 </body>
 </html>
