@@ -1,344 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Contact — Howard AI</title>
-
+  
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
-
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
-
     <div class="container navbar">
-
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
 
       <nav class="main-nav">
-
+        <div class="nav-item"><a href="../index.html">Home</a></div>
         <div class="nav-item">
-          <a href="../index.html">Home</a>
-        </div>
-
-        <div class="nav-item">
-
           <a href="#">About</a>
-
           <div class="dropdown">
             <a href="../about/index.html">Overview</a>
             <a href="../about/leadership.html">Leadership</a>
             <a href="../about/newsroom.html">Newsroom</a>
             <a href="../about/investors.html">Investors</a>
           </div>
-
         </div>
-
         <div class="nav-item">
-
           <a href="#">Store</a>
-
           <div class="dropdown">
             <a href="../store/index.html">All Products</a>
             <a href="../store/home.html">Howard Home</a>
             <a href="../store/pro.html">Howard Pro</a>
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
-
         </div>
-
         <div class="nav-item">
-
           <a href="#">Support</a>
-
           <div class="dropdown">
             <a href="../support/contact.html">Contact</a>
             <a href="../support/about-support.html">About Support</a>
             <a href="../support/faqs.html">FAQs</a>
           </div>
-
         </div>
-
       </nav>
 
-    </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+      </button>
 
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <details>
+          <summary>About</summary>
+          <div class="mobile-submenu">
+            <a href="../about/index.html">Overview</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </details>
+        <details>
+          <summary>Store</summary>
+          <div class="mobile-submenu">
+            <a href="../store/index.html">All Products</a>
+            <a href="../store/home.html">Howard Home</a>
+            <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
+          </div>
+        </details>
+        <details>
+          <summary>Support</summary>
+          <div class="mobile-submenu">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </details>
+      </div>
+    </div>
   </header>
 
-  <!-- HERO -->
-
   <section class="hero">
-
     <div class="container hero-content">
-
-      <div class="hero-tag">
-        Contact
-      </div>
-
-      <h1>
-        Real support.<br>
-        Based in Houston.
-      </h1>
-
-      <p>
-        Questions about Howard, installations, partnerships, or support? Reach out directly and someone local will respond.
-      </p>
-
+      <div class="hero-tag">Contact</div>
+      <h1>Real support.<br>Based in Houston.</h1>
+      <p>Questions about Howard, installations, partnerships, or support? Reach out directly and someone local will respond.</p>
     </div>
-
   </section>
 
-  <!-- CONTACT METHODS -->
-
   <section class="section">
-
     <div class="container">
-
       <div class="grid grid-3">
-
         <div class="card">
-
-          <h3>
-            Call or Text
-          </h3>
-
-          <p style="margin-bottom: 24px;">
-            Houston-based customer support and general inquiries.
-          </p>
-
-          <p style="color: var(--primary); font-weight: 700;">
-            (713) 000-0000
-          </p>
-
+          <h3>Call or Text</h3>
+          <p style="margin-bottom: 24px;">Houston-based customer support and general inquiries.</p>
+          <p style="color: var(--primary); font-weight: 700;">(713) 000-0000</p>
         </div>
 
         <div class="card">
-
-          <h3>
-            Email
-          </h3>
-
-          <p style="margin-bottom: 24px;">
-            General questions, support, and customer communication.
-          </p>
-
-          <p style="color: var(--primary); font-weight: 700;">
-            hello@howardai.com
-          </p>
-
+          <h3>Email</h3>
+          <p style="margin-bottom: 24px;">General questions, support, and customer communication.</p>
+          <p style="color: var(--primary); font-weight: 700;">hello@howardai.com</p>
         </div>
 
         <div class="card">
-
-          <h3>
-            Business & Partnerships
-          </h3>
-
-          <p style="margin-bottom: 24px;">
-            Enterprise deployments, partnerships, and press inquiries.
-          </p>
-
-          <p style="color: var(--primary); font-weight: 700;">
-            partnerships@howardai.com
-          </p>
-
+          <h3>Business & Partnerships</h3>
+          <p style="margin-bottom: 24px;">Enterprise deployments, partnerships, and press inquiries.</p>
+          <p style="color: var(--primary); font-weight: 700;">partnerships@howardai.com</p>
         </div>
-
       </div>
-
     </div>
-
   </section>
 
-  <!-- CONTACT FORM -->
-
   <section class="section">
-
     <div class="container narrow-container">
-
       <div class="card">
-
-        <h2 style="
-          font-size: 2.2rem;
-          margin-bottom: 18px;
-          letter-spacing: -0.04em;
-        ">
-          Send a Message
-        </h2>
-
-        <p style="
-          color: #b7b7b7;
-          margin-bottom: 40px;
-        ">
-          We’ll get back to you as soon as possible.
-        </p>
+        <h2 style="font-size: 2.2rem; margin-bottom: 18px; letter-spacing: -0.04em;">Send a Message</h2>
+        <p style="color: #b7b7b7; margin-bottom: 40px;">We’ll get back to you as soon as possible.</p>
 
         <form class="contact-form">
-
           <div class="form-group">
             <label>Name</label>
-            <input type="text" placeholder="Your name">
+            <input type="text" placeholder="Your name" required>
           </div>
-
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="you@example.com">
+            <input type="email" placeholder="you@example.com" required>
           </div>
-
           <div class="form-group">
             <label>Phone (Optional)</label>
             <input type="text" placeholder="(713) 000-0000">
           </div>
-
           <div class="form-group">
             <label>Inquiry Type</label>
-
             <select>
-
               <option>General Inquiry</option>
               <option>Installation</option>
               <option>Business Deployment</option>
               <option>Technical Support</option>
               <option>Partnerships & Press</option>
-
             </select>
-
           </div>
-
           <div class="form-group">
             <label>Message</label>
-
-            <textarea
-              rows="6"
-              placeholder="How can we help?"
-            ></textarea>
+            <textarea rows="6" placeholder="How can we help?" required></textarea>
           </div>
-
-          <button type="submit" class="btn btn-primary">
-            Send Message
-          </button>
-
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
         </form>
-
       </div>
-
     </div>
-
   </section>
-
-  <!-- HOUSTON -->
 
   <section class="section">
-
-    <div class="container narrow-container">
-
-      <h2 class="section-title">
-        Built in Houston.
-      </h2>
-
-      <p class="section-subtitle">
-        Howard AI is headquartered in Houston, Texas and currently serves the Greater Houston area.
-      </p>
-
-      <br><br>
-
-      <p class="section-subtitle">
-        Local technicians. Local support. Real people.
-      </p>
-
+    <div class="container narrow-container" style="text-align: center;">
+      <h2 class="section-title">Built in Houston.</h2>
+      <p class="section-subtitle">Howard AI is headquartered in Houston, Texas and currently serves the Greater Houston area.</p>
+      <p class="section-subtitle" style="margin-top: 1rem;">Local technicians. Local support. Real people.</p>
     </div>
-
   </section>
 
-  <!-- FOOTER -->
-
   <footer class="site-footer">
-
     <div class="container footer-grid">
-
       <div class="footer-brand">
-
-        <img
-          src="../logo-light.png"
-          alt="Howard AI Logo"
-          class="footer-logo"
-        >
-
-        <p class="footer-copyright">
-          Copyright Placeholder — Howard AI
-        </p>
-
-        <p class="footer-description">
-          Howard AI builds locally hosted AI assistants for Houston homes and businesses.
-        </p>
-
+        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright 2026 — Howard AI</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
         <div class="footer-socials">
-
-          <a href="https://instagram.com" target="_blank">
-            <img src="../instagram.png" alt="Instagram">
-          </a>
-
-          <a href="https://linkedin.com" target="_blank">
-            <img src="../linkedin.png" alt="LinkedIn">
-          </a>
-
-          <a href="https://x.com" target="_blank">
-            <img src="../x.png" alt="X">
-          </a>
-
+          <a href="https://instagram.com" target="_blank"><img src="../assets/instagram.png" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="../assets/linkedin.png" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="../assets/x.png" alt="X"></a>
         </div>
-
       </div>
 
       <div class="footer-links-grid">
-
         <div class="footer-column">
-
           <h3>About</h3>
-
           <a href="../about/index.html">Overview</a>
           <a href="../about/leadership.html">Leadership</a>
           <a href="../about/newsroom.html">Newsroom</a>
           <a href="../about/investors.html">Investors</a>
-
         </div>
-
         <div class="footer-column">
-
           <h3>Store</h3>
-
           <a href="../store/index.html">All Products</a>
           <a href="../store/home.html">Howard Home</a>
           <a href="../store/pro.html">Howard Pro</a>
           <a href="../store/enterprise.html">Enterprise</a>
-
         </div>
-
         <div class="footer-column">
-
           <h3>Support</h3>
-
           <a href="../support/contact.html">Contact</a>
           <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
-
         </div>
-
       </div>
-
     </div>
-
   </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
