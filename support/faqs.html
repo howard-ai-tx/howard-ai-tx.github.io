@@ -1,382 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>FAQs — Howard AI</title>
-
+  
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
+  <style>
+    /* FAQ Specific Enhancements */
+    .faq-item {
+      border-bottom: 1px solid #222;
+      padding: 10px 0;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 20px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+    }
+    .faq-question span {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+      color: var(--primary);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      color: #888;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px; /* Adjust based on content length */
+      padding-bottom: 20px;
+    }
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
-
     <div class="container navbar">
-
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
 
       <nav class="main-nav">
-
+        <div class="nav-item"><a href="../index.html">Home</a></div>
         <div class="nav-item">
-          <a href="../index.html">Home</a>
-        </div>
-
-        <div class="nav-item">
-
           <a href="#">About</a>
-
           <div class="dropdown">
             <a href="../about/index.html">Overview</a>
             <a href="../about/leadership.html">Leadership</a>
             <a href="../about/newsroom.html">Newsroom</a>
             <a href="../about/investors.html">Investors</a>
           </div>
-
         </div>
-
         <div class="nav-item">
-
           <a href="#">Store</a>
-
           <div class="dropdown">
             <a href="../store/index.html">All Products</a>
             <a href="../store/home.html">Howard Home</a>
             <a href="../store/pro.html">Howard Pro</a>
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
-
         </div>
-
         <div class="nav-item">
-
           <a href="#">Support</a>
-
           <div class="dropdown">
             <a href="../support/contact.html">Contact</a>
             <a href="../support/about-support.html">About Support</a>
             <a href="../support/faqs.html">FAQs</a>
           </div>
-
         </div>
-
       </nav>
 
-    </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+      </button>
 
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <details>
+          <summary>About</summary>
+          <div class="mobile-submenu">
+            <a href="../about/index.html">Overview</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </details>
+        <details>
+          <summary>Store</summary>
+          <div class="mobile-submenu">
+            <a href="../store/index.html">All Products</a>
+            <a href="../store/home.html">Howard Home</a>
+            <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
+          </div>
+        </details>
+        <details>
+          <summary>Support</summary>
+          <div class="mobile-submenu">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </details>
+      </div>
+    </div>
   </header>
 
-  <!-- HERO -->
-
   <section class="hero">
-
     <div class="container hero-content">
-
-      <div class="hero-tag">
-        Support
-      </div>
-
-      <h1>
-        Frequently Asked Questions.
-      </h1>
-
-      <p>
-        Straight answers about Howard, privacy, installation, support, and how everything works.
-      </p>
-
+      <div class="hero-tag">Support</div>
+      <h1>Frequently Asked Questions.</h1>
+      <p>Straight answers about Howard, privacy, installation, support, and how everything works.</p>
     </div>
-
   </section>
-
-  <!-- FAQS -->
 
   <section class="section">
-
     <div class="container" style="max-width: 900px;">
-
-      <!-- CATEGORY -->
-
+      
       <div class="faq-category">
-
-        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">
-          What is Howard?
-        </h2>
-
-        <!-- FAQ ITEM -->
-
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">What is Howard?</h2>
+        
         <div class="faq-item">
-
-          <button class="faq-question">
-            What exactly is Howard?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">What exactly is Howard? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              Howard is a locally hosted AI assistant that lives inside your home or office on dedicated hardware, not in a cloud data center somewhere. He has his own phone number. You call or text him, and he gets things done.
-            </p>
-
+            <p>Howard is a locally hosted AI assistant that lives inside your home or office on dedicated hardware, not in a cloud data center somewhere. He has his own phone number. You call or text him, and he gets things done.</p>
           </div>
-
         </div>
 
-        <!-- FAQ ITEM -->
-
         <div class="faq-item">
-
-          <button class="faq-question">
-            What can Howard actually do?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">What can Howard actually do? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              Howard handles scheduling, communications, travel booking, reminders, administrative work, and more. If it's something you'd normally delegate to a personal assistant, Howard can likely handle it.
-            </p>
-
+            <p>Howard handles scheduling, communications, travel booking, reminders, administrative work, and more. If it's something you'd normally delegate to a personal assistant, Howard can likely handle it.</p>
           </div>
-
         </div>
 
-        <!-- FAQ ITEM -->
-
         <div class="faq-item">
-
-          <button class="faq-question">
-            Is Howard always listening?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">Is Howard always listening? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              No. Howard is not a passive listening device. He responds when contacted through his phone number. He is not sitting in your living room waiting to overhear something.
-            </p>
-
+            <p>No. Howard is not a passive listening device. He responds when contacted through his phone number. He is not sitting in your living room waiting to overhear something.</p>
           </div>
-
         </div>
-
       </div>
 
-      <!-- PRIVACY -->
-
       <div class="faq-category" style="margin-top: 90px;">
-
-        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">
-          Privacy & Security
-        </h2>
-
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">Privacy & Security</h2>
+        
         <div class="faq-item">
-
-          <button class="faq-question">
-            Where does my data go?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">Where does my data go? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              Nowhere. It stays on the hardware installed in your home or office. Howard AI never sees it, never stores it remotely, and it never touches an outside server.
-            </p>
-
+            <p>Nowhere. It stays on the hardware installed in your home or office. Howard AI never sees it, never stores it remotely, and it never touches an outside server.</p>
           </div>
-
         </div>
 
         <div class="faq-item">
-
-          <button class="faq-question">
-            How is Howard different from Alexa or Siri?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">How is Howard different from Alexa or Siri? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              Alexa, Siri, and Google Assistant send your data to corporate cloud servers. Howard runs entirely on hardware inside your building. Your conversations and data never leave your location.
-            </p>
-
+            <p>Alexa, Siri, and Google Assistant send your data to corporate cloud servers. Howard runs entirely on hardware inside your building. Your conversations and data never leave your location.</p>
           </div>
-
         </div>
 
         <div class="faq-item">
-
-          <button class="faq-question">
-            Can Howard be hacked remotely?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">Can Howard be hacked remotely? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              Howard has no cloud presence to attack. Your hardware is local, your data is local, and your security is not dependent on a third-party data center.
-            </p>
-
+            <p>Howard has no cloud presence to attack. Your hardware is local, your data is local, and your security is not dependent on a third-party data center.</p>
           </div>
-
         </div>
-
       </div>
 
-      <!-- INSTALLATION -->
-
       <div class="faq-category" style="margin-top: 90px;">
-
-        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">
-          Installation & Hardware
-        </h2>
-
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">Installation & Hardware</h2>
+        
         <div class="faq-item">
-
-          <button class="faq-question">
-            What does installation look like?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">What does installation look like? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              We build your Howard unit, schedule an appointment, and a technician comes to your location and handles everything — setup, ethernet connection, testing, and walkthrough.
-            </p>
-
+            <p>We build your Howard unit, schedule an appointment, and a technician comes to your location and handles everything — setup, ethernet connection, testing, and walkthrough.</p>
           </div>
-
         </div>
 
         <div class="faq-item">
-
-          <button class="faq-question">
-            What happens if the hardware breaks?
-            <span>+</span>
-          </button>
-
+          <button class="faq-question">What happens if the hardware breaks? <span>+</span></button>
           <div class="faq-answer">
-
-            <p>
-              Your subscription includes technician dispatch at no additional charge. A real person comes to you and fixes the issue.
-            </p>
-
+            <p>Your subscription includes technician dispatch at no additional charge. A real person comes to you and fixes the issue.</p>
           </div>
-
         </div>
-
       </div>
 
     </div>
-
   </section>
 
-  <!-- FOOTER -->
-
   <footer class="site-footer">
-
     <div class="container footer-grid">
-
       <div class="footer-brand">
-
-        <img
-          src="../logo-light.png"
-          alt="Howard AI Logo"
-          class="footer-logo"
-        >
-
-        <p class="footer-copyright">
-          Copyright Placeholder — Howard AI
-        </p>
-
-        <p class="footer-description">
-          Howard AI builds locally hosted AI assistants for Houston homes and businesses.
-        </p>
-
+        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright 2026 — Howard AI</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
         <div class="footer-socials">
-
-          <a href="https://instagram.com" target="_blank">
-            <img src="../instagram.png" alt="Instagram">
-          </a>
-
-          <a href="https://linkedin.com" target="_blank">
-            <img src="../linkedin.png" alt="LinkedIn">
-          </a>
-
-          <a href="https://x.com" target="_blank">
-            <img src="../x.png" alt="X">
-          </a>
-
+          <a href="https://instagram.com" target="_blank"><img src="../assets/instagram.png" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="../assets/linkedin.png" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="../assets/x.png" alt="X"></a>
         </div>
-
       </div>
 
       <div class="footer-links-grid">
-
         <div class="footer-column">
-
           <h3>About</h3>
-
           <a href="../about/index.html">Overview</a>
           <a href="../about/leadership.html">Leadership</a>
           <a href="../about/newsroom.html">Newsroom</a>
           <a href="../about/investors.html">Investors</a>
-
         </div>
-
         <div class="footer-column">
-
           <h3>Store</h3>
-
           <a href="../store/index.html">All Products</a>
           <a href="../store/home.html">Howard Home</a>
           <a href="../store/pro.html">Howard Pro</a>
           <a href="../store/enterprise.html">Enterprise</a>
-
         </div>
-
         <div class="footer-column">
-
           <h3>Support</h3>
-
           <a href="../support/contact.html">Contact</a>
           <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
-
         </div>
-
       </div>
-
     </div>
-
   </footer>
 
-  <!-- FAQ DROPDOWN -->
-
   <script>
+    // MOBILE MENU LOGIC
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    const faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach(item => {
-
-      const question = item.querySelector(".faq-question");
-
-      question.addEventListener("click", () => {
-
-        item.classList.toggle("active");
-
-      });
-
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
     });
 
+    // FAQ DROPDOWN LOGIC
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-question");
+      question.addEventListener("click", () => {
+        // Toggle the current item
+        item.classList.toggle("active");
+        
+        // Optional: Close other FAQs when one is opened
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+          }
+        });
+      });
+    });
   </script>
 
 </body>
