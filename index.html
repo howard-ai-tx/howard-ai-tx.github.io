@@ -3,33 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Howard AI — Assistant Intelligence</title>
-
+  
   <link rel="icon" type="image/png" href="./favicon.png">
   <link rel="stylesheet" href="./assets/style.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
     <div class="container navbar">
-
       <a href="./index.html" class="logo">
         <img src="./logo-light.png" alt="Howard AI Logo">
       </a>
 
       <nav class="main-nav">
-
         <div class="nav-item">
           <a href="./index.html">Home</a>
         </div>
 
         <div class="nav-item">
           <a href="#">About</a>
-
           <div class="dropdown">
             <a href="./about/index.html">Overview</a>
             <a href="./about/leadership.html">Leadership</a>
@@ -40,7 +36,6 @@
 
         <div class="nav-item">
           <a href="#">Store</a>
-
           <div class="dropdown">
             <a href="./store/index.html">All Products</a>
             <a href="./store/home.html">Howard Home</a>
@@ -51,246 +46,171 @@
 
         <div class="nav-item">
           <a href="#">Support</a>
-
           <div class="dropdown">
             <a href="./support/contact.html">Contact</a>
             <a href="./support/about-support.html">About Support</a>
             <a href="./support/faqs.html">FAQs</a>
           </div>
         </div>
-
       </nav>
 
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="./index.html">Home</a>
+        <details>
+          <summary>About</summary>
+          <div class="mobile-submenu">
+            <a href="./about/index.html">Overview</a>
+            <a href="./about/leadership.html">Leadership</a>
+            <a href="./about/newsroom.html">Newsroom</a>
+            <a href="./about/investors.html">Investors</a>
+          </div>
+        </details>
+        <details>
+          <summary>Store</summary>
+          <div class="mobile-submenu">
+            <a href="./store/index.html">All Products</a>
+            <a href="./store/home.html">Howard Home</a>
+            <a href="./store/pro.html">Howard Pro</a>
+            <a href="./store/enterprise.html">Enterprise</a>
+          </div>
+        </details>
+        <details>
+          <summary>Support</summary>
+          <div class="mobile-submenu">
+            <a href="./support/contact.html">Contact</a>
+            <a href="./support/about-support.html">About Support</a>
+            <a href="./support/faqs.html">FAQs</a>
+          </div>
+        </details>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-
   <section class="hero">
     <div class="container hero-content">
-
       <div class="hero-tag">
         Houston-Based Local AI Infrastructure
       </div>
-
-      <h1>
-        Assistant Intelligence.
-      </h1>
-
+      <h1>Assistant Intelligence.</h1>
       <p>
         Howard installs locally hosted AI assistants for homes and businesses across Houston. No cloud dependency. No data centers. Just real execution, real support, and an AI assistant that actually gets things done.
       </p>
-
       <div class="hero-buttons">
-
-        <a href="./store/index.html" class="btn btn-primary">
-          Explore Howard
-        </a>
-
-       <a href="./support/contact.html" class="btn btn-secondary">
-            Contact Us
-        </a>
-
+        <a href="./store/index.html" class="btn btn-primary">Explore Howard</a>
+        <a href="./support/contact.html" class="btn btn-secondary">Contact Us</a>
       </div>
-
     </div>
   </section>
 
-  <!-- FEATURES -->
-
   <section class="section">
     <div class="container">
-
       <h2 class="section-title">
         Cloud AI talks.<br>
         Howard acts.
       </h2>
-
       <p class="section-subtitle">
         Howard isn't another chatbot sitting in a browser tab. He's a locally hosted assistant with his own phone number, dedicated hardware, and the ability to execute real-world tasks.
       </p>
 
       <div class="grid grid-3" style="margin-top: 50px;">
-
         <div class="card">
           <h3>Locally Hosted</h3>
-
-          <p>
-            Your data stays inside your home or office. No external cloud servers. No hidden storage. No privacy fine print.
-          </p>
+          <p>Your data stays inside your home or office. No external cloud servers. No hidden storage. No privacy fine print.</p>
         </div>
 
         <div class="card">
           <h3>Actually Executes</h3>
-
-          <p>
-            Howard books flights, manages schedules, emails clients, handles administrative work, and integrates directly into your workflow.
-          </p>
+          <p>Howard books flights, manages schedules, emails clients, handles administrative work, and integrates directly into your workflow.</p>
         </div>
 
         <div class="card">
           <h3>Houston Support</h3>
-
-          <p>
-            Every install is handled by real local technicians. If something breaks, someone shows up — not a chatbot.
-          </p>
+          <p>Every install is handled by real local technicians. If something breaks, someone shows up — not a chatbot.</p>
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- PRODUCT TIERS -->
-
   <section class="section">
     <div class="container">
-
-      <h2 class="section-title">
-        Built for every level of demand.
-      </h2>
-
+      <h2 class="section-title">Built for every level of demand.</h2>
       <div class="grid grid-3" style="margin-top: 50px;">
-
         <div class="card">
           <h3>Howard Home</h3>
-
-          <p>
-            RTX-class hardware for households and personal productivity.
-          </p>
-
+          <p>RTX-class hardware for households and personal productivity.</p>
           <br>
-
-          <strong>$3,000 + $100/month</strong>
+          <strong style="color: var(--primary);">$3,000 + $100/month</strong>
         </div>
 
         <div class="card">
           <h3>Howard Pro</h3>
-
-          <p>
-            Mid-tier GPU server designed for small businesses and growing teams.
-          </p>
-
+          <p>Mid-tier GPU server designed for small businesses and growing teams.</p>
           <br>
-
-          <strong>$6,000 + $150/month</strong>
+          <strong style="color: var(--primary);">$6,000 + $150/month</strong>
         </div>
 
         <div class="card">
           <h3>Howard Enterprise</h3>
-
-          <p>
-            High-demand infrastructure for offices requiring enterprise-level execution.
-          </p>
-
+          <p>High-demand infrastructure for offices requiring enterprise-level execution.</p>
           <br>
-
-          <strong>$8,000 + $200/month</strong>
+          <strong style="color: var(--primary);">$8,000 + $200/month</strong>
         </div>
-
       </div>
-
     </div>
   </section>
 
-<!-- FOOTER -->
-
-<footer class="site-footer">
-
-  <div class="container footer-grid">
-
-    <!-- LEFT -->
-
-    <div class="footer-brand">
-
-      <img
-        src="./logo-light.png"
-        alt="Howard AI Logo"
-        class="footer-logo"
-      >
-
-      <p class="footer-copyright">
-        Copyright Placeholder — Howard AI
-      </p>
-
-      <p class="footer-description">
-        Howard AI builds locally hosted AI assistants for Houston homes and businesses.
-      </p>
-
-<div class="footer-socials">
-
-        <a href="https://instagram.com" target="_blank">
-          <img
-            src="/instagram.png"
-            alt="Instagram"
-          >
-        </a>
-
-        <a href="https://linkedin.com" target="_blank">
-          <img
-            src="/linkedin.png"
-            alt="LinkedIn"
-          >
-        </a>
-
-        <a href="https://x.com" target="_blank">
-          <img
-            src="/x.png"
-            alt="X"
-          >
-        </a>
-
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="./logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright 2026 — Howard AI</p>
+        <p class="footer-description"> Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank"><img src="./assets/instagram.png" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="./assets/linkedin.png" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="./assets/x.png" alt="X"></a>
+        </div>
       </div>
 
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h3>About</h3>
+          <a href="./about/index.html">Overview</a>
+          <a href="./about/leadership.html">Leadership</a>
+          <a href="./about/newsroom.html">Newsroom</a>
+          <a href="./about/investors.html">Investors</a>
+        </div>
+        <div class="footer-column">
+          <h3>Store</h3>
+          <a href="./store/index.html">All Products</a>
+          <a href="./store/home.html">Howard Home</a>
+          <a href="./store/pro.html">Howard Pro</a>
+          <a href="./store/enterprise.html">Enterprise</a>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <a href="./support/contact.html">Contact</a>
+          <a href="./support/about-support.html">About Support</a>
+          <a href="./support/faqs.html">FAQs</a>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- RIGHT -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    <div class="footer-links-grid">
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
 
-      <!-- ABOUT -->
-
-      <div class="footer-column">
-
-        <h3>About</h3>
-
-        <a href="./about/index.html">Overview</a>
-        <a href="./about/leadership.html">Leadership</a>
-        <a href="./about/newsroom.html">Newsroom</a>
-        <a href="./about/investors.html">Investors</a>
-
-      </div>
-
-      <!-- STORE -->
-
-      <div class="footer-column">
-
-        <h3>Store</h3>
-
-        <a href="./store/index.html">All Products</a>
-        <a href="./store/home.html">Howard Home</a>
-        <a href="./store/pro.html">Howard Pro</a>
-        <a href="./store/enterprise.html">Enterprise</a>
-
-      </div>
-
-      <!-- SUPPORT -->
-
-      <div class="footer-column">
-
-        <h3>Support</h3>
-
-        <a href="./support/contact.html">Contact</a>
-        <a href="./support/about-support.html">About Support</a>
-        <a href="./support/faqs.html">FAQs</a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</footer>
-  
 </body>
 </html>
