@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Howard Pro — Scalable Intelligence</title>
+  <title>Howard Pro — Assistant Intelligence for Business</title>
   
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
@@ -15,10 +15,10 @@
     :root {
       --y: #EBC736;
       --blk: #0D0D0D;
-      --dark-grey: #1A1A1A;
+      --dark-grey: #161616;
       --wht: #FFFFFF;
-      --pro-text: #A0A0A0;
-      --pro-border: rgba(255, 255, 255, 0.1);
+      --pro-text: #96928C;
+      --pro-border: rgba(255, 255, 255, 0.08);
     }
 
     .pro-page { 
@@ -28,70 +28,59 @@
       overflow-x: hidden; 
     }
 
-    /* HEADER OVERRIDE */
-    header { background: rgba(13, 13, 13, 0.8) !important; border-bottom: 1px solid var(--pro-border); }
+    /* HEADER & NAV SYNC */
+    header { background: rgba(13, 13, 13, 0.9) !important; border-bottom: 1px solid var(--pro-border); }
     .main-nav .nav-item > a { color: var(--wht) !important; }
     .dropdown { background: var(--dark-grey) !important; border: 1px solid var(--pro-border) !important; }
     .dropdown a { color: var(--pro-text) !important; }
+    .dropdown a:hover { color: var(--y) !important; background: rgba(255,255,255,0.05); }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
 
-    /* HERO */
-    .hero-pro { padding: 160px 0 100px; text-align: center; }
+    /* HERO: GROUNDED & LOCAL */
+    .hero-pro { padding: 140px 0 80px; text-align: center; }
     .pro-tag { 
       font-size: 0.85rem; font-weight: 700; color: var(--y); 
       text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem; display: block;
     }
-    .hero-pro h1 { font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; margin-bottom: 2rem; }
-    .hero-pro p { font-size: 1.4rem; color: var(--pro-text); max-width: 700px; margin: 0 auto; line-height: 1.5; }
+    .hero-pro h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 2rem; }
+    .hero-pro p { font-size: 1.3rem; color: var(--pro-text); max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-    /* B2B FEATURE GRID */
-    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 100px 0; border-bottom: 1px solid var(--pro-border); }
-    .pro-feature h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--wht); }
-    .pro-feature p { color: var(--pro-text); line-height: 1.7; font-size: 1.1rem; }
-    .feature-icon { color: var(--y); font-size: 2rem; margin-bottom: 1.5rem; display: block; }
+    /* FEATURE GRID */
+    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 80px 0; border-bottom: 1px solid var(--pro-border); }
+    .pro-feature h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--wht); }
+    .pro-feature p { color: var(--pro-text); line-height: 1.6; font-size: 1.05rem; }
+    .feature-icon { color: var(--y); font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
 
-    /* BUSINESS CAPABILITIES (The "Linear" Feel) */
-    .capability-section { padding: 120px 0; }
-    .cap-header { text-align: center; margin-bottom: 80px; }
-    .cap-header h2 { font-size: 3rem; margin-bottom: 1.5rem; }
-
-    .cap-card { 
-      background: var(--dark-grey); 
-      border: 1px solid var(--pro-border); 
-      border-radius: 24px; 
-      padding: 3rem; 
-      transition: border-color 0.3s ease;
-    }
-    .cap-card:hover { border-color: var(--y); }
-    
-    /* COMPARISON - Pro version */
+    /* THE B2B COMPARISON */
     .pro-comparison { padding: 100px 0; }
+    .pro-comparison h2 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
     .comp-table-pro { width: 100%; border-collapse: collapse; margin-top: 40px; }
     .comp-table-pro th, .comp-table-pro td { padding: 1.5rem; border-bottom: 1px solid var(--pro-border); text-align: left; }
-    .comp-table-pro th { color: var(--pro-text); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; }
+    .comp-table-pro th { color: var(--pro-text); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .comp-table-pro td { font-size: 1.1rem; }
-    .check-y { color: var(--y); }
 
-    /* CTA */
+    /* THE LOCAL CTA */
     .pro-footer-cta { 
       background: var(--y); color: var(--blk); 
-      padding: 80px; border-radius: 40px; 
-      text-align: center; margin: 100px 0; 
+      padding: 80px 40px; border-radius: 40px; 
+      text-align: center; margin: 80px 0 120px; 
     }
-    .pro-footer-cta h2 { font-size: 3rem; margin-bottom: 1rem; }
+    .pro-footer-cta h2 { font-size: 2.8rem; margin-bottom: 1rem; letter-spacing: -0.03em; }
+    .pro-footer-cta p { font-size: 1.2rem; opacity: 0.9; max-width: 500px; margin: 0 auto; }
     .btn-dark { 
-      display: inline-block; padding: 1.2rem 3rem; 
+      display: inline-block; padding: 1.2rem 2.8rem; 
       background: var(--blk); color: var(--wht); 
       border-radius: 100px; font-weight: 700; text-decoration: none; margin-top: 2rem;
+      transition: transform 0.2s ease;
     }
+    .btn-dark:hover { transform: translateY(-2px); }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
       .pro-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-pro h1 { font-size: 3rem; }
     }
   </style>
 </head>
@@ -103,97 +92,149 @@
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
+
       <nav class="main-nav">
-        <div class="nav-item"><a href="../index.html">Home</a></div>
+        <div class="nav-item">
+          <a href="../index.html">Home</a>
+        </div>
+
         <div class="nav-item">
           <a href="#">About</a>
           <div class="dropdown">
             <a href="../about/index.html">Overview</a>
             <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
           </div>
         </div>
+
         <div class="nav-item">
           <a href="#">Store</a>
           <div class="dropdown">
+            <a href="../store/index.html">All Products</a>
             <a href="../store/home.html">Howard Home</a>
             <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
           </div>
         </div>
-        <div class="nav-item"><a href="../support/contact.html">Support</a></div>
+
+        <div class="nav-item">
+          <a href="#">Support</a>
+          <div class="dropdown">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </div>
       </nav>
-      <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span></button>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <details>
+          <summary>About</summary>
+          <div class="mobile-submenu">
+            <a href="../about/index.html">Overview</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </details>
+        <details>
+          <summary>Store</summary>
+          <div class="mobile-submenu">
+            <a href="../store/index.html">All Products</a>
+            <a href="../store/home.html">Howard Home</a>
+            <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
+          </div>
+        </details>
+        <details>
+          <summary>Support</summary>
+          <div class="mobile-submenu">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </details>
+      </div>
+
     </div>
   </header>
 
   <main class="container">
     <section class="hero-pro">
-      <span class="pro-tag reveal">Professional Grade</span>
-      <h1 class="reveal">Intelligence for the<br>modern enterprise.</h1>
-      <p class="reveal">Howard Pro brings locally-hosted automation to offices, law firms, and agencies. Secure, scalable, and deployed in person by our Houston team.</p>
+      <span class="pro-tag reveal">Built for Houston Business</span>
+      <h1 class="reveal">Howard, at the office.</h1>
+      <p class="reveal">A dedicated hardware node for law firms, real estate brokerages, and local agencies who need professional-grade automation without the cloud security risk.</p>
     </section>
 
     <section class="pro-grid">
       <div class="pro-feature reveal">
-        <i class="ti ti-server feature-icon"></i>
-        <h3>Enterprise Nodes</h3>
-        <p>Higher-capacity hardware designed for multi-user environments. Handle complex document analysis and simultaneous requests across your entire office network.</p>
+        <i class="ti ti-briefcase feature-icon"></i>
+        <h3>Multi-User Intelligence</h3>
+        <p>A single Pro Node supports your entire team. Howard distinguishes between voices and permissions, ensuring staff only access the data relevant to their role.</p>
       </div>
       <div class="pro-feature reveal">
-        <i class="ti ti-users feature-icon"></i>
-        <h3>Team Permissions</h3>
-        <p>Grant Howard access to specific mailboxes and calendars. Manage role-based permissions so sensitive data stays accessible only to leadership.</p>
+        <i class="ti ti-lock feature-icon"></i>
+        <h3>Privileged Data Isolation</h3>
+        <p>For firms handling sensitive client information, Howard Pro operates entirely within your office walls. No client transcripts or case details ever touch a third-party cloud.</p>
       </div>
       <div class="pro-feature reveal">
-        <i class="ti ti-link feature-icon"></i>
-        <h3>Custom Workflows</h3>
-        <p>Howard Pro integrates directly with your existing CRM or project management tools via local webhooks, keeping your business data air-gapped.</p>
+        <i class="ti ti-calendar-event feature-icon"></i>
+        <h3>Operational Scale</h3>
+        <p>From managing high-volume listing inquiries to drafting initial legal briefs and coordinating multi-calendar schedules, Pro handles the heavy lifting of a busy office.</p>
       </div>
       <div class="pro-feature reveal">
-        <i class="ti ti-headset feature-icon"></i>
-        <h3>Priority Local Support</h3>
-        <p>Pro accounts include a dedicated Houston-based success manager and same-day on-site hardware support to ensure zero downtime.</p>
+        <i class="ti ti-tool feature-icon"></i>
+        <h3>Local Installation</h3>
+        <p>Our Houston technicians handle the complete setup. We integrate Howard with your existing local server or office network to ensure a seamless transition.</p>
       </div>
     </section>
 
     <section class="pro-comparison reveal">
-      <h2>Standard vs. Pro</h2>
+      <h2>Capacity comparison.</h2>
       <table class="comp-table-pro">
         <thead>
           <tr>
-            <th>Capability</th>
+            <th>Feature</th>
             <th>Howard Home</th>
             <th>Howard Pro</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td>Intended Use</td>
+            <td>Residential / Personal</td>
+            <td>Commercial / Professional</td>
+          </tr>
+          <tr>
             <td>User Accounts</td>
             <td>1 Household</td>
-            <td>Unlimited per Office</td>
+            <td>Full Office Team</td>
           </tr>
           <tr>
-            <td>Integration Support</td>
-            <td>Standard Apps</td>
-            <td>Custom B2B Webhooks</td>
+            <td>Custom Workflows</td>
+            <td>Smart Home / Personal Finance</td>
+            <td>B2B CRM / CRM Integration</td>
           </tr>
           <tr>
-            <td>Hardware Format</td>
-            <td>Compact Node</td>
-            <td>Rack-Mount Optional</td>
-          </tr>
-          <tr>
-            <td>Deployment</td>
-            <td>Residential</td>
-            <td>Commercial / Multi-site</td>
+            <td>Support Priority</td>
+            <td>Standard</td>
+            <td>Professional Batch Priority</td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <section class="pro-footer-cta reveal">
-      <h2>Let's talk about scale.</h2>
-      <p>Howard Pro is currently in a controlled pilot phase for Houston businesses.</p>
-      <a href="../support/contact.html" class="btn-dark">Inquire for Office Deployment</a>
+      <h2>Let's talk about your office.</h2>
+      <p>We are currently accepting inquiries for our next local installation batch in the Houston area.</p>
+      <a href="../support/contact.html" class="btn-dark">Contact our Team</a>
     </section>
   </main>
 
@@ -202,17 +243,33 @@
       <div class="footer-brand">
         <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
         <p class="footer-copyright">© 2026 Howard AI</p>
-        <p class="footer-description">Building local assistant infrastructure for the city of Houston.</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="#"><img src="../instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="../linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="../x.png" alt="X"></a>
+        </div>
       </div>
+
       <div class="footer-links-grid">
         <div class="footer-column">
+          <h3>About</h3>
+          <a href="../about/index.html">Overview</a>
+          <a href="../about/leadership.html">Leadership</a>
+          <a href="../about/newsroom.html">Newsroom</a>
+          <a href="../about/investors.html">Investors</a>
+        </div>
+        <div class="footer-column">
           <h3>Store</h3>
-          <a href="home.html">Howard Home</a>
-          <a href="pro.html">Howard Pro</a>
+          <a href="../store/index.html">All Products</a>
+          <a href="../store/home.html">Howard Home</a>
+          <a href="../store/pro.html">Howard Pro</a>
+          <a href="../store/enterprise.html">Enterprise</a>
         </div>
         <div class="footer-column">
           <h3>Support</h3>
           <a href="../support/contact.html">Contact</a>
+          <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
         </div>
       </div>
@@ -229,7 +286,11 @@
     reveal();
 
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    mobileMenuBtn.onclick = () => { mobileMenuBtn.classList.toggle('active'); };
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
   </script>
 
 </body>
