@@ -37,21 +37,21 @@
     .bubble.user { background: var(--wht); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--soft-border); }
     .bubble.howard { background: var(--y); color: var(--blk); align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
 
-    /* CARD: COMMUNICATION GATEWAYS */
+    /* FAST SCROLL ROLES */
+    .roles-section { height: 40vh; display: flex; justify-content: center; align-items: center; position: relative; margin: 40px 0 100px; }
+    .roles-container { text-align: center; width: 100%; }
+    .roles-intro { font-size: 0.9rem; color: var(--mid); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .role-title { font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 700; color: var(--blk); transition: opacity 0.15s ease; }
+
+    /* COMMUNICATION GATEWAYS */
     .methods-grid-section { background: var(--wht); border-radius: 40px; padding: 5rem 4rem; border: 1px solid var(--soft-border); margin-bottom: 120px; text-align: center; }
     .methods-grid-section h2 { font-size: 2.2rem; color: var(--blk); margin-bottom: 3.5rem; letter-spacing: -0.02em; }
     .logo-cloud { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 3rem; align-items: center; }
     .logo-item { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
-    .logo-item i, .logo-item img { font-size: 35px; height: 35px; color: var(--warm-text); }
+    .logo-item i { font-size: 35px; color: var(--warm-text); }
     .logo-item span { font-size: 0.85rem; font-weight: 600; opacity: 0.7; }
 
-    /* UPDATED: ROLES (FASTER SCROLL) */
-    .roles-section { height: 60vh; display: flex; justify-content: center; position: relative; margin-bottom: 100px; }
-    .roles-container { position: sticky; top: 45%; text-align: center; width: 100%; height: fit-content; }
-    .roles-intro { font-size: 1rem; color: var(--mid); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-    .role-title { font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 700; color: var(--blk); transition: opacity 0.2s ease; }
-
-    /* CARD: COMPARISON TABLE */
+    /* COMPARISON TABLE */
     .comparison-section { margin-bottom: 120px; background: var(--wht); padding: 4rem; border-radius: 40px; border: 1px solid var(--soft-border); }
     .comparison-section h2 { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; }
     .comp-table { width: 100%; border-collapse: collapse; text-align: left; }
@@ -59,7 +59,7 @@
     .comp-table th { font-weight: 700; color: var(--blk); }
     .comp-table i { color: var(--y); font-size: 1.2rem; }
 
-    /* CARD: INSTALLED IN PERSON (SIDE-BY-SIDE) */
+    /* INSTALLED IN PERSON (SIDE-BY-SIDE) */
     .hardware-showcase { background: var(--wht); border-radius: 40px; padding: 3rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 3rem; margin-bottom: 120px; border: 1px solid var(--soft-border); }
     .hardware-text { flex: 1; text-align: left; }
     .hardware-image-side { flex: 1; }
@@ -79,7 +79,6 @@
 
     @media (max-width: 768px) {
       .value-grid, .hardware-showcase { grid-template-columns: 1fr; flex-direction: column; }
-      .comp-table { font-size: 0.9rem; }
       .hardware-text { text-align: center; }
       .howard-box-mockup { margin: 0 auto 1.5rem; }
     }
@@ -93,6 +92,7 @@
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
+
       <nav class="main-nav">
         <div class="nav-item"><a href="../index.html">Home</a></div>
         <div class="nav-item">
@@ -175,8 +175,6 @@
         <div class="bubble howard reveal">On it. I'll give you a full itinerary and purchases for review in an hour.</div>
         <div class="bubble user reveal">Check my inbox and junk folders for any important emails and reply to them.</div>
         <div class="bubble howard reveal">Found a priority invite from your HOA and a billing update. I've drafted replies for your approval.</div>
-        <div class="bubble user reveal">Look at my energy bill and give me some ways to save.</div>
-        <div class="bubble howard reveal">I've analyzed your usage. Switching to a night-time plan could save you $45/mo based on your HVAC habits.</div>
       </div>
     </section>
 
@@ -194,7 +192,6 @@
           <div class="logo-item"><i class="ti ti-messages"></i><span>iMessage</span></div>
           <div class="logo-item"><i class="ti ti-brand-whatsapp"></i><span>WhatsApp</span></div>
           <div class="logo-item"><i class="ti ti-mail"></i><span>Gmail</span></div>
-          <div class="logo-item"><i class="ti ti-printer"></i><span>Fax</span></div>
           <div class="logo-item"><i class="ti ti-brand-telegram"></i><span>Telegram</span></div>
           <div class="logo-item"><i class="ti ti-brand-messenger"></i><span>Messenger</span></div>
           <div class="logo-item"><i class="ti ti-cloud"></i><span>iCloud</span></div>
@@ -229,26 +226,8 @@
               <td>No</td>
               <td><i class="ti ti-check"></i> Yes</td>
             </tr>
-            <tr>
-              <td>Privacy Model</td>
-              <td>Ad-Supported</td>
-              <td><strong>Subscription Only</strong></td>
-            </tr>
           </tbody>
         </table>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="value-grid">
-        <div class="value-item reveal">
-          <h3>Local Compute.</h3>
-          <p>The "Brain" is a physical node in your house. Your voice and data never leave your walls for training or advertising.</p>
-        </div>
-        <div class="value-item reveal">
-          <h3>Real World Action.</h3>
-          <p>Howard has his own secure spending card and phone number. He can call a plumber or buy flights so you don't have to.</p>
-        </div>
       </div>
     </section>
 
@@ -259,7 +238,7 @@
             <i class="ti ti-home-heart" style="font-size: 2.5rem; color: #fff;"></i>
           </div>
           <h2 style="color:var(--blk); margin-bottom: 0.5rem;">Installed in person.</h2>
-          <p style="opacity: 0.8; line-height: 1.6;">Our Houston team visits your home to install the Privacy Node, secure your network, and ensure Howard knows exactly how to help your family.</p>
+          <p style="opacity: 0.8; line-height: 1.6;">Our Houston team visits your home to install the Privacy Node and ensure Howard knows exactly how to help your family.</p>
         </div>
         <div class="hardware-image-side">
           <img src="../installation-photo.png" alt="Installation" class="large-square-img">
@@ -283,7 +262,13 @@
         <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
         <p class="footer-copyright">© 2026 Howard AI</p>
         <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="#"><img src="../instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="../linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="../x.png" alt="X"></a>
+        </div>
       </div>
+
       <div class="footer-links-grid">
         <div class="footer-column">
           <h3>About</h3>
@@ -313,7 +298,7 @@
       mobileMenu.classList.toggle('active');
     };
 
-    // Reveal Script
+    // Reveal Logic
     const reveal = () => {
       document.querySelectorAll('.reveal').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
@@ -322,18 +307,19 @@
     window.addEventListener('scroll', reveal);
     reveal();
 
-    // ROLE SCROLL LOGIC (Optimized for speed/shortness)
+    // RAPID ROLE TRANSITION
     const roles = ["Personal Assistant", "Trip Planner", "Financial Consultant", "Digital Receptionist"];
     const roleTitle = document.getElementById('dynamicRoleTitle');
     const rolesSection = document.getElementById('rolesScrollSection');
 
     window.addEventListener('scroll', () => {
       const rect = rolesSection.getBoundingClientRect();
-      
-      // Calculate progress specifically while the section is in the viewport
-      // rect.top goes from window.innerHeight to -rect.height
       const viewportHeight = window.innerHeight;
-      const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
+      
+      // Calculate how far through the 40vh section the user is
+      // We start swapping as soon as the top of the section enters the bottom of the screen
+      const totalScrollPath = viewportHeight + rect.height;
+      const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / totalScrollPath));
       
       const index = Math.min(roles.length - 1, Math.floor(progress * roles.length));
       
@@ -342,7 +328,7 @@
         setTimeout(() => {
           roleTitle.innerText = roles[index];
           roleTitle.style.opacity = 1;
-        }, 100); // Faster transition
+        }, 80); // Near-instant switch
       }
     });
   </script>
