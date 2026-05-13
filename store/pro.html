@@ -28,59 +28,60 @@
       overflow-x: hidden; 
     }
 
-    /* HEADER & NAV SYNC */
+    /* HEADER & NAV - EXACT SYNC WITH ENTERPRISE */
     header { background: rgba(13, 13, 13, 0.9) !important; border-bottom: 1px solid var(--pro-border); }
     .main-nav .nav-item > a { color: var(--wht) !important; }
     .dropdown { background: var(--dark-grey) !important; border: 1px solid var(--pro-border) !important; }
     .dropdown a { color: var(--pro-text) !important; }
     .dropdown a:hover { color: var(--y) !important; background: rgba(255,255,255,0.05); }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-    /* HERO: GROUNDED & LOCAL */
-    .hero-pro { padding: 140px 0 80px; text-align: center; }
+    /* HERO */
+    .hero-pro { padding: 160px 0 100px; text-align: center; }
     .pro-tag { 
       font-size: 0.85rem; font-weight: 700; color: var(--y); 
       text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem; display: block;
     }
     .hero-pro h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 2rem; }
-    .hero-pro p { font-size: 1.3rem; color: var(--pro-text); max-width: 650px; margin: 0 auto; line-height: 1.6; }
+    .hero-pro p { font-size: 1.3rem; color: var(--pro-text); max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
     /* FEATURE GRID */
-    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 80px 0; border-bottom: 1px solid var(--pro-border); }
-    .pro-feature h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--wht); }
-    .pro-feature p { color: var(--pro-text); line-height: 1.6; font-size: 1.05rem; }
-    .feature-icon { color: var(--y); font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 100px 0; border-bottom: 1px solid var(--pro-border); }
+    .pro-feature h3 { font-size: 1.7rem; margin-bottom: 1rem; color: var(--wht); }
+    .pro-feature p { color: var(--pro-text); line-height: 1.7; font-size: 1.1rem; }
+    .feature-icon { color: var(--y); font-size: 2rem; margin-bottom: 1.5rem; display: block; }
 
-    /* THE B2B COMPARISON */
-    .pro-comparison { padding: 100px 0; }
-    .pro-comparison h2 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
-    .comp-table-pro { width: 100%; border-collapse: collapse; margin-top: 40px; }
-    .comp-table-pro th, .comp-table-pro td { padding: 1.5rem; border-bottom: 1px solid var(--pro-border); text-align: left; }
-    .comp-table-pro th { color: var(--pro-text); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .comp-table-pro td { font-size: 1.1rem; }
+    /* COMPARISON */
+    .pro-comparison { padding: 120px 0; }
+    .pro-comparison h2 { font-size: 2.8rem; margin-bottom: 3rem; text-align: center; }
+    .comp-table-pro { width: 100%; border-collapse: collapse; }
+    .comp-table-pro th, .comp-table-pro td { padding: 1.8rem; border-bottom: 1px solid var(--pro-border); text-align: left; }
+    .comp-table-pro th { color: var(--pro-text); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .comp-table-pro td { font-size: 1.15rem; }
 
-    /* THE LOCAL CTA */
+    /* CTA */
     .pro-footer-cta { 
       background: var(--y); color: var(--blk); 
-      padding: 80px 40px; border-radius: 40px; 
-      text-align: center; margin: 80px 0 120px; 
+      padding: 100px 40px; border-radius: 60px; 
+      text-align: center; margin: 100px 0 140px; 
     }
-    .pro-footer-cta h2 { font-size: 2.8rem; margin-bottom: 1rem; letter-spacing: -0.03em; }
-    .pro-footer-cta p { font-size: 1.2rem; opacity: 0.9; max-width: 500px; margin: 0 auto; }
+    .pro-footer-cta h2 { font-size: 3.2rem; margin-bottom: 1.5rem; letter-spacing: -0.03em; font-weight: 700; }
+    .pro-footer-cta p { font-size: 1.3rem; opacity: 0.9; max-width: 550px; margin: 0 auto; line-height: 1.5; }
     .btn-dark { 
-      display: inline-block; padding: 1.2rem 2.8rem; 
+      display: inline-block; padding: 1.4rem 3.5rem; 
       background: var(--blk); color: var(--wht); 
-      border-radius: 100px; font-weight: 700; text-decoration: none; margin-top: 2rem;
-      transition: transform 0.2s ease;
+      border-radius: 100px; font-weight: 700; text-decoration: none; margin-top: 2.5rem;
+      transition: all 0.3s ease;
     }
-    .btn-dark:hover { transform: translateY(-2px); }
+    .btn-dark:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.22, 1, 0.36, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
-      .pro-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .pro-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .hero-pro { padding: 120px 0 60px; }
     }
   </style>
 </head>
@@ -162,37 +163,36 @@
           </div>
         </details>
       </div>
-
     </div>
   </header>
 
   <main class="container">
     <section class="hero-pro">
-      <span class="pro-tag reveal">Built for Houston Business</span>
+      <span class="pro-tag reveal">Professional Grade</span>
       <h1 class="reveal">Howard, at the office.</h1>
-      <p class="reveal">A dedicated hardware node for law firms, real estate brokerages, and local agencies who need professional-grade automation without the cloud security risk.</p>
+      <p class="reveal">A dedicated hardware node engineered for Houston law firms, real estate brokerages, and agencies that require sovereign intelligence without the cloud-leak risk.</p>
     </section>
 
     <section class="pro-grid">
       <div class="pro-feature reveal">
         <i class="ti ti-briefcase feature-icon"></i>
         <h3>Multi-User Intelligence</h3>
-        <p>A single Pro Node supports your entire team. Howard distinguishes between voices and permissions, ensuring staff only access the data relevant to their role.</p>
+        <p>A single Pro Node supports your entire team. Howard distinguishes between voices and permissions, ensuring staff only access the data relevant to their specific role.</p>
       </div>
       <div class="pro-feature reveal">
-        <i class="ti ti-lock feature-icon"></i>
+        <i class="ti ti-shield-lock feature-icon"></i>
         <h3>Privileged Data Isolation</h3>
-        <p>For firms handling sensitive client information, Howard Pro operates entirely within your office walls. No client transcripts or case details ever touch a third-party cloud.</p>
+        <p>For firms handling sensitive client information, Howard Pro operates entirely within your office walls. No client transcripts or case details ever touch a third-party server.</p>
       </div>
       <div class="pro-feature reveal">
-        <i class="ti ti-calendar-event feature-icon"></i>
+        <i class="ti ti-calendar-stats feature-icon"></i>
         <h3>Operational Scale</h3>
-        <p>From managing high-volume listing inquiries to drafting initial legal briefs and coordinating multi-calendar schedules, Pro handles the heavy lifting of a busy office.</p>
+        <p>From managing high-volume listing inquiries to drafting initial legal briefs and coordinating complex multi-calendar schedules, Pro handles the heavy lifting of a busy office.</p>
       </div>
       <div class="pro-feature reveal">
-        <i class="ti ti-tool feature-icon"></i>
-        <h3>Local Installation</h3>
-        <p>Our Houston technicians handle the complete setup. We integrate Howard with your existing local server or office network to ensure a seamless transition.</p>
+        <i class="ti ti-settings-automation feature-icon"></i>
+        <h3>B2B Workflows</h3>
+        <p>Full support for local CRM integrations and custom webhooks. Howard connects your existing tools into a unified, air-gapped automation system.</p>
       </div>
     </section>
 
@@ -218,9 +218,9 @@
             <td>Full Office Team</td>
           </tr>
           <tr>
-            <td>Custom Workflows</td>
-            <td>Smart Home / Personal Finance</td>
-            <td>B2B CRM / CRM Integration</td>
+            <td>Integration Support</td>
+            <td>Smart Home Standard</td>
+            <td>Custom B2B Webhooks</td>
           </tr>
           <tr>
             <td>Support Priority</td>
@@ -245,9 +245,9 @@
         <p class="footer-copyright">© 2026 Howard AI</p>
         <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
         <div class="footer-socials">
-          <a href="#"><img src="../instagram.png" alt="Instagram"></a>
-          <a href="#"><img src="../linkedin.png" alt="LinkedIn"></a>
-          <a href="#"><img src="../x.png" alt="X"></a>
+          <a href="https://instagram.com" target="_blank"><img src="https://api.iconify.design/ri:instagram-fill.svg?color=white" alt="Instagram" style="width:24px;"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="https://api.iconify.design/ri:linkedin-box-fill.svg?color=white" alt="LinkedIn" style="width:24px;"></a>
+          <a href="https://x.com" target="_blank"><img src="https://api.iconify.design/ri:twitter-x-fill.svg?color=white" alt="X" style="width:24px;"></a>
         </div>
       </div>
 
@@ -277,20 +277,22 @@
   </footer>
 
   <script>
-    const reveal = () => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-      });
-    }
-    window.addEventListener('scroll', reveal);
-    reveal();
-
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenuBtn.classList.toggle('active');
       mobileMenu.classList.toggle('active');
     });
+
+    const reveal = () => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
   </script>
 
 </body>
