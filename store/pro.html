@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Howard Pro — Assistant Intelligence</title>
+  <title>Howard Home — Assistant Intelligence</title>
   
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
@@ -13,67 +13,75 @@
 
   <style>
     :root {
-      --y:#EBC736; --yk:#c9a820;
-      --blk:#0D0D0D; --wht:#FFFFFF;
-      --warm:#2A2A2A; --off:#F5F5F0; --mid:#888888;
+      --y:#EBC736;
+      --blk:#0D0D0D;
+      --wht:#FFFFFF;
+      --warm-text:#4A4439;
+      --off-warm:#F9F7F2; 
+      --soft-border: rgba(74, 68, 57, 0.08);
+      --mid: #888;
     }
 
-    /* APPLE-STYLE FOUNDATION */
-    .pro-page { font-family:'DM Sans', sans-serif; background:var(--blk); color:var(--wht); overflow-x:hidden; }
-    .pro-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
-    
-    /* TYPOGRAPHY */
-    .grad-text { background: linear-gradient(180deg, #fff 0%, #888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .y-text { color: var(--y); }
+    .home-page { font-family:'DM Sans', sans-serif; background: var(--off-warm); color: var(--warm-text); overflow-x: hidden; }
+    .home-container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
 
-    /* HERO SECTION */
-    .pro-hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 0; background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%); }
-    .pro-hero h1 { font-size: clamp(3.5rem, 8vw, 7.5rem); font-weight:700; letter-spacing:-0.04em; line-height:0.9; margin-bottom:2rem; }
-    .pro-hero p { font-size: 1.5rem; color: var(--mid); max-width:700px; margin: 0 auto 3rem; }
+    /* HERO */
+    .hero-home { padding: 120px 0 80px; text-align: center; }
+    .home-badge { display: inline-block; padding: 0.5rem 1.2rem; background: var(--wht); border: 1px solid var(--soft-border); border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: var(--y); margin-bottom: 2rem; }
+    .hero-home h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--blk); margin-bottom: 1.5rem; }
+    .hero-home p { font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin: 0 auto 3rem; opacity: 0.9; }
 
-    /* FEATURE GRID */
-    .feature-bentogrid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
-    .bento-card { background: #161617; border-radius: 30px; padding: 3rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.4s ease; }
-    .bento-card:hover { transform: scale(1.01); }
-    .bento-card h3 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .bento-card p { color: var(--mid); line-height: 1.5; font-size: 1.1rem; }
-    
-    .span-12 { grid-column: span 12; }
-    .span-8 { grid-column: span 8; }
-    .span-4 { grid-column: span 4; }
-    .span-6 { grid-column: span 6; }
+    /* CARD: CHAT STREAM */
+    .conversation-stream { display: flex; flex-direction: column; gap: 1.5rem; max-width: 700px; margin: 0 auto 120px; }
+    .bubble { padding: 1.25rem 1.75rem; border-radius: 25px; font-size: 1.1rem; line-height: 1.4; max-width: 75%; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .bubble.user { background: var(--wht); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--soft-border); }
+    .bubble.howard { background: var(--y); color: var(--blk); align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
 
-    /* HARDWARE VISUAL */
-    .hw-visual { height: 400px; background: linear-gradient(45deg, #111, #222); border-radius: 20px; margin-top: 2rem; display: flex; align-items: center; justify-content: center; position: relative; border: 1px solid rgba(255,255,255,0.05); }
-    .hw-chip { width: 120px; height: 120px; background: var(--y); border-radius: 20px; box-shadow: 0 0 50px rgba(235, 199, 54, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blk); font-size: 1.5rem; }
+    /* CARD: COMMUNICATION GATEWAYS */
+    .methods-grid-section { background: var(--wht); border-radius: 40px; padding: 5rem 4rem; border: 1px solid var(--soft-border); margin-bottom: 120px; text-align: center; }
+    .methods-grid-section h2 { font-size: 2.2rem; color: var(--blk); margin-bottom: 3.5rem; letter-spacing: -0.02em; }
+    .logo-cloud { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 3rem; align-items: center; }
+    .logo-item { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+    .logo-item i, .logo-item img { font-size: 35px; height: 35px; color: var(--warm-text); }
+    .logo-item span { font-size: 0.85rem; font-weight: 600; opacity: 0.7; }
 
-    /* THE PITCH SECTIONS */
-    .scroll-section { padding: 150px 0; border-top: 1px solid #222; }
-    .section-label { color: var(--y); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; margin-bottom: 1.5rem; display: block; }
-    .big-statement { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; max-width: 900px; }
+    /* UPDATED: ROLES (FASTER SCROLL) */
+    .roles-section { height: 60vh; display: flex; justify-content: center; position: relative; margin-bottom: 100px; }
+    .roles-container { position: sticky; top: 45%; text-align: center; width: 100%; height: fit-content; }
+    .roles-intro { font-size: 1rem; color: var(--mid); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .role-title { font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 700; color: var(--blk); transition: opacity 0.2s ease; }
 
-    /* TRUST LADDER */
-    .trust-ladder { margin-top: 4rem; display: flex; flex-direction: column; gap: 1rem; }
-    .ladder-step { background: #1c1c1e; padding: 1.5rem; border-radius: 15px; display: flex; align-items: center; gap: 1.5rem; border: 1px solid transparent; transition: 0.3s; }
-    .ladder-step.active { border-color: var(--y); background: #242426; }
-    .step-num { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--mid); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--mid); }
-    .active .step-num { border-color: var(--y); color: var(--y); }
+    /* CARD: COMPARISON TABLE */
+    .comparison-section { margin-bottom: 120px; background: var(--wht); padding: 4rem; border-radius: 40px; border: 1px solid var(--soft-border); }
+    .comparison-section h2 { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; }
+    .comp-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .comp-table th, .comp-table td { padding: 1.5rem; border-bottom: 1px solid var(--soft-border); }
+    .comp-table th { font-weight: 700; color: var(--blk); }
+    .comp-table i { color: var(--y); font-size: 1.2rem; }
 
-    .ti { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--y); }
+    /* CARD: INSTALLED IN PERSON (SIDE-BY-SIDE) */
+    .hardware-showcase { background: var(--wht); border-radius: 40px; padding: 3rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 3rem; margin-bottom: 120px; border: 1px solid var(--soft-border); }
+    .hardware-text { flex: 1; text-align: left; }
+    .hardware-image-side { flex: 1; }
+    .large-square-img { width: 100%; aspect-ratio: 1/1; background: #eee; border-radius: 20px; object-fit: cover; }
+    .howard-box-mockup { width: 100px; height: 100px; background: var(--y); border-radius: 25px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
 
-    /* CTA AREA */
-    .pro-cta { text-align: center; padding: 150px 0; background: var(--wht); color: var(--blk); border-radius: 50px 50px 0 0; }
-    .btn-massive { display: inline-block; padding: 1.5rem 3.5rem; background: var(--blk); color: var(--wht); border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; margin-top: 2rem; transition: transform 0.2s; }
-    .btn-massive:hover { transform: scale(1.05); }
+    /* VALUE GRID */
+    .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 120px; }
+    .value-item h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--blk); }
+    .value-item p { line-height: 1.7; font-size: 1.1rem; opacity: 0.8; }
 
-    /* REVEAL ANIMATIONS */
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .peace-section { background: var(--blk); color: var(--wht); padding: 100px 0; border-radius: 60px; margin-bottom: 60px; text-align: center; }
+    .btn-homey { display: inline-block; padding: 1.2rem 2.5rem; background: var(--y); color: var(--blk); border-radius: 100px; font-weight: 700; text-decoration: none; }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
-      .span-8, .span-4, .span-6 { grid-column: span 12; }
-      .big-statement { font-size: 2.2rem; }
-      .navbar { background: var(--blk); }
+      .value-grid, .hardware-showcase { grid-template-columns: 1fr; flex-direction: column; }
+      .comp-table { font-size: 0.9rem; }
+      .hardware-text { text-align: center; }
+      .howard-box-mockup { margin: 0 auto 1.5rem; }
     }
   </style>
 </head>
@@ -116,8 +124,7 @@
       </nav>
 
       <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <span></span>
-        <span></span>
+        <span></span><span></span>
       </button>
 
       <div class="mobile-menu" id="mobileMenu">
@@ -152,111 +159,119 @@
     </div>
   </header>
 
-  <main class="pro-page">
+  <main class="home-page">
     
-    <section class="pro-hero">
-      <div class="pro-container">
-        <span class="section-label reveal">Assistant Intelligence</span>
-        <h1 class="grad-text reveal">Power. Local.<br>Yours.</h1>
-        <p class="reveal">The first managed, vertically integrated AI assistant installed directly into your Houston home or business.</p>
-        <div class="hw-visual reveal" style="max-width: 800px; margin: 0 auto;">
-           <div class="hw-chip">H1</div>
-           <div style="position: absolute; bottom: 20px; font-size: 0.7rem; color: #444; letter-spacing: 0.1em; text-transform: uppercase;">RTX-Class Dedicated Intelligence</div>
+    <section class="hero-home">
+      <div class="home-container">
+        <span class="home-badge reveal">Now accepting Houston waitlist</span>
+        <h1 class="reveal">Welcome home,<br>Howard.</h1>
+        <p class="reveal">A locally-hosted AI assistant that lives in your home, keeps your secrets, and manages your life across all your favorite apps.</p>
+      </div>
+    </section>
+
+    <section class="home-container">
+      <div class="conversation-stream">
+        <div class="bubble user reveal">Book a 2 day trip this weekend to the Bahamas.</div>
+        <div class="bubble howard reveal">On it. I'll give you a full itinerary and purchases for review in an hour.</div>
+        <div class="bubble user reveal">Check my inbox and junk folders for any important emails and reply to them.</div>
+        <div class="bubble howard reveal">Found a priority invite from your HOA and a billing update. I've drafted replies for your approval.</div>
+        <div class="bubble user reveal">Look at my energy bill and give me some ways to save.</div>
+        <div class="bubble howard reveal">I've analyzed your usage. Switching to a night-time plan could save you $45/mo based on your HVAC habits.</div>
+      </div>
+    </section>
+
+    <section class="roles-section" id="rolesScrollSection">
+      <div class="roles-container">
+        <p class="roles-intro">Howard is your</p>
+        <span class="role-title" id="dynamicRoleTitle">Personal Assistant</span>
+      </div>
+    </section>
+
+    <section class="home-container">
+      <div class="methods-grid-section reveal">
+        <h2>Talk to Howard anywhere.</h2>
+        <div class="logo-cloud">
+          <div class="logo-item"><i class="ti ti-messages"></i><span>iMessage</span></div>
+          <div class="logo-item"><i class="ti ti-brand-whatsapp"></i><span>WhatsApp</span></div>
+          <div class="logo-item"><i class="ti ti-mail"></i><span>Gmail</span></div>
+          <div class="logo-item"><i class="ti ti-printer"></i><span>Fax</span></div>
+          <div class="logo-item"><i class="ti ti-brand-telegram"></i><span>Telegram</span></div>
+          <div class="logo-item"><i class="ti ti-brand-messenger"></i><span>Messenger</span></div>
+          <div class="logo-item"><i class="ti ti-cloud"></i><span>iCloud</span></div>
         </div>
       </div>
     </section>
 
-    <section class="pro-container">
-      <div class="feature-bentogrid">
-        
-        <div class="bento-card span-8 reveal">
-          <div>
-            <i class="ti ti-shield-lock"></i>
-            <h3>The Privacy Pitch is Simple.</h3>
-            <p>Howard runs entirely on hardware inside your building. Your data never touches a cloud server, never leaves the building, and never enters a data center. If you don't trust it, <span class="y-text">unplug it.</span></p>
-          </div>
-        </div>
-
-        <div class="bento-card span-4 reveal">
-          <div>
-            <i class="ti ti-phone-call"></i>
-            <h3>Your Own Number.</h3>
-            <p>Howard has his own phone number. Text or call him from anywhere in the world to execute tasks instantly.</p>
-          </div>
-        </div>
-
-        <div class="bento-card span-4 reveal">
-          <div>
-            <i class="ti ti-credit-card"></i>
-            <h3>Spending Control.</h3>
-            <p>Howard carries his own debit card with configurable limits. He doesn't just suggest a flight — he buys it.</p>
-          </div>
-        </div>
-
-        <div class="bento-card span-8 reveal">
-          <div>
-            <i class="ti ti-truck-delivery"></i>
-            <h3>White Glove Installation.</h3>
-            <p>Modeled after Tachus Fiber. We don't ship a box and wish you luck. Our Houston-based technicians handle the configuration, installation, and ongoing maintenance.</p>
-          </div>
-        </div>
-
+    <section class="home-container">
+      <div class="comparison-section reveal">
+        <h2>How we compare.</h2>
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Big Tech AI</th>
+              <th>Howard Home</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Data Location</td>
+              <td>Public Cloud</td>
+              <td><strong>Your Living Room</strong></td>
+            </tr>
+            <tr>
+              <td>Makes Phone Calls</td>
+              <td>No</td>
+              <td><i class="ti ti-check"></i> Yes</td>
+            </tr>
+            <tr>
+              <td>Personal Spending Card</td>
+              <td>No</td>
+              <td><i class="ti ti-check"></i> Yes</td>
+            </tr>
+            <tr>
+              <td>Privacy Model</td>
+              <td>Ad-Supported</td>
+              <td><strong>Subscription Only</strong></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <section class="scroll-section">
-      <div class="pro-container">
-        <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-          <div class="reveal">
-            <span class="section-label">Action over Suggestions</span>
-            <h2 class="big-statement">The Trust Ladder.</h2>
-            <p style="color: var(--mid); margin-top: 2rem; font-size: 1.2rem;">We’ve solved the biggest hurdle in AI: security. Through Howard’s proprietary spending architecture, his autonomy grows with your trust.</p>
-          </div>
-          <div class="trust-ladder reveal">
-            <div class="ladder-step">
-              <div class="step-num">01</div>
-              <div><strong>Verification</strong><p>Small administrative tasks to verify user identity.</p></div>
-            </div>
-            <div class="ladder-step active">
-              <div class="step-num">02</div>
-              <div><strong>Configurable Spending</strong><p>Set daily limits for Howard's dedicated debit card.</p></div>
-            </div>
-            <div class="ladder-step">
-              <div class="step-num">03</div>
-              <div><strong>Full Autonomy</strong><p>Howard manages travel, recurring bills, and vendors.</p></div>
-            </div>
-          </div>
+    <section class="home-container">
+      <div class="value-grid">
+        <div class="value-item reveal">
+          <h3>Local Compute.</h3>
+          <p>The "Brain" is a physical node in your house. Your voice and data never leave your walls for training or advertising.</p>
+        </div>
+        <div class="value-item reveal">
+          <h3>Real World Action.</h3>
+          <p>Howard has his own secure spending card and phone number. He can call a plumber or buy flights so you don't have to.</p>
         </div>
       </div>
     </section>
 
-    <section class="scroll-section" style="background: #000;">
-      <div class="pro-container">
-        <span class="section-label">Choose your power</span>
-        <h2 class="big-statement grad-text" style="margin-bottom: 4rem;">Built for Houston’s hardest workers.</h2>
-        
-        <div class="feature-bentogrid">
-          <div class="bento-card span-4 reveal">
-            <h4 class="y-text">Howard Home</h4>
-            <p>RTX-class hardware. $3,000 upfront. For the modern household.</p>
+    <section class="home-container">
+      <div class="hardware-showcase reveal">
+        <div class="hardware-text">
+          <div class="howard-box-mockup">
+            <i class="ti ti-home-heart" style="font-size: 2.5rem; color: #fff;"></i>
           </div>
-          <div class="bento-card span-4 reveal">
-            <h4 class="y-text">Howard Pro</h4>
-            <p>Mid-tier GPU server. $6,000 upfront. For boutique firms and brokerages.</p>
-          </div>
-          <div class="bento-card span-4 reveal">
-            <h4 class="y-text">Howard Enterprise</h4>
-            <p>DGX Spark-class. $8,000 upfront. For high-demand professional offices.</p>
-          </div>
+          <h2 style="color:var(--blk); margin-bottom: 0.5rem;">Installed in person.</h2>
+          <p style="opacity: 0.8; line-height: 1.6;">Our Houston team visits your home to install the Privacy Node, secure your network, and ensure Howard knows exactly how to help your family.</p>
+        </div>
+        <div class="hardware-image-side">
+          <img src="../installation-photo.png" alt="Installation" class="large-square-img">
         </div>
       </div>
     </section>
 
-    <section class="pro-cta">
-      <div class="pro-container reveal">
-        <h2 style="font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em;">Ready to bring Howard home?</h2>
-        <p style="color: var(--mid); max-width: 600px; margin: 1.5rem auto;">Join the waitlist for our first batch of Houston installations.</p>
-        <a href="../support/contact.html" class="btn-massive">Get in Touch</a>
+    <section class="home-container">
+      <div class="peace-section reveal">
+        <h2>Ready for a little more help?</h2>
+        <p style="margin-bottom: 2.5rem; opacity: 0.8;">Starts at $3,000 + $100/mo.</p>
+        <a href="../support/contact.html" class="btn-homey">Join the Houston Batch</a>
       </div>
     </section>
 
@@ -266,33 +281,23 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
-        <p class="footer-copyright">Copyright Placeholder — Howard AI</p>
+        <p class="footer-copyright">© 2026 Howard AI</p>
         <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
-        <div class="footer-socials">
-          <a href="https://instagram.com" target="_blank"><img src="../instagram.png" alt="Instagram"></a>
-          <a href="https://linkedin.com" target="_blank"><img src="../linkedin.png" alt="LinkedIn"></a>
-          <a href="https://x.com" target="_blank"><img src="../x.png" alt="X"></a>
-        </div>
       </div>
       <div class="footer-links-grid">
         <div class="footer-column">
           <h3>About</h3>
           <a href="../about/index.html">Overview</a>
           <a href="../about/leadership.html">Leadership</a>
-          <a href="../about/newsroom.html">Newsroom</a>
-          <a href="../about/investors.html">Investors</a>
         </div>
         <div class="footer-column">
           <h3>Store</h3>
-          <a href="../store/index.html">All Products</a>
           <a href="../store/home.html">Howard Home</a>
           <a href="../store/pro.html">Howard Pro</a>
-          <a href="../store/enterprise.html">Enterprise</a>
         </div>
         <div class="footer-column">
           <h3>Support</h3>
           <a href="../support/contact.html">Contact</a>
-          <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
         </div>
       </div>
@@ -300,29 +305,46 @@
   </footer>
 
   <script>
-    // MOBILE MENU LOGIC
+    // Header Logic
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.onclick = () => {
       mobileMenuBtn.classList.toggle('active');
       mobileMenu.classList.toggle('active');
-    });
+    };
 
-    // REVEAL ON SCROLL LOGIC
+    // Reveal Script
     const reveal = () => {
-      const reveals = document.querySelectorAll('.reveal');
-      reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-          el.classList.add('active');
-        }
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
       });
     }
     window.addEventListener('scroll', reveal);
-    reveal(); 
+    reveal();
+
+    // ROLE SCROLL LOGIC (Optimized for speed/shortness)
+    const roles = ["Personal Assistant", "Trip Planner", "Financial Consultant", "Digital Receptionist"];
+    const roleTitle = document.getElementById('dynamicRoleTitle');
+    const rolesSection = document.getElementById('rolesScrollSection');
+
+    window.addEventListener('scroll', () => {
+      const rect = rolesSection.getBoundingClientRect();
+      
+      // Calculate progress specifically while the section is in the viewport
+      // rect.top goes from window.innerHeight to -rect.height
+      const viewportHeight = window.innerHeight;
+      const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
+      
+      const index = Math.min(roles.length - 1, Math.floor(progress * roles.length));
+      
+      if (roleTitle.innerText !== roles[index]) {
+        roleTitle.style.opacity = 0;
+        setTimeout(() => {
+          roleTitle.innerText = roles[index];
+          roleTitle.style.opacity = 1;
+        }, 100); // Faster transition
+      }
+    });
   </script>
 
 </body>
