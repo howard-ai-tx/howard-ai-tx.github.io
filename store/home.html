@@ -66,29 +66,54 @@
       opacity: 0.9;
     }
 
-    /* THE VISUAL - A FRIENDLY BOX */
+    /* UPDATED HARDWARE SHOWCASE - SIDE BY SIDE */
     .hardware-showcase {
       background: var(--wht);
       border-radius: 40px;
-      padding: 4rem;
+      padding: 3rem;
       box-shadow: 0 20px 40px rgba(0,0,0,0.03);
       display: flex;
-      flex-direction: column;
+      flex-direction: row; /* Changed to row */
       align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
       margin-bottom: 100px;
       border: 1px solid var(--soft-border);
+      overflow: hidden;
+    }
+
+    .hardware-text {
+      flex: 1;
+      text-align: left; /* Left align text */
+    }
+
+    .hardware-image-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Large Square Image Placeholder */
+    .large-square-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #f0f0f0; /* Grey placeholder */
+      border-radius: 20px;
+      object-fit: cover;
+      display: block;
     }
 
     .howard-box-mockup {
-      width: 180px;
-      height: 180px;
+      width: 120px; /* Sized down slightly for side layout */
+      height: 120px;
       background: var(--y);
-      border-radius: 35px;
+      border-radius: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 15px 30px rgba(235, 199, 54, 0.2);
-      margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(235, 199, 54, 0.2);
+      margin-bottom: 1.5rem;
     }
 
     /* THE TASK BUBBLES - CONVERSATIONAL */
@@ -180,6 +205,8 @@
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
+      .hardware-showcase { flex-direction: column; text-align: center; padding: 2rem; }
+      .hardware-text { text-align: center; }
       .value-grid { grid-template-columns: 1fr; }
       .hero-home h1 { font-size: 3rem; }
     }
@@ -275,11 +302,19 @@
 
     <section class="home-container">
       <div class="hardware-showcase reveal">
-        <div class="howard-box-mockup">
-          <i class="ti ti-home-heart" style="font-size: 4rem; color: #fff;"></i>
+        
+        <div class="hardware-text">
+          <div class="howard-box-mockup">
+            <i class="ti ti-home-heart" style="font-size: 3rem; color: #fff;"></i>
+          </div>
+          <h2 style="color:var(--blk); margin-bottom: 0.5rem;">Installed in person.</h2>
+          <p style="color:var(--warm-text); font-size: 1.1rem; opacity: 0.8;">A friendly local face will set Howard up in your home, ensuring your network is secure and everything is ready to go.</p>
         </div>
-        <h2 style="color:var(--blk); margin-bottom: 0.5rem;">Installed in person.</h2>
-        <p style="color:var(--mid);">A friendly local face will set Howard up in your home.</p>
+
+        <div class="hardware-image-side">
+          <img src="../assets/installation-photo.jpg" alt="Howard Installation" class="large-square-img">
+        </div>
+
       </div>
     </section>
 
