@@ -21,18 +21,31 @@
             --howard-yellow: #EBC736;
             --black: #0D0D0D;
             --warm-grey: #2A2A2A;
+            --radius: 24px; /* The bubbly rounding variable */
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         /* --- PRODUCT PAGE SPECIFIC STYLES --- */
+        main { background-color: var(--black); }
         
-        /* Hero Section */
         .hero-pro {
-            height: 90vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 0 10%;
             background-color: var(--navy);
+            border-bottom-left-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
         }
 
         .eyebrow {
@@ -41,63 +54,66 @@
             letter-spacing: 0.2rem;
             font-size: 0.85rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero-pro h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3rem, 8vw, 5.5rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.05;
             margin-bottom: 2rem;
             color: var(--off-white);
             letter-spacing: -0.04em;
         }
 
         .hero-subtext {
-            max-width: 600px;
-            font-size: 1.25rem;
+            max-width: 550px;
+            font-size: 1.3rem;
             color: var(--silver);
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         .price-line {
             font-size: 1.5rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--off-white);
-            border-left: 3px solid var(--howard-yellow);
-            padding-left: 1.5rem;
+            border-left: 4px solid var(--howard-yellow);
+            padding: 0.5rem 0 0.5rem 1.5rem;
         }
 
         /* Scenario Section */
         .scenario {
-            padding: 120px 10%;
+            padding: 140px 10%;
             background-color: var(--black);
         }
 
         .section-label {
             color: var(--silver);
-            font-weight: 500;
-            margin-bottom: 3rem;
+            font-weight: 700;
+            margin-bottom: 3.5rem;
             display: block;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            font-size: 0.8rem;
         }
 
         .operational-log {
-            background: var(--navy);
+            background: rgba(28, 40, 51, 0.6);
             border: 1px solid var(--slate);
-            padding: 40px;
-            border-radius: 4px;
+            padding: 50px;
+            border-radius: var(--radius);
+            backdrop-filter: blur(10px);
         }
 
         .log-entry {
             display: grid;
-            grid-template-columns: 120px 1fr;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--slate);
+            grid-template-columns: 140px 1fr;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(170, 183, 184, 0.1);
+            transition: transform 0.3s ease;
         }
 
+        .log-entry:hover { transform: translateX(10px); }
         .log-entry:last-child { border-bottom: none; }
 
         .timestamp {
@@ -107,57 +123,67 @@
             font-size: 1.1rem;
         }
 
-        .task-desc { color: var(--light-gray); }
-
         .task-desc strong {
             color: var(--off-white);
             display: block;
-            margin-bottom: 4px;
-            font-size: 1.2rem;
+            margin-bottom: 6px;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
 
         /* Feature Grid */
         .features {
-            padding: 120px 10%;
-            background-color: var(--warm-grey);
+            padding: 140px 10%;
+            background-color: var(--black);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            background-color: var(--slate); 
+            gap: 24px;
         }
 
         .card {
             background-color: var(--navy);
             padding: 60px;
+            border-radius: var(--radius);
+            border: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--slate);
+            background-color: #212F3D;
         }
 
         .icon-box {
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             background-color: var(--howard-yellow);
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--black);
+            border-radius: 12px;
         }
 
         .card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
             color: var(--off-white);
             letter-spacing: -0.02em;
         }
 
-        .card p { color: var(--silver); font-size: 1.05rem; }
+        .card p { color: var(--silver); font-size: 1.1rem; line-height: 1.6; }
 
-        /* Comparison Table Fixes for Pro Page */
+        /* Comparison Table */
         .comparison-pro {
-            padding: 120px 10%;
-            background-color: var(--black);
+            padding: 140px 10%;
+            background-color: var(--navy);
+            margin: 0 5%;
+            border-radius: var(--radius);
         }
 
         .compare-table-pro {
@@ -168,71 +194,82 @@
 
         .compare-table-pro th {
             text-align: left;
-            padding: 24px;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--slate);
+            padding: 30px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--slate);
+            letter-spacing: -0.03em;
         }
 
         .compare-table-pro td {
-            padding: 24px;
-            border-bottom: 1px solid var(--slate);
+            padding: 30px;
+            border-bottom: 1px solid rgba(170, 183, 184, 0.1);
             color: var(--silver);
+            font-size: 1.1rem;
         }
 
         .row-label-pro {
             color: var(--off-white);
             font-weight: 700;
-            width: 30%;
             text-transform: uppercase;
             font-size: 0.75rem;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            width: 30%;
         }
 
         /* CTA Section */
         .cta-pro {
-            padding: 120px 10%;
+            padding: 140px 10% 180px 10%;
             background-color: var(--black);
         }
 
         .cta-box-pro {
             background-color: var(--howard-yellow);
-            padding: 80px;
+            padding: 100px 60px;
             color: var(--black);
             text-align: center;
+            border-radius: var(--radius);
+            transition: transform 0.4s ease;
         }
 
         .cta-box-pro h2 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.04em;
         }
 
         .cta-box-pro p {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
+            font-size: 1.3rem;
+            margin-bottom: 3.5rem;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 500;
         }
 
         .btn-pro {
             display: inline-block;
             background-color: var(--black);
             color: var(--off-white);
-            padding: 20px 40px;
+            padding: 24px 48px;
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-pro:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
             .grid { grid-template-columns: 1fr; }
-            .hero-pro { padding: 0 5%; }
-            .cta-box-pro { padding: 40px 20px; }
-            .cta-box-pro h2 { font-size: 2.5rem; }
+            .hero-pro { padding: 0 5%; height: auto; padding-top: 120px; padding-bottom: 80px;}
+            .comparison-pro { margin: 0; border-radius: 0; padding: 80px 5%; }
             .log-entry { grid-template-columns: 1fr; gap: 10px; }
         }
     </style>
@@ -274,212 +311,134 @@
           </div>
         </div>
       </nav>
-
       <button class="mobile-menu-btn" id="mobileMenuBtn">
         <span></span>
         <span></span>
       </button>
-
       <div class="mobile-menu" id="mobileMenu">
-        <a href="../index.html">Home</a>
-        <details>
-          <summary>About</summary>
-          <div class="mobile-submenu">
-            <a href="../about/index.html">Overview</a>
-            <a href="../about/leadership.html">Leadership</a>
-            <a href="../about/newsroom.html">Newsroom</a>
-            <a href="../about/investors.html">Investors</a>
           </div>
-        </details>
-        <details>
-          <summary>Store</summary>
-          <div class="mobile-submenu">
-            <a href="../store/index.html">All Products</a>
-            <a href="../store/home.html">Howard Home</a>
-            <a href="../store/pro.html">Howard Pro</a>
-            <a href="../store/enterprise.html">Enterprise</a>
-          </div>
-        </details>
-        <details>
-          <summary>Support</summary>
-          <div class="mobile-submenu">
-            <a href="../support/contact.html">Contact</a>
-            <a href="../support/about-support.html">About Support</a>
-            <a href="../support/faqs.html">FAQs</a>
-          </div>
-        </details>
-      </div>
     </div>
   </header>
 
   <main>
     <section class="hero-pro">
-        <span class="eyebrow">Howard Pro</span>
-        <h1>Howard, at the office.</h1>
-        <p class="hero-subtext">
-            The operational standard for Houston boutique law firms, real estate brokerages, and medical offices. 
-            A professional tool for professional environments.
-        </p>
-        <div class="price-line">
-            $6,000 upfront + $150/month
+        <div class="animate">
+            <span class="eyebrow">Howard Pro</span>
+            <h1>Howard, at the office.</h1>
+            <p class="hero-subtext">
+                The operational engine for Houston’s boutique firms. A localized, high-performance assistant built to manage teams, not just tasks.
+            </p>
+            <div class="price-line">
+                $6,000 upfront + $150/month
+            </div>
         </div>
     </section>
 
     <section class="scenario">
-        <span class="section-label">Operational Capacity</span>
-        <div class="operational-log">
+        <span class="section-label animate">Operational Multitasking</span>
+        <div class="operational-log animate">
             <div class="log-entry">
                 <div class="timestamp">09:14 AM</div>
                 <div class="task-desc">
-                    <strong>Lead Management</strong>
-                    Howard updating three agent calendars for the 2:00 PM showing at 1414 Woodway Dr.
+                    <strong>Portfolio Management</strong>
+                    Updating three agent calendars for the 2:00 PM showing at 1414 Woodway Dr.
                 </div>
             </div>
             <div class="log-entry">
                 <div class="timestamp">09:15 AM</div>
                 <div class="task-desc">
                     <strong>Client Communications</strong>
-                    Howard initiating follow-up email sequence to 14 leads from the weekend open house.
+                    Initiating automated follow-up sequence to 14 leads from the weekend open house.
                 </div>
             </div>
             <div class="log-entry">
                 <div class="timestamp">09:18 AM</div>
                 <div class="task-desc">
-                    <strong>Document Processing</strong>
-                    Howard processing inbound client intake forms for Attorney Miller.
+                    <strong>Legal Intake</strong>
+                    Howard processing and filing inbound client intake forms for Attorney Miller.
                 </div>
             </div>
             <div class="log-entry">
                 <div class="timestamp">09:20 AM</div>
                 <div class="task-desc">
-                    <strong>Medical Scheduling</strong>
-                    Howard confirming Friday’s surgical schedule with the Memorial City outpatient center.
+                    <strong>Medical Logistics</strong>
+                    Confirming Friday’s surgical schedule with the Memorial City outpatient center.
                 </div>
             </div>
         </div>
     </section>
 
     <section class="features">
-        <span class="section-label">Pro Features</span>
+        <span class="section-label animate">Performance Architecture</span>
         <div class="grid">
-            <div class="card">
+            <div class="card animate">
                 <div class="icon-box"><i class="ti ti-users"></i></div>
                 <h3>Team Permissions</h3>
-                <p>Role-based access controls. Assign Howard to specific departments while maintaining strict internal data boundaries and privacy tiers.</p>
+                <p>Role-based access. Deploy Howard across your entire office while maintaining strict data silos for different departments.</p>
             </div>
-            <div class="card">
-                <div class="icon-box"><i class="ti ti-settings-automation"></i></div>
+            <div class="card animate" style="animation-delay: 0.1s;">
+                <div class="icon-box"><i class="ti ti-plug"></i></div>
                 <h3>Workflow Integrations</h3>
-                <p>Direct connectivity to Houston business stacks—CRM, project management, and local webhooks. Howard lives where you work.</p>
+                <p>Native connectivity to Houston business stacks—CRM, PM tools, and local webhooks. No cloud middleware required.</p>
             </div>
-            <div class="card">
-                <div class="icon-box"><i class="ti ti-phone-call"></i></div>
+            <div class="card animate" style="animation-delay: 0.2s;">
+                <div class="icon-box"><i class="ti ti-device-landline-phone"></i></div>
                 <h3>Dedicated Office Line</h3>
-                <p>A separate professional line for your business Howard. Employees call or text the office assistant directly from the field.</p>
+                <p>A persistent 713 or 281 area code for your assistant. Your staff calls or texts the office Howard directly from the field.</p>
             </div>
-            <div class="card">
-                <div class="icon-box"><i class="ti ti-shield-lock"></i></div>
+            <div class="card animate" style="animation-delay: 0.3s;">
+                <div class="icon-box"><i class="ti ti-wallet"></i></div>
                 <h3>Spending Controls</h3>
-                <p>Howard manages a dedicated debit account with configurable limits. Utilize our "Trust Ladder" system to unlock higher tiers for office procurement and travel.</p>
+                <p>Equip Howard with a managed spending account. Use the Trust Ladder system to automate procurement and travel bookings.</p>
             </div>
         </div>
     </section>
 
-    <section class="comparison-pro">
-        <span class="section-label">Compare Models</span>
+    <section class="comparison-pro animate">
         <table class="compare-table-pro">
             <thead>
                 <tr>
-                    <th style="width: 25%;"></th>
-                    <th>Howard Home</th>
-                    <th>Howard Pro</th>
+                    <th style="width: 35%;">Specifications</th>
+                    <th>Home</th>
+                    <th style="color: var(--howard-yellow);">Pro</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="row-label-pro">Hardware</td>
-                    <td>RTX-Class Unit</td>
-                    <td>Mid-Tier GPU Server</td>
+                    <td class="row-label-pro">Hardware Class</td>
+                    <td>RTX-Class</td>
+                    <td>Mid-Tier Server</td>
                 </tr>
                 <tr>
-                    <td class="row-label-pro">Access Model</td>
-                    <td>Single Household</td>
-                    <td>Multi-User / Permissions</td>
+                    <td class="row-label-pro">Primary Use</td>
+                    <td>Household</td>
+                    <td>Small Business</td>
                 </tr>
                 <tr>
-                    <td class="row-label-pro">Integrations</td>
-                    <td>Standard Consumer APIs</td>
-                    <td>Custom CRM & Local Webhooks</td>
+                    <td class="row-label-pro">Permissions</td>
+                    <td>Standard</td>
+                    <td>Multi-User Fleet</td>
                 </tr>
                 <tr>
-                    <td class="row-label-pro">Data Sovereignty</td>
-                    <td>Local (No Cloud)</td>
-                    <td>Local (No Cloud)</td>
-                </tr>
-                <tr>
-                    <td class="row-label-pro">Investment</td>
-                    <td>$3,000 + $100/mo</td>
-                    <td>$6,000 + $150/mo</td>
+                    <td class="row-label-pro">Hosting</td>
+                    <td>On-Site</td>
+                    <td>On-Site (Rack)</td>
                 </tr>
             </tbody>
         </table>
     </section>
 
     <section class="cta-pro">
-        <div class="cta-box-pro">
-            <h2>Let's talk about your office.</h2>
-            <p>We are currently in a controlled pilot phase for Houston businesses. Inquire today for local deployment availability.</p>
+        <div class="cta-box-pro animate">
+            <h2>Modernize your office.</h2>
+            <p>We are currently onboarding a select group of Houston businesses for our pilot phase. Secure your deployment today.</p>
             <a href="../support/contact.html" class="btn-pro">Inquire for Office Deployment</a>
         </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="../logo-dark.png" alt="Howard AI Logo" class="footer-logo">
-        <p class="footer-copyright">© 2026 — Howard AI</p>
-        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
-        <div class="footer-socials">
-          <a href="https://instagram.com" target="_blank"><i class="ti ti-brand-instagram" style="font-size: 1.5rem; color: var(--mid);"></i></a>
-          <a href="https://linkedin.com" target="_blank"><i class="ti ti-brand-linkedin" style="font-size: 1.5rem; color: var(--mid);"></i></a>
-          <a href="https://x.com" target="_blank"><i class="ti ti-brand-x" style="font-size: 1.5rem; color: var(--mid);"></i></a>
-        </div>
-      </div>
-      <div class="footer-links-grid">
-        <div class="footer-column">
-          <h3>About</h3>
-          <a href="../about/index.html">Overview</a>
-          <a href="../about/leadership.html">Leadership</a>
-          <a href="../about/newsroom.html">Newsroom</a>
-          <a href="../about/investors.html">Investors</a>
-        </div>
-        <div class="footer-column">
-          <h3>Store</h3>
-          <a href="../store/index.html">All Products</a>
-          <a href="../store/home.html">Howard Home</a>
-          <a href="../store/pro.html">Howard Pro</a>
-          <a href="../store/enterprise.html">Enterprise</a>
-        </div>
-        <div class="footer-column">
-          <h3>Support</h3>
-          <a href="../support/contact.html">Contact</a>
-          <a href="../support/about-support.html">About Support</a>
-          <a href="../support/faqs.html">FAQs</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-    });
-  </script>
+      </footer>
 
 </body>
 </html>
