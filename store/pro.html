@@ -1,103 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Howard Pro — Assistant Intelligence for Business</title>
-  
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../assets/style.css" />
-  
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Howard Pro — Howard AI</title>
+    
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../assets/style.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 
-  <style>
-    :root {
-      --y: #EBC736;
-      --blk: #0D0D0D;
-      --dark-grey: #161616;
-      --wht: #FFFFFF;
-      --pro-text: #96928C;
-      --pro-border: rgba(255, 255, 255, 0.08);
-    }
+    <style>
+        :root {
+            --navy: #1C2833;
+            --slate: #2E4053;
+            --silver: #AAB7B8;
+            --light-gray: #D5DBDB;
+            --off-white: #F4F6F6;
+            --howard-yellow: #EBC736;
+            --black: #0D0D0D;
+            --warm-grey: #2A2A2A;
+        }
 
-    .pro-page { 
-      font-family: 'DM Sans', sans-serif; 
-      background: var(--blk); 
-      color: var(--wht); 
-      overflow-x: hidden; 
-    }
+        /* --- PRODUCT PAGE SPECIFIC STYLES --- */
+        
+        /* Hero Section */
+        .hero-pro {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            background-color: var(--navy);
+        }
 
-    /* HEADER & NAV - EXACT MIRROR OF ENTERPRISE */
-    header { background: rgba(13, 13, 13, 0.9) !important; border-bottom: 1px solid var(--pro-border); }
-    .main-nav .nav-item > a { color: var(--wht) !important; }
-    .dropdown { background: var(--dark-grey) !important; border: 1px solid var(--pro-border) !important; }
-    .dropdown a { color: var(--pro-text) !important; }
-    .dropdown a:hover { color: var(--y) !important; background: rgba(255,255,255,0.05); }
+        .eyebrow {
+            color: var(--howard-yellow);
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .hero-pro h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--off-white);
+            letter-spacing: -0.04em;
+        }
 
-    /* HERO - MATCHING ENTERPRISE SPACING */
-    .hero-pro { padding: 140px 0 80px; text-align: center; }
-    .pro-tag { 
-      font-size: 0.85rem; font-weight: 700; color: var(--y); 
-      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem; display: block;
-    }
-    .hero-pro h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 2rem; }
-    .hero-pro p { font-size: 1.3rem; color: var(--pro-text); max-width: 650px; margin: 0 auto; line-height: 1.6; }
+        .hero-subtext {
+            max-width: 600px;
+            font-size: 1.25rem;
+            color: var(--silver);
+            margin-bottom: 3rem;
+        }
 
-    /* FEATURE GRID */
-    .pro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 80px 0; border-bottom: 1px solid var(--pro-border); }
-    .pro-feature h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--wht); }
-    .pro-feature p { color: var(--pro-text); line-height: 1.6; font-size: 1.05rem; }
-    .feature-icon { color: var(--y); font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+        .price-line {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--off-white);
+            border-left: 3px solid var(--howard-yellow);
+            padding-left: 1.5rem;
+        }
 
-    /* COMPARISON */
-    .pro-comparison { padding: 100px 0; }
-    .pro-comparison h2 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
-    .comp-table-pro { width: 100%; border-collapse: collapse; margin-top: 40px; }
-    .comp-table-pro th, .comp-table-pro td { padding: 1.5rem; border-bottom: 1px solid var(--pro-border); text-align: left; }
-    .comp-table-pro th { color: var(--pro-text); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .comp-table-pro td { font-size: 1.1rem; }
+        /* Scenario Section */
+        .scenario {
+            padding: 120px 10%;
+            background-color: var(--black);
+        }
 
-    /* CTA - MATCHING ENTERPRISE BOX TONE */
-    .pro-footer-cta { 
-      background: var(--y); color: var(--blk); 
-      padding: 80px 40px; border-radius: 40px; 
-      text-align: center; margin: 80px 0 120px; 
-    }
-    .pro-footer-cta h2 { font-size: 2.8rem; margin-bottom: 1rem; letter-spacing: -0.03em; }
-    .pro-footer-cta p { font-size: 1.2rem; opacity: 0.9; max-width: 500px; margin: 0 auto; }
-    .btn-dark { 
-      display: inline-block; padding: 1.2rem 2.8rem; 
-      background: var(--blk); color: var(--wht); 
-      border-radius: 100px; font-weight: 700; text-decoration: none; margin-top: 2rem;
-      transition: transform 0.2s ease;
-    }
-    .btn-dark:hover { transform: translateY(-2px); }
+        .section-label {
+            color: var(--silver);
+            font-weight: 500;
+            margin-bottom: 3rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+        }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+        .operational-log {
+            background: var(--navy);
+            border: 1px solid var(--slate);
+            padding: 40px;
+            border-radius: 4px;
+        }
 
-    @media (max-width: 768px) {
-      .pro-grid { grid-template-columns: 1fr; gap: 3rem; }
-    }
-  </style>
+        .log-entry {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--slate);
+        }
+
+        .log-entry:last-child { border-bottom: none; }
+
+        .timestamp {
+            color: var(--howard-yellow);
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .task-desc { color: var(--light-gray); }
+
+        .task-desc strong {
+            color: var(--off-white);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.2rem;
+        }
+
+        /* Feature Grid */
+        .features {
+            padding: 120px 10%;
+            background-color: var(--warm-grey);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background-color: var(--slate); 
+        }
+
+        .card {
+            background-color: var(--navy);
+            padding: 60px;
+        }
+
+        .icon-box {
+            width: 32px;
+            height: 32px;
+            background-color: var(--howard-yellow);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+        }
+
+        .card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--off-white);
+            letter-spacing: -0.02em;
+        }
+
+        .card p { color: var(--silver); font-size: 1.05rem; }
+
+        /* Comparison Table Fixes for Pro Page */
+        .comparison-pro {
+            padding: 120px 10%;
+            background-color: var(--black);
+        }
+
+        .compare-table-pro {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--off-white);
+        }
+
+        .compare-table-pro th {
+            text-align: left;
+            padding: 24px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--slate);
+        }
+
+        .compare-table-pro td {
+            padding: 24px;
+            border-bottom: 1px solid var(--slate);
+            color: var(--silver);
+        }
+
+        .row-label-pro {
+            color: var(--off-white);
+            font-weight: 700;
+            width: 30%;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* CTA Section */
+        .cta-pro {
+            padding: 120px 10%;
+            background-color: var(--black);
+        }
+
+        .cta-box-pro {
+            background-color: var(--howard-yellow);
+            padding: 80px;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .cta-box-pro h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.04em;
+        }
+
+        .cta-box-pro p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-pro {
+            display: inline-block;
+            background-color: var(--black);
+            color: var(--off-white);
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+            .hero-pro { padding: 0 5%; }
+            .cta-box-pro { padding: 40px 20px; }
+            .cta-box-pro h2 { font-size: 2.5rem; }
+            .log-entry { grid-template-columns: 1fr; gap: 10px; }
+        }
+    </style>
 </head>
 
-<body class="pro-page">
+<body>
 
   <header>
     <div class="container navbar">
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
-
       <nav class="main-nav">
-        <div class="nav-item">
-          <a href="../index.html">Home</a>
-        </div>
-
+        <div class="nav-item"><a href="../index.html">Home</a></div>
         <div class="nav-item">
           <a href="#">About</a>
           <div class="dropdown">
@@ -107,7 +256,6 @@
             <a href="../about/investors.html">Investors</a>
           </div>
         </div>
-
         <div class="nav-item">
           <a href="#">Store</a>
           <div class="dropdown">
@@ -117,7 +265,6 @@
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
         </div>
-
         <div class="nav-item">
           <a href="#">Support</a>
           <div class="dropdown">
@@ -162,95 +309,143 @@
           </div>
         </details>
       </div>
-
     </div>
   </header>
 
-  <main class="container">
+  <main>
     <section class="hero-pro">
-      <span class="pro-tag reveal">Professional Grade</span>
-      <h1 class="reveal">Howard, at the office.</h1>
-      <p class="reveal">A dedicated hardware node for law firms, real estate brokerages, and local agencies who need professional-grade automation without the cloud security risk.</p>
+        <span class="eyebrow">Howard Pro</span>
+        <h1>Howard, at the office.</h1>
+        <p class="hero-subtext">
+            The operational standard for Houston boutique law firms, real estate brokerages, and medical offices. 
+            A professional tool for professional environments.
+        </p>
+        <div class="price-line">
+            $6,000 upfront + $150/month
+        </div>
     </section>
 
-    <section class="pro-grid">
-      <div class="pro-feature reveal">
-        <i class="ti ti-briefcase feature-icon"></i>
-        <h3>Multi-User Intelligence</h3>
-        <p>A single Pro Node supports your entire team. Howard distinguishes between voices and permissions, ensuring staff only access the data relevant to their role.</p>
-      </div>
-      <div class="pro-feature reveal">
-        <i class="ti ti-lock feature-icon"></i>
-        <h3>Privileged Data Isolation</h3>
-        <p>For firms handling sensitive client information, Howard Pro operates entirely within your office walls. No client transcripts or case details ever touch a third-party cloud.</p>
-      </div>
-      <div class="pro-feature reveal">
-        <i class="ti ti-calendar-event feature-icon"></i>
-        <h3>Operational Scale</h3>
-        <p>From managing high-volume listing inquiries to drafting initial legal briefs and coordinating multi-calendar schedules, Pro handles the heavy lifting of a busy office.</p>
-      </div>
-      <div class="pro-feature reveal">
-        <i class="ti ti-tool feature-icon"></i>
-        <h3>Local Installation</h3>
-        <p>Our Houston technicians handle the complete setup. We integrate Howard with your existing local server or office network to ensure a seamless transition.</p>
-      </div>
+    <section class="scenario">
+        <span class="section-label">Operational Capacity</span>
+        <div class="operational-log">
+            <div class="log-entry">
+                <div class="timestamp">09:14 AM</div>
+                <div class="task-desc">
+                    <strong>Lead Management</strong>
+                    Howard updating three agent calendars for the 2:00 PM showing at 1414 Woodway Dr.
+                </div>
+            </div>
+            <div class="log-entry">
+                <div class="timestamp">09:15 AM</div>
+                <div class="task-desc">
+                    <strong>Client Communications</strong>
+                    Howard initiating follow-up email sequence to 14 leads from the weekend open house.
+                </div>
+            </div>
+            <div class="log-entry">
+                <div class="timestamp">09:18 AM</div>
+                <div class="task-desc">
+                    <strong>Document Processing</strong>
+                    Howard processing inbound client intake forms for Attorney Miller.
+                </div>
+            </div>
+            <div class="log-entry">
+                <div class="timestamp">09:20 AM</div>
+                <div class="task-desc">
+                    <strong>Medical Scheduling</strong>
+                    Howard confirming Friday’s surgical schedule with the Memorial City outpatient center.
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="pro-comparison reveal">
-      <h2>Capacity comparison.</h2>
-      <table class="comp-table-pro">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Howard Home</th>
-            <th>Howard Pro</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Intended Use</td>
-            <td>Residential / Personal</td>
-            <td>Commercial / Professional</td>
-          </tr>
-          <tr>
-            <td>User Accounts</td>
-            <td>1 Household</td>
-            <td>Full Office Team</td>
-          </tr>
-          <tr>
-            <td>Custom Workflows</td>
-            <td>Smart Home / Personal Finance</td>
-            <td>B2B CRM / CRM Integration</td>
-          </tr>
-          <tr>
-            <td>Support Priority</td>
-            <td>Standard</td>
-            <td>Professional Batch Priority</td>
-          </tr>
-        </tbody>
-      </table>
+    <section class="features">
+        <span class="section-label">Pro Features</span>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><i class="ti ti-users"></i></div>
+                <h3>Team Permissions</h3>
+                <p>Role-based access controls. Assign Howard to specific departments while maintaining strict internal data boundaries and privacy tiers.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i class="ti ti-settings-automation"></i></div>
+                <h3>Workflow Integrations</h3>
+                <p>Direct connectivity to Houston business stacks—CRM, project management, and local webhooks. Howard lives where you work.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i class="ti ti-phone-call"></i></div>
+                <h3>Dedicated Office Line</h3>
+                <p>A separate professional line for your business Howard. Employees call or text the office assistant directly from the field.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i class="ti ti-shield-lock"></i></div>
+                <h3>Spending Controls</h3>
+                <p>Howard manages a dedicated debit account with configurable limits. Utilize our "Trust Ladder" system to unlock higher tiers for office procurement and travel.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="pro-footer-cta reveal">
-      <h2>Let's talk about your office.</h2>
-      <p>We are currently accepting inquiries for our next local installation batch in the Houston area.</p>
-      <a href="../support/contact.html" class="btn-dark">Contact our Team</a>
+    <section class="comparison-pro">
+        <span class="section-label">Compare Models</span>
+        <table class="compare-table-pro">
+            <thead>
+                <tr>
+                    <th style="width: 25%;"></th>
+                    <th>Howard Home</th>
+                    <th>Howard Pro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="row-label-pro">Hardware</td>
+                    <td>RTX-Class Unit</td>
+                    <td>Mid-Tier GPU Server</td>
+                </tr>
+                <tr>
+                    <td class="row-label-pro">Access Model</td>
+                    <td>Single Household</td>
+                    <td>Multi-User / Permissions</td>
+                </tr>
+                <tr>
+                    <td class="row-label-pro">Integrations</td>
+                    <td>Standard Consumer APIs</td>
+                    <td>Custom CRM & Local Webhooks</td>
+                </tr>
+                <tr>
+                    <td class="row-label-pro">Data Sovereignty</td>
+                    <td>Local (No Cloud)</td>
+                    <td>Local (No Cloud)</td>
+                </tr>
+                <tr>
+                    <td class="row-label-pro">Investment</td>
+                    <td>$3,000 + $100/mo</td>
+                    <td>$6,000 + $150/mo</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="cta-pro">
+        <div class="cta-box-pro">
+            <h2>Let's talk about your office.</h2>
+            <p>We are currently in a controlled pilot phase for Houston businesses. Inquire today for local deployment availability.</p>
+            <a href="../support/contact.html" class="btn-pro">Inquire for Office Deployment</a>
+        </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
-        <p class="footer-copyright">© 2026 Howard AI</p>
+        <img src="../logo-dark.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">© 2026 — Howard AI</p>
         <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
         <div class="footer-socials">
-          <a href="https://instagram.com" target="_blank"><img src="https://api.iconify.design/ri:instagram-fill.svg?color=white" alt="Instagram" style="width:24px;"></a>
-          <a href="https://linkedin.com" target="_blank"><img src="https://api.iconify.design/ri:linkedin-box-fill.svg?color=white" alt="LinkedIn" style="width:24px;"></a>
-          <a href="https://x.com" target="_blank"><img src="https://api.iconify.design/ri:twitter-x-fill.svg?color=white" alt="X" style="width:24px;"></a>
+          <a href="https://instagram.com" target="_blank"><i class="ti ti-brand-instagram" style="font-size: 1.5rem; color: var(--mid);"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="ti ti-brand-linkedin" style="font-size: 1.5rem; color: var(--mid);"></i></a>
+          <a href="https://x.com" target="_blank"><i class="ti ti-brand-x" style="font-size: 1.5rem; color: var(--mid);"></i></a>
         </div>
       </div>
-
       <div class="footer-links-grid">
         <div class="footer-column">
           <h3>About</h3>
@@ -279,20 +474,11 @@
   <script>
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenuBtn.classList.toggle('active');
       mobileMenu.classList.toggle('active');
     });
-
-    const reveal = () => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    }
-    window.addEventListener('scroll', reveal);
-    reveal();
   </script>
 
 </body>
