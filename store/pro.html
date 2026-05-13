@@ -3,347 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Howard Home — Assistant Intelligence</title>
+  <title>Howard Pro — Unrestricted Intelligence</title>
   
-  <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../assets/style.css" />
-  
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 
   <style>
     :root {
-      --y:#EBC736;
-      --blk:#0D0D0D;
-      --wht:#FFFFFF;
-      --warm-text:#4A4439;
-      --off-warm:#F9F7F2; 
-      --soft-border: rgba(74, 68, 57, 0.08);
-      --mid: #888;
+      --pro-gold: #FFC107;
+      --pro-orange: #FF5722;
+      --bg: #050505;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
 
-    .home-page { font-family:'DM Sans', sans-serif; background: var(--off-warm); color: var(--warm-text); overflow-x: hidden; }
-    .home-container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-
-    /* HERO */
-    .hero-home { padding: 120px 0 80px; text-align: center; }
-    .home-badge { display: inline-block; padding: 0.5rem 1.2rem; background: var(--wht); border: 1px solid var(--soft-border); border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: var(--y); margin-bottom: 2rem; }
-    .hero-home h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--blk); margin-bottom: 1.5rem; }
-    .hero-home p { font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin: 0 auto 3rem; opacity: 0.9; }
-
-    /* CARD: CHAT STREAM */
-    .conversation-stream { display: flex; flex-direction: column; gap: 1.5rem; max-width: 700px; margin: 0 auto 120px; }
-    .bubble { padding: 1.25rem 1.75rem; border-radius: 25px; font-size: 1.1rem; line-height: 1.4; max-width: 75%; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
-    .bubble.user { background: var(--wht); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--soft-border); }
-    .bubble.howard { background: var(--y); color: var(--blk); align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
-
-    /* CARD: COMMUNICATION GATEWAYS */
-    .methods-grid-section { background: var(--wht); border-radius: 40px; padding: 5rem 4rem; border: 1px solid var(--soft-border); margin-bottom: 120px; text-align: center; }
-    .methods-grid-section h2 { font-size: 2.2rem; color: var(--blk); margin-bottom: 3.5rem; letter-spacing: -0.02em; }
-    .logo-cloud { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 3rem; align-items: center; }
-    .logo-item { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
-    .logo-item i, .logo-item img { font-size: 35px; height: 35px; color: var(--warm-text); }
-    .logo-item span { font-size: 0.85rem; font-weight: 600; opacity: 0.7; }
-
-    /* UPDATED: ROLES (FASTER SCROLL) */
-    .roles-section { height: 60vh; display: flex; justify-content: center; position: relative; margin-bottom: 100px; }
-    .roles-container { position: sticky; top: 45%; text-align: center; width: 100%; height: fit-content; }
-    .roles-intro { font-size: 1rem; color: var(--mid); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-    .role-title { font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 700; color: var(--blk); transition: opacity 0.2s ease; }
-
-    /* CARD: COMPARISON TABLE */
-    .comparison-section { margin-bottom: 120px; background: var(--wht); padding: 4rem; border-radius: 40px; border: 1px solid var(--soft-border); }
-    .comparison-section h2 { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; }
-    .comp-table { width: 100%; border-collapse: collapse; text-align: left; }
-    .comp-table th, .comp-table td { padding: 1.5rem; border-bottom: 1px solid var(--soft-border); }
-    .comp-table th { font-weight: 700; color: var(--blk); }
-    .comp-table i { color: var(--y); font-size: 1.2rem; }
-
-    /* CARD: INSTALLED IN PERSON (SIDE-BY-SIDE) */
-    .hardware-showcase { background: var(--wht); border-radius: 40px; padding: 3rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 3rem; margin-bottom: 120px; border: 1px solid var(--soft-border); }
-    .hardware-text { flex: 1; text-align: left; }
-    .hardware-image-side { flex: 1; }
-    .large-square-img { width: 100%; aspect-ratio: 1/1; background: #eee; border-radius: 20px; object-fit: cover; }
-    .howard-box-mockup { width: 100px; height: 100px; background: var(--y); border-radius: 25px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-
-    /* VALUE GRID */
-    .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 120px; }
-    .value-item h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--blk); }
-    .value-item p { line-height: 1.7; font-size: 1.1rem; opacity: 0.8; }
-
-    .peace-section { background: var(--blk); color: var(--wht); padding: 100px 0; border-radius: 60px; margin-bottom: 60px; text-align: center; }
-    .btn-homey { display: inline-block; padding: 1.2rem 2.5rem; background: var(--y); color: var(--blk); border-radius: 100px; font-weight: 700; text-decoration: none; }
-
-    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 768px) {
-      .value-grid, .hardware-showcase { grid-template-columns: 1fr; flex-direction: column; }
-      .comp-table { font-size: 0.9rem; }
-      .hardware-text { text-align: center; }
-      .howard-box-mockup { margin: 0 auto 1.5rem; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
     }
+
+    /* CINEMATIC BACKGROUND */
+    .vignette {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HERO SECTION */
+    .pro-hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      perspective: 1000px;
+    }
+
+    .pro-label {
+      font-weight: 700;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--pro-gold);
+      margin-bottom: 1rem;
+      animation: tracking-in 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.9;
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: linear-gradient(to bottom, #fff 30%, var(--pro-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: translateZ(50px);
+    }
+
+    /* SCROLL INTENSITY GRID */
+    .pro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 100px 0;
+    }
+
+    .pro-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 3rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pro-card:hover {
+      transform: translateY(-20px) scale(1.02);
+      border-color: var(--pro-gold);
+      box-shadow: 0 20px 40px rgba(255, 193, 7, 0.1);
+    }
+
+    .pro-card i {
+      font-size: 3rem;
+      color: var(--pro-gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .pro-card h3 { font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase; }
+    .pro-card p { font-size: 1.1rem; opacity: 0.6; line-height: 1.6; }
+
+    /* SPEED SECTION */
+    .speed-strip {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      background: #000;
+      border-top: 1px solid var(--pro-gold);
+      border-bottom: 1px solid var(--pro-gold);
+    }
+
+    .speed-text {
+      font-size: 15vh;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+      animation: marquee 20s linear infinite;
+    }
+
+    /* CALL TO ACTION */
+    .pro-cta {
+      padding: 200px 0;
+      text-align: center;
+    }
+
+    .btn-pro {
+      padding: 1.5rem 4rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #000;
+      background: var(--pro-gold);
+      border: none;
+      cursor: pointer;
+      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-pro:hover {
+      transform: scale(1.1);
+      background: #fff;
+      box-shadow: 0 0 50px var(--pro-gold);
+    }
+
+    /* ANIMATIONS */
+    @keyframes tracking-in {
+      0% { letter-spacing: -0.5em; opacity: 0; }
+      40% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .reveal-pro { 
+      opacity: 0; 
+      transform: translateY(100px) rotateX(-20deg); 
+      transition: 1.2s cubic-bezier(0.19, 1, 0.22, 1); 
+    }
+    .reveal-pro.active { 
+      opacity: 1; 
+      transform: translateY(0) rotateX(0); 
+    }
+
   </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="container navbar">
-      <a href="../index.html" class="logo">
-        <img src="../logo-light.png" alt="Howard AI Logo">
-      </a>
-      <nav class="main-nav">
-        <div class="nav-item"><a href="../index.html">Home</a></div>
-        <div class="nav-item">
-          <a href="#">About</a>
-          <div class="dropdown">
-            <a href="../about/index.html">Overview</a>
-            <a href="../about/leadership.html">Leadership</a>
-            <a href="../about/newsroom.html">Newsroom</a>
-            <a href="../about/investors.html">Investors</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <a href="#">Store</a>
-          <div class="dropdown">
-            <a href="../store/index.html">All Products</a>
-            <a href="../store/home.html">Howard Home</a>
-            <a href="../store/pro.html">Howard Pro</a>
-            <a href="../store/enterprise.html">Enterprise</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <a href="#">Support</a>
-          <div class="dropdown">
-            <a href="../support/contact.html">Contact</a>
-            <a href="../support/about-support.html">About Support</a>
-            <a href="../support/faqs.html">FAQs</a>
-          </div>
-        </div>
-      </nav>
+  <div class="vignette"></div>
 
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <span></span><span></span>
-      </button>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="../index.html">Home</a>
-        <details>
-          <summary>About</summary>
-          <div class="mobile-submenu">
-            <a href="../about/index.html">Overview</a>
-            <a href="../about/leadership.html">Leadership</a>
-            <a href="../about/newsroom.html">Newsroom</a>
-            <a href="../about/investors.html">Investors</a>
-          </div>
-        </details>
-        <details>
-          <summary>Store</summary>
-          <div class="mobile-submenu">
-            <a href="../store/index.html">All Products</a>
-            <a href="../store/home.html">Howard Home</a>
-            <a href="../store/pro.html">Howard Pro</a>
-            <a href="../store/enterprise.html">Enterprise</a>
-          </div>
-        </details>
-        <details>
-          <summary>Support</summary>
-          <div class="mobile-submenu">
-            <a href="../support/contact.html">Contact</a>
-            <a href="../support/about-support.html">About Support</a>
-            <a href="../support/faqs.html">FAQs</a>
-          </div>
-        </details>
-      </div>
+  <section class="pro-hero">
+    <div class="container">
+      <span class="pro-label">Enterprise Grade</span>
+      <h1 class="hero-title">HOWARD<br>PRO</h1>
+      <p style="margin-top:2rem; font-size: 1.5rem; opacity: 0.5;">No Limits. No Latency. No Compromise.</p>
     </div>
-  </header>
+  </section>
 
-  <main class="home-page">
-    
-    <section class="hero-home">
-      <div class="home-container">
-        <span class="home-badge reveal">Now accepting Houston waitlist</span>
-        <h1 class="reveal">Welcome home,<br>Howard.</h1>
-        <p class="reveal">A locally-hosted AI assistant that lives in your home, keeps your secrets, and manages your life across all your favorite apps.</p>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="conversation-stream">
-        <div class="bubble user reveal">Book a 2 day trip this weekend to the Bahamas.</div>
-        <div class="bubble howard reveal">On it. I'll give you a full itinerary and purchases for review in an hour.</div>
-        <div class="bubble user reveal">Check my inbox and junk folders for any important emails and reply to them.</div>
-        <div class="bubble howard reveal">Found a priority invite from your HOA and a billing update. I've drafted replies for your approval.</div>
-        <div class="bubble user reveal">Look at my energy bill and give me some ways to save.</div>
-        <div class="bubble howard reveal">I've analyzed your usage. Switching to a night-time plan could save you $45/mo based on your HVAC habits.</div>
-      </div>
-    </section>
-
-    <section class="roles-section" id="rolesScrollSection">
-      <div class="roles-container">
-        <p class="roles-intro">Howard is your</p>
-        <span class="role-title" id="dynamicRoleTitle">Personal Assistant</span>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="methods-grid-section reveal">
-        <h2>Talk to Howard anywhere.</h2>
-        <div class="logo-cloud">
-          <div class="logo-item"><i class="ti ti-messages"></i><span>iMessage</span></div>
-          <div class="logo-item"><i class="ti ti-brand-whatsapp"></i><span>WhatsApp</span></div>
-          <div class="logo-item"><i class="ti ti-mail"></i><span>Gmail</span></div>
-          <div class="logo-item"><i class="ti ti-printer"></i><span>Fax</span></div>
-          <div class="logo-item"><i class="ti ti-brand-telegram"></i><span>Telegram</span></div>
-          <div class="logo-item"><i class="ti ti-brand-messenger"></i><span>Messenger</span></div>
-          <div class="logo-item"><i class="ti ti-cloud"></i><span>iCloud</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="comparison-section reveal">
-        <h2>How we compare.</h2>
-        <table class="comp-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Big Tech AI</th>
-              <th>Howard Home</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Data Location</td>
-              <td>Public Cloud</td>
-              <td><strong>Your Living Room</strong></td>
-            </tr>
-            <tr>
-              <td>Makes Phone Calls</td>
-              <td>No</td>
-              <td><i class="ti ti-check"></i> Yes</td>
-            </tr>
-            <tr>
-              <td>Personal Spending Card</td>
-              <td>No</td>
-              <td><i class="ti ti-check"></i> Yes</td>
-            </tr>
-            <tr>
-              <td>Privacy Model</td>
-              <td>Ad-Supported</td>
-              <td><strong>Subscription Only</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="value-grid">
-        <div class="value-item reveal">
-          <h3>Local Compute.</h3>
-          <p>The "Brain" is a physical node in your house. Your voice and data never leave your walls for training or advertising.</p>
-        </div>
-        <div class="value-item reveal">
-          <h3>Real World Action.</h3>
-          <p>Howard has his own secure spending card and phone number. He can call a plumber or buy flights so you don't have to.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="hardware-showcase reveal">
-        <div class="hardware-text">
-          <div class="howard-box-mockup">
-            <i class="ti ti-home-heart" style="font-size: 2.5rem; color: #fff;"></i>
-          </div>
-          <h2 style="color:var(--blk); margin-bottom: 0.5rem;">Installed in person.</h2>
-          <p style="opacity: 0.8; line-height: 1.6;">Our Houston team visits your home to install the Privacy Node, secure your network, and ensure Howard knows exactly how to help your family.</p>
-        </div>
-        <div class="hardware-image-side">
-          <img src="../installation-photo.png" alt="Installation" class="large-square-img">
-        </div>
-      </div>
-    </section>
-
-    <section class="home-container">
-      <div class="peace-section reveal">
-        <h2>Ready for a little more help?</h2>
-        <p style="margin-bottom: 2.5rem; opacity: 0.8;">Starts at $3,000 + $100/mo.</p>
-        <a href="../support/contact.html" class="btn-homey">Join the Houston Batch</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
-        <p class="footer-copyright">© 2026 Howard AI</p>
-        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
-      </div>
-      <div class="footer-links-grid">
-        <div class="footer-column">
-          <h3>About</h3>
-          <a href="../about/index.html">Overview</a>
-          <a href="../about/leadership.html">Leadership</a>
-        </div>
-        <div class="footer-column">
-          <h3>Store</h3>
-          <a href="../store/home.html">Howard Home</a>
-          <a href="../store/pro.html">Howard Pro</a>
-        </div>
-        <div class="footer-column">
-          <h3>Support</h3>
-          <a href="../support/contact.html">Contact</a>
-          <a href="../support/faqs.html">FAQs</a>
-        </div>
-      </div>
+  <div class="speed-strip">
+    <div class="speed-text">
+      UNRESTRICTED COMPUTE • 0.2ms LATENCY • 100GB CONTEXT • BATTLE TESTED • LOCAL FOREVER • 
+      UNRESTRICTED COMPUTE • 0.2ms LATENCY • 100GB CONTEXT • BATTLE TESTED • LOCAL FOREVER • 
     </div>
-  </footer>
+  </div>
+
+  <section class="container">
+    <div class="pro-grid">
+      
+      <div class="pro-card reveal-pro">
+        <i class="ti ti-bolt"></i>
+        <h3>Overclocked Compute</h3>
+        <p>Pro runs on dual-redundant NVIDIA local nodes. It doesn't just respond; it anticipates. Process 50,000 words in seconds.</p>
+      </div>
+
+      <div class="pro-card reveal-pro">
+        <i class="ti ti-shield-lock"></i>
+        <h3>Air-Gapped Security</h3>
+        <p>The highest privacy standard on earth. Howard Pro can operate entirely without an internet connection, permanently.</p>
+      </div>
+
+      <div class="pro-card reveal-pro">
+        <i class="ti ti-world-cog"></i>
+        <h3>Custom Integrations</h3>
+        <p>API access to your legacy software, custom CRM hooks, and automated voice-line switching for business operations.</p>
+      </div>
+
+      <div class="pro-card reveal-pro">
+        <i class="ti ti-drone"></i>
+        <h3>Fleet Management</h3>
+        <p>Deploy Howard across multiple properties or offices. Sync memory and preferences across your entire network instantly.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="pro-cta reveal-pro">
+    <h2 style="font-size: 4rem; margin-bottom: 3rem;">ASCEND TO PRO.</h2>
+    <button class="btn-pro">Secure Your Node</button>
+    <p style="margin-top: 2rem; opacity: 0.4;">Installation begins Q3 2026 • Bespoke Hardware Included</p>
+  </section>
 
   <script>
-    // Header Logic
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuBtn.onclick = () => {
-      mobileMenuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
+    // INTENSE REVEAL LOGIC
+    const revealPro = () => {
+      const elements = document.querySelectorAll('.reveal-pro');
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('active');
+        }
+      });
     };
 
-    // Reveal Script
-    const reveal = () => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+    window.addEventListener('scroll', revealPro);
+    revealPro();
+
+    // MOUSE TILT EFFECT FOR CARDS
+    document.querySelectorAll('.pro-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
       });
-    }
-    window.addEventListener('scroll', reveal);
-    reveal();
 
-    // ROLE SCROLL LOGIC (Optimized for speed/shortness)
-    const roles = ["Personal Assistant", "Trip Planner", "Financial Consultant", "Digital Receptionist"];
-    const roleTitle = document.getElementById('dynamicRoleTitle');
-    const rolesSection = document.getElementById('rolesScrollSection');
-
-    window.addEventListener('scroll', () => {
-      const rect = rolesSection.getBoundingClientRect();
-      
-      // Calculate progress specifically while the section is in the viewport
-      // rect.top goes from window.innerHeight to -rect.height
-      const viewportHeight = window.innerHeight;
-      const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
-      
-      const index = Math.min(roles.length - 1, Math.floor(progress * roles.length));
-      
-      if (roleTitle.innerText !== roles[index]) {
-        roleTitle.style.opacity = 0;
-        setTimeout(() => {
-          roleTitle.innerText = roles[index];
-          roleTitle.style.opacity = 1;
-        }, 100); // Faster transition
-      }
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+      });
     });
   </script>
 
