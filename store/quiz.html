@@ -1,1 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howard Quiz — Howard AI</title>
+  
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="stylesheet" href="../assets/style.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
+  <style>
+    /* Quiz Specific Framework Extensions */
+    .quiz-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 8rem 1.5rem;
+    }
+
+    .quiz-card {
+      background: #FFFFFF;
+      border: 1px solid #ECECEC;
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quiz-step {
+      display: none;
+    }
+
+    .quiz-step.active {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .quiz-step h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: #0D0D0D;
+    }
+
+    .quiz-step .step-subtitle {
+      color: #888888;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Option Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .option-item {
+      border: 2px solid #ECECEC;
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #0D0D0D;
+    }
+
+    .option-item:hover {
+      border-color: #EBC736;
+      background: #F9F7F2;
+    }
+
+    .option-item.selected {
+      border-color: #EBC736;
+      background: #F9F7F2;
+      box-shadow: inset 0 0 0 1px #EBC736;
+    }
+
+    .option-item::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border: 2px solid #CCC;
+      border-radius: 50%;
+      margin-right: 1rem;
+      display: inline-block;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .option-item.selected::before {
+      border-color: #0D0D0D;
+      background: #EBC736;
+    }
+
+    /* Select Dropdown styling for Location */
+    .quiz-select {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      border: 2px solid #ECECEC;
+      border-radius: 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      background: #FFFFFF;
+      color: #0D0D0D;
+      outline: none;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230D0D0D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+      background-repeat: no-repeat;
+      background-position: right 1.5rem center;
+      background-size: 1.2rem;
+    }
+
+    .quiz-select:focus {
+      border-color: #EBC736;
+    }
+
+    /* Custom Action Elements */
+    .quiz-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: auto;
+    }
+
+    .quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      background: #0D0D0D;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .quiz-btn:disabled {
+      background: #EAEAEA;
+      color: #888888;
+      cursor: not-allowed;
+      transform: none;
+      opacity: 1;
+    }
+
+    /* Results Layout styling */
+    .result-badge {
+      display: inline-block;
+      background: #F9F7F2;
+      border: 1px solid #EBC736;
+      color: #0D0D0D;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .result-why {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #4A4439;
+      margin-bottom: 2.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a href="../index.html" class="logo">
+        <img src="../logo-light.png" alt="Howard AI Logo">
+      </a>
+
+      <nav class="main-nav">
+        <div class="nav-item"><a href="../index.html">Home</a></div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="../about/index.html">Overview</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Store</a>
+          <div class="dropdown">
+            <a href="../store/index.html">All Products</a>
+            <a href="../store/home.html">Howard Home</a>
+            <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Support</a>
+          <div class="dropdown">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </div>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <details>
+          <summary>About</summary>
+          <div class="mobile-submenu">
+            <a href="../about/index.html">Overview</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </details>
+        <details>
+          <summary>Store</summary>
+          <div class="mobile-submenu">
+            <a href="../store/index.html">All Products</a>
+            <a href="../store/home.html">Howard Home</a>
+            <a href="../store/pro.html">Howard Pro</a>
+            <a href="../store/enterprise.html">Enterprise</a>
+          </div>
+        </details>
+        <details>
+          <summary>Support</summary>
+          <div class="mobile-submenu">
+            <a href="../support/contact.html">Contact</a>
+            <a href="../support/about-support.html">About Support</a>
+            <a href="../support/faqs.html">FAQs</a>
+          </div>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-tag">Interactive Matchmaker</div>
+      <h1>Find your perfect<br>Howard deployment.</h1>
+      <p>Answer four simple questions about your space, operational needs, and workflow parameters to instantly evaluate your hardware profile.</p>
+    </div>
+  </section>
+
+  <main class="quiz-container">
+    <div class="quiz-card">
+
+      <div class="quiz-step active" id="step-start">
+        <h2>Evaluate Your Infrastructure</h2>
+        <p class="step-subtitle">This short multi-step guide aligns your data capacity, isolation requirements, and target workflows with the appropriate local physical hardware build.</p>
+        <div class="quiz-actions">
+          <button class="quiz-btn" onclick="nextStep('start')">Begin Evaluation</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="step-q1">
+        <h2>Where will Howard live?</h2>
+        <p class="step-subtitle">Select the primary environment where your local hardware tier will be installed.</p>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption('q1', 'home', this)">In my home (Personal use, family coordination, residential automations)</div>
+          <div class="option-item" onclick="selectOption('q1', 'business', this)">In my workspace (Growing team, professional business, active operations)</div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-btn" id="btn-q1" disabled onclick="nextStep('q1')">Continue</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="step-q2">
+        <h2>What is your primary focus?</h2>
+        <p class="step-subtitle">Identify the foundational metric driving your decision to host local artificial intelligence.</p>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption('q2', 'privacy', this)">Strict Data Privacy (Zero outside endpoints, data must never leave the room)</div>
+          <div class="option-item" onclick="selectOption('q2', 'execution', this)">Autonomous Action (Booking flights, emailing clients, real task completions)</div>
+          <div class="option-item" onclick="selectOption('q2', 'fleet', this)">Multi-User Access (Entire family or professional workforce using a shared core)</div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-btn" id="btn-q2" disabled onclick="nextStep('q2')">Continue</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="step-q3">
+        <h2>How will expenses be managed?</h2>
+        <p class="step-subtitle">Define Howard's relationship with transactional spending parameters.</p>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption('q3', 'none', this)">Pure Logistics & Admin (No transactional capability required)</div>
+          <div class="option-item" onclick="selectOption('q3', 'controlled', this)">Regulated Spending Limits (Equipped with a managed card and active trust ladder)</div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-btn" id="btn-q3" disabled onclick="nextStep('q3')">Continue</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="step-q4">
+        <h2>Where in Houston are you?</h2>
+        <p class="step-subtitle">Select your geographic region to calculate local hardware transit availability.</p>
+        
+        <select class="quiz-select" id="q4-select" onchange="checkDropdownSelection()">
+          <option value="" disabled selected>Select your location...</option>
+          <option value="woodlands">The Woodlands</option>
+          <option value="river-oaks">River Oaks / Inner Loop</option>
+          <option value="memorial">Memorial</option>
+          <option value="sugar-land">Sugar Land</option>
+          <option value="katy">Katy</option>
+          <option value="other">Other Greater Houston Area</option>
+        </select>
+
+        <div class="quiz-actions">
+          <button class="quiz-btn" id="btn-q4" disabled onclick="calculateResults()">Complete Evaluation</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="step-result">
+        <div id="result-badge-container"></div>
+        <h2 id="result-title">Your Optimal Tier Build</h2>
+        <p class="step-subtitle" style="margin-bottom:1rem; font-weight:700; color:#0D0D0D;" id="result-meta"></p>
+        <div class="result-why" id="result-explanation"></div>
+        <div class="quiz-actions">
+          <a href="#" class="quiz-btn" id="result-link">Go to Product Build</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="../logo-light.png" alt="Howard AI Logo" class="footer-logo">
+        <p class="footer-copyright">Copyright 2026 — Howard AI</p>
+        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank"><img src="../instagram.png" alt="Instagram"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="../linkedin.png" alt="LinkedIn"></a>
+          <a href="https://x.com" target="_blank"><img src="../x.png" alt="X"></a>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h3>About</h3>
+          <a href="../about/index.html">Overview</a>
+          <a href="../about/leadership.html">Leadership</a>
+          <a href="../about/newsroom.html">Newsroom</a>
+          <a href="../about/investors.html">Investors</a>
+        </div>
+        <div class="footer-column">
+          <h3>Store</h3>
+          <a href="../store/index.html">All Products</a>
+          <a href="../store/home.html">Howard Home</a>
+          <a href="../store/pro.html">Howard Pro</a>
+          <a href="../store/enterprise.html">Enterprise</a>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <a href="../support/contact.html">Contact</a>
+          <a href="../support/about-support.html">About Support</a>
+          <a href="../support/faqs.html">FAQs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Logic Configuration & Selections Repository
+    const quizAnswers = {
+      q1: null,
+      q2: null,
+      q3: null,
+      q4: null
+    };
+
+    // Navigation Step Engine
+    function nextStep(currentId) {
+      document.getElementById('step-' + currentId).classList.remove('active');
+      
+      let nextId = '';
+      if(currentId === 'start') nextId = 'q1';
+      else if(currentId === 'q1') nextId = 'q2';
+      else if(currentId === 'q2') nextId = 'q3';
+      else if(currentId === 'q3') nextId = 'q4';
+
+      document.getElementById('step-' + nextId).classList.add('active');
+    }
+
+    // Card Option Tracking 
+    function selectOption(questionKey, choiceValue, element) {
+      // Clear previous choices in this option grid box
+      const parentGrid = element.parentElement;
+      const items = parentGrid.querySelectorAll('.option-item');
+      items.forEach(item => item.classList.remove('selected'));
+
+      // Save choice and light up item
+      element.classList.add('selected');
+      quizAnswers[questionKey] = choiceValue;
+
+      // Unlock active confirmation button
+      document.getElementById('btn-' + questionKey).removeAttribute('disabled');
+    }
+
+    // Qualification Dropdown validation
+    function checkDropdownSelection() {
+      const dropdown = document.getElementById('q4-select');
+      if(dropdown.value !== "") {
+        quizAnswers.q4 = dropdown.value;
+        document.getElementById('btn-q4').removeAttribute('disabled');
+      }
+    }
+
+    // Custom Assessment Engine
+    function calculateResults() {
+      document.getElementById('step-q4').remove('active');
+      
+      let finalizedTier = 'home'; // Fallback Baseline
+      let whyExplanation = '';
+      let productName = '';
+      let productSlug = '';
+      let priceMeta = '';
+
+      // Determine regional tag string for personalized injection
+      const rawLocation = quizAnswers.q4;
+      let prettyLocation = 'Houston';
+      if (rawLocation === 'woodlands') prettyLocation = 'The Woodlands';
+      else if (rawLocation === 'river-oaks') prettyLocation = 'River Oaks';
+      else if (rawLocation === 'memorial') prettyLocation = 'Memorial';
+      else if (rawLocation === 'sugar-land') prettyLocation = 'Sugar Land';
+      else if (rawLocation === 'katy') prettyLocation = 'Katy';
+
+      // Core Scoring Matrix Routing Loop
+      if (quizAnswers.q1 === 'home') {
+        // Residential Profile Routing
+        finalizedTier = 'home';
+        productName = 'Howard Home';
+        productSlug = 'home.html';
+        priceMeta = '$3,000 Upfront / $100mo';
+        
+        whyExplanation = `Based on your profile, you need a system optimized for a single household infrastructure in <strong>${prettyLocation}</strong>. Howard Home deploys an RTX-class hardware core directly into your structural framework, perfectly balancing energy consumption and response performance. Because you highlighted <strong>${quizAnswers.q2 === 'privacy' ? 'Data Privacy' : quizAnswers.q2 === 'execution' ? 'Autonomous Action' : 'Multi-User Coordination'}</strong>, Howard's air-gapped environment handles household tasks, calendar adjustments, and transactional operations ${quizAnswers.q3 === 'controlled' ? 'using an independent safety credit/debit trust pipeline' : 'privately'} without passing data through external clouds.`;
+
+      } else {
+        // Commercial / Institutional Workplace Profile Routing
+        if (quizAnswers.q2 === 'privacy' || quizAnswers.q3 === 'controlled') {
+          // Complex data governance or deep balance sheets flag Enterprise tier
+          finalizedTier = 'enterprise';
+          productName = 'Howard Enterprise';
+          productSlug = 'enterprise.html';
+          priceMeta = '$8,000 Upfront / $200mo';
+
+          whyExplanation = `Your office environment demands institutional-grade data safeguards and extensive workflow coordination. We suggest the <strong>Howard Enterprise</strong> architecture for your site in <strong>${prettyLocation}</strong>. Running on a DGX Spark-class hardware configuration, it easily isolates highly sensitive data footprints. It offers complete structural insulation with direct fleet authorization controls, making it perfect for your company's focus on strict operations and secure transaction management.`;
+        } else {
+          // Standard business operational environments match Pro tier
+          finalizedTier = 'pro';
+          productName = 'Howard Pro';
+          productSlug = 'pro.html';
+          priceMeta = '$6,000 Upfront / $150mo';
+
+          whyExplanation = `For your growing business structure in <strong>${prettyLocation}</strong>, we recommend the <strong>Howard Pro</strong> tier. This build deploys a dedicated mid-tier GPU server system directly at your workplace. This provides the processing capacity needed for multi-user coordination and real-world task execution without relying on unstable third-party cloud data farms. This setup gives your staff a secure, reliable communication backbone to text commands from anywhere.`;
+        }
+      }
+
+      // Dynamic view construction for output page injection
+      document.getElementById('result-badge-container').innerHTML = `<span class="result-badge">${productName} Match</span>`;
+      document.getElementById('result-title').innerText = productName + '.';
+      document.getElementById('result-meta').innerText = priceMeta;
+      document.getElementById('result-explanation').innerHTML = whyExplanation;
+      
+      const targetBtn = document.getElementById('result-link');
+      targetBtn.setAttribute('href', productSlug);
+      targetBtn.innerText = `Configure Your ${productName}`;
+
+      // Transition frame to active view state
+      document.getElementById('step-q4').classList.remove('active');
+      document.getElementById('step-result').classList.add('active');
+    }
+
+    // Mobil navbar execution handles
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
