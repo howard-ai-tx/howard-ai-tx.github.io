@@ -313,6 +313,35 @@ header {
   color: var(--primary);
 }
 
+.quiz-banner p {
+  font-size: 1.1rem;
+  color: var(--blk);
+  margin: 0;
+  font-weight: 500;
+}
+
+.quiz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+
+  background: var(--y);
+  color: var(--blk);
+
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.quiz-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
 /* ---------- GRID ---------- */
 
 .grid {
