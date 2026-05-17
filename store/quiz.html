@@ -436,8 +436,6 @@
 
     // Custom Assessment Engine
     function calculateResults() {
-      document.getElementById('step-q4').remove('active');
-      
       let finalizedTier = 'home'; // Fallback Baseline
       let whyExplanation = '';
       let productName = '';
@@ -494,12 +492,12 @@
       targetBtn.setAttribute('href', productSlug);
       targetBtn.innerText = `Configure Your ${productName}`;
 
-      // Transition frame to active view state
+      // Corrected Transition Engine: removes the active state safely using classList
       document.getElementById('step-q4').classList.remove('active');
       document.getElementById('step-result').classList.add('active');
     }
 
-    // Mobil navbar execution handles
+    // Mobile navbar execution handles
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
