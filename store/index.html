@@ -21,8 +21,18 @@
       --mid: #888888;
     }
 
-    body { font-family: 'DM Sans', sans-serif; background: var(--wht); color: var(--blk); margin: 0; }
-    .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+    body { 
+      font-family: 'DM Sans', sans-serif; 
+      background: var(--wht); 
+      color: var(--blk); 
+      margin: 0; 
+    }
+
+    .container-wide { 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 0 2rem; 
+    }
 
     /* PRODUCT TRIO COLUMNS */
     .product-trio {
@@ -43,17 +53,62 @@
       overflow: hidden;
     }
 
+    .prod-col:hover {
+      transform: translateY(-4px);
+    }
+
     /* THEMES PER COLUMN */
-    .col-home { background: var(--off-warm); color: #4A4439; }
-    .col-pro { background: var(--blk); color: var(--wht); }
-    .col-enterprise { background: var(--navy); color: var(--wht); }
+    .col-home { 
+      background: var(--off-warm); 
+      color: #4A4439; 
+    }
 
-    .prod-col h2 { font-size: 3rem; font-weight: 700; letter-spacing: -0.04em; margin-bottom: 1rem; }
-    .prod-col p { font-size: 1.1rem; line-height: 1.5; opacity: 0.8; max-width: 300px; }
-    .prod-col .price-tag { font-weight: 700; font-size: 1.25rem; margin-top: 2rem; display: block; }
+    .col-pro { 
+      background: var(--blk); 
+      color: var(--wht); 
+    }
 
-    .col-home .price-tag { color: var(--blk); }
-    .col-pro .price-tag, .col-enterprise .price-tag { color: var(--y); }
+    .col-enterprise { 
+      background: var(--navy); 
+      color: var(--wht); 
+    }
+
+    .prod-col h2 { 
+      font-size: 3rem; 
+      font-weight: 700; 
+      letter-spacing: -0.04em; 
+      margin-bottom: 1rem; 
+    }
+
+    .prod-col p { 
+      font-size: 1.1rem; 
+      line-height: 1.5; 
+      opacity: 0.8; 
+      max-width: 300px; 
+    }
+
+    .prod-col .price-tag { 
+      font-weight: 700; 
+      font-size: 1.25rem; 
+      margin-top: 2rem; 
+      display: block; 
+    }
+
+    .col-home .price-tag,
+    .col-home .view-link {
+      color: var(--blk);
+    }
+
+    /* UPDATED ACCENT COLORS */
+    .col-pro .price-tag,
+    .col-pro .view-link {
+      color: #1c2833;
+    }
+
+    .col-enterprise .price-tag,
+    .col-enterprise .view-link {
+      color: #b19762;
+    }
 
     .view-link {
       margin-top: auto;
@@ -66,9 +121,61 @@
       letter-spacing: 0.1em;
     }
 
+    /* QUIZ BANNER */
+    .quiz-banner {
+      background: #f6f6f6;
+      border: 1px solid #ececec;
+      border-radius: 28px;
+      padding: 2rem;
+      margin-bottom: 4rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .quiz-banner p {
+      font-size: 1.1rem;
+      color: var(--blk);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+
+      background: var(--blk);
+      color: var(--wht);
+
+      text-decoration: none;
+      font-weight: 600;
+
+      transition: 0.2s ease;
+    }
+
+    .quiz-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
     /* COMPARE MODELS SECTION */
-    .compare-section { padding: 100px 0; background: var(--wht); }
-    .compare-section h2 { text-align: center; font-size: 3rem; margin-bottom: 4rem; letter-spacing: -0.03em; }
+    .compare-section { 
+      padding: 100px 0; 
+      background: var(--wht); 
+    }
+
+    .compare-section h2 { 
+      text-align: center; 
+      font-size: 3rem; 
+      margin-bottom: 4rem; 
+      letter-spacing: -0.03em; 
+    }
 
     .compare-table {
       width: 100%;
@@ -90,16 +197,42 @@
       vertical-align: middle;
     }
 
-    .feature-name { font-weight: 600; color: var(--mid); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+    .feature-name { 
+      font-weight: 600; 
+      color: var(--mid); 
+      text-transform: uppercase; 
+      font-size: 0.75rem; 
+      letter-spacing: 0.05em; 
+    }
     
-    .check-icon { color: var(--y); font-size: 1.5rem; }
-    .spec-val { font-weight: 500; }
+    .check-icon { 
+      color: var(--y); 
+      font-size: 1.5rem; 
+    }
+
+    .spec-val { 
+      font-weight: 500; 
+    }
 
     /* RESPONSIVE */
     @media (max-width: 1000px) {
-      .product-trio { grid-template-columns: 1fr; }
-      .prod-col { min-height: 400px; }
-      .compare-table { display: block; overflow-x: auto; }
+      .product-trio { 
+        grid-template-columns: 1fr; 
+      }
+
+      .prod-col { 
+        min-height: 400px; 
+      }
+
+      .compare-table { 
+        display: block; 
+        overflow-x: auto; 
+      }
+
+      .quiz-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -111,8 +244,10 @@
       <a href="../index.html" class="logo">
         <img src="../logo-light.png" alt="Howard AI Logo">
       </a>
+
       <nav class="main-nav">
         <div class="nav-item"><a href="../index.html">Home</a></div>
+
         <div class="nav-item">
           <a href="#">About</a>
           <div class="dropdown">
@@ -122,6 +257,7 @@
             <a href="../about/investors.html">Investors</a>
           </div>
         </div>
+
         <div class="nav-item">
           <a href="#">Store</a>
           <div class="dropdown">
@@ -131,6 +267,7 @@
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
         </div>
+
         <div class="nav-item">
           <a href="#">Support</a>
           <div class="dropdown">
@@ -148,6 +285,7 @@
 
       <div class="mobile-menu" id="mobileMenu">
         <a href="../index.html">Home</a>
+
         <details>
           <summary>About</summary>
           <div class="mobile-submenu">
@@ -157,6 +295,7 @@
             <a href="../about/investors.html">Investors</a>
           </div>
         </details>
+
         <details>
           <summary>Store</summary>
           <div class="mobile-submenu">
@@ -166,6 +305,7 @@
             <a href="../store/enterprise.html">Enterprise</a>
           </div>
         </details>
+
         <details>
           <summary>Support</summary>
           <div class="mobile-submenu">
@@ -179,14 +319,20 @@
   </header>
 
   <main>
+
     <section class="product-trio">
+
       <a href="home.html" class="prod-col col-home">
         <div>
           <h2>Home.</h2>
           <p>Welcoming, warm, and built for the modern Houston family.</p>
           <span class="price-tag">$3,000 upfront</span>
         </div>
-        <div class="view-link">View Howard Home <i class="ti ti-arrow-right"></i></div>
+
+        <div class="view-link">
+          View Howard Home
+          <i class="ti ti-arrow-right"></i>
+        </div>
       </a>
 
       <a href="pro.html" class="prod-col col-pro">
@@ -195,7 +341,11 @@
           <p>The high-performance tool for growing brokerages and teams.</p>
           <span class="price-tag">$6,000 upfront</span>
         </div>
-        <div class="view-link" style="color: var(--y);">View Howard Pro <i class="ti ti-arrow-right"></i></div>
+
+        <div class="view-link">
+          View Howard Pro
+          <i class="ti ti-arrow-right"></i>
+        </div>
       </a>
 
       <a href="enterprise.html" class="prod-col col-enterprise">
@@ -204,12 +354,28 @@
           <p>Institutional grade security for professional law and energy offices.</p>
           <span class="price-tag">$8,000 upfront</span>
         </div>
-        <div class="view-link" style="color: var(--y);">View Howard Enterprise <i class="ti ti-arrow-right"></i></div>
+
+        <div class="view-link">
+          View Howard Enterprise
+          <i class="ti ti-arrow-right"></i>
+        </div>
       </a>
+
     </section>
 
     <section class="compare-section">
       <div class="container-wide">
+
+        <div class="quiz-banner">
+          <p>
+            Not sure which Howard is right for you?
+          </p>
+
+          <a href="../support/contact.html" class="quiz-btn">
+            Take the Howard Quiz
+          </a>
+        </div>
+
         <h2>Compare Models</h2>
         
         <table class="compare-table">
@@ -221,6 +387,7 @@
               <th>Howard Enterprise</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td class="feature-name">Upfront Hardware</td>
@@ -228,36 +395,42 @@
               <td class="spec-val">$6,000</td>
               <td class="spec-val">$8,000</td>
             </tr>
+
             <tr>
               <td class="feature-name">Monthly Support</td>
               <td class="spec-val">$100/mo</td>
               <td class="spec-val">$150/mo</td>
               <td class="spec-val">$200/mo</td>
             </tr>
+
             <tr>
               <td class="feature-name">Hardware Class</td>
               <td class="spec-val">RTX-Class GPU</td>
               <td class="spec-val">Mid-Tier Server</td>
               <td class="spec-val">DGX Spark-Class</td>
             </tr>
+
             <tr>
               <td class="feature-name">Data Sovereignty</td>
               <td><i class="ti ti-circle-check-filled check-icon"></i></td>
               <td><i class="ti ti-circle-check-filled check-icon"></i></td>
               <td><i class="ti ti-circle-check-filled check-icon"></i></td>
             </tr>
+
             <tr>
               <td class="feature-name">Technician Dispatch</td>
               <td class="spec-val">Included</td>
               <td class="spec-val">Priority</td>
               <td class="spec-val">VIP / 24-Hour</td>
             </tr>
+
             <tr>
               <td class="feature-name">Spending Autonomy</td>
               <td class="spec-val">Standard Card</td>
               <td class="spec-val">Multi-User Fleet</td>
               <td class="spec-val">Firm-Wide Ledger</td>
             </tr>
+
             <tr>
               <td class="feature-name">Target Use</td>
               <td class="spec-val">Household</td>
@@ -266,23 +439,35 @@
             </tr>
           </tbody>
         </table>
+
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
+
       <div class="footer-brand">
         <img src="../logo-dark.png" alt="Howard AI Logo" class="footer-logo">
-        <p class="footer-copyright">Copyright Placeholder — Howard AI</p>
-        <p class="footer-description">Howard AI builds locally hosted AI assistants for Houston homes and businesses.</p>
+
+        <p class="footer-copyright">
+          Copyright Placeholder — Howard AI
+        </p>
+
+        <p class="footer-description">
+          Howard AI builds locally hosted AI assistants for Houston homes and businesses.
+        </p>
+
         <div class="footer-socials">
           <a href="https://instagram.com" target="_blank"><img src="../instagram.png" alt="Instagram"></a>
           <a href="https://linkedin.com" target="_blank"><img src="../linkedin.png" alt="LinkedIn"></a>
           <a href="https://x.com" target="_blank"><img src="../xdark.png" alt="X"></a>
         </div>
       </div>
+
       <div class="footer-links-grid">
+
         <div class="footer-column">
           <h3>About</h3>
           <a href="../about/index.html">Overview</a>
@@ -290,6 +475,7 @@
           <a href="../about/newsroom.html">Newsroom</a>
           <a href="../about/investors.html">Investors</a>
         </div>
+
         <div class="footer-column">
           <h3>Store</h3>
           <a href="../store/index.html">All Products</a>
@@ -297,12 +483,14 @@
           <a href="../store/pro.html">Howard Pro</a>
           <a href="../store/enterprise.html">Enterprise</a>
         </div>
+
         <div class="footer-column">
           <h3>Support</h3>
           <a href="../support/contact.html">Contact</a>
           <a href="../support/about-support.html">About Support</a>
           <a href="../support/faqs.html">FAQs</a>
         </div>
+
       </div>
     </div>
   </footer>
