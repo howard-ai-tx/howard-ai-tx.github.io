@@ -61,10 +61,12 @@ header.header-hidden{
 }
 
         .navbar{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:1001;
+}
 
         .logo img{
             height:42px;
@@ -136,12 +138,12 @@ header.header-hidden{
         }
 
         .hero-right{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-        }
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-end;
+    text-align:right;
+}
 
         .hero-right p{
             font-size:2rem;
@@ -420,7 +422,7 @@ header.header-hidden{
             </h1>
         </div>
 
-        <div class="hero-right hero-right-aligned">
+        <div class="hero-right">
         <p>
         HowardAI is bringing powerful, private AI to Houston homes and businesses, installed locally, owned by you.
         </p>
@@ -534,6 +536,27 @@ header.header-hidden{
         </div>
     </div>
 </footer>
+<script>
+let lastScroll = 0;
+const header = document.querySelector('header');
 
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+        header.classList.remove('header-hidden');
+        return;
+    }
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('header-hidden');
+    } else {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
+    
 </body>
 </html>
