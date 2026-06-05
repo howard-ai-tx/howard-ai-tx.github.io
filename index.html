@@ -15,10 +15,6 @@
 
     <style>
 
-        .hero-right-aligned {
-        text-align: right;       /* Aligns the text inside the box to the right */
-        align-items: flex-end;   /* Pushes the paragraph box and the button to the right side */
-        }
         :root{
             --bg:#F5F5F0;
             --yellow:#EBC736;
@@ -52,8 +48,17 @@
 
         /* NAVIGATION */
         header{
-            padding:28px 0;
-        }
+    padding:28px 0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:var(--bg);
+    transition:transform .3s ease;
+}
+
+header.header-hidden{
+    transform:translateY(-100%);
+}
 
         .navbar{
             display:flex;
