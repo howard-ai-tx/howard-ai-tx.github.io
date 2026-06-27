@@ -48,8 +48,8 @@
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden;
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.4;
@@ -753,13 +753,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
 }
 .steps::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: calc(33.333% - 16px);
-  right: calc(33.333% - 16px);
-  height: 1px;
-  background: var(--color-border);
+  display: none;
 }
 .step {
   display: flex;
