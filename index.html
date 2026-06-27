@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HowardAI — AI That Stays Home</title>
+  <meta name="description" content="Howard is a locally hosted AI assistant that executes real tasks — books flights, manages calendars, emails clients — from dedicated hardware inside your home or office. Your data never leaves the building." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html" aria-label="HowardAI home">
+        <img src="logo-dark.png" alt="HowardAI" />
+      </a>
+      <div class="nav__links" role="navigation">
+        <div class="nav__dropdown-wrap">
+          <a class="nav__link" href="store/index.html" aria-haspopup="true">
+            Products <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </a>
+          <div class="nav__dropdown" role="menu">
+            <a href="store/home.html" role="menuitem">Howard Core</a>
+            <a href="store/index.html" role="menuitem">All Products</a>
+          </div>
+        </div>
+        <div class="nav__dropdown-wrap">
+          <a class="nav__link" href="about/index.html" aria-haspopup="true">
+            About <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </a>
+          <div class="nav__dropdown" role="menu">
+            <a href="about/index.html" role="menuitem">About HowardAI</a>
+            <a href="about/leadership.html" role="menuitem">Leadership</a>
+            <a href="about/newsroom.html" role="menuitem">Newsroom</a>
+            <a href="about/investors.html" role="menuitem">Investors</a>
+          </div>
+        </div>
+        <div class="nav__dropdown-wrap">
+          <a class="nav__link" href="support/contact.html" aria-haspopup="true">
+            Support <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </a>
+          <div class="nav__dropdown" role="menu">
+            <a href="support/contact.html" role="menuitem">Contact</a>
+            <a href="support/faqs.html" role="menuitem">FAQs</a>
+            <a href="support/about-support.html" role="menuitem">About Support</a>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn--primary nav__cta" href="support/contact.html">Get in Touch</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <details>
+      <summary>Products <i class="ti ti-plus" aria-hidden="true"></i></summary>
+      <div class="mobile-menu__sublinks">
+        <a href="store/home.html">Howard Core</a>
+        <a href="store/index.html">All Products</a>
+      </div>
+    </details>
+    <details>
+      <summary>About <i class="ti ti-plus" aria-hidden="true"></i></summary>
+      <div class="mobile-menu__sublinks">
+        <a href="about/index.html">About HowardAI</a>
+        <a href="about/leadership.html">Leadership</a>
+        <a href="about/newsroom.html">Newsroom</a>
+        <a href="about/investors.html">Investors</a>
+      </div>
+    </details>
+    <details>
+      <summary>Support <i class="ti ti-plus" aria-hidden="true"></i></summary>
+      <div class="mobile-menu__sublinks">
+        <a href="support/contact.html">Contact</a>
+        <a href="support/faqs.html">FAQs</a>
+        <a href="support/about-support.html">About Support</a>
+      </div>
+    </details>
+    <div class="mobile-menu__cta">
+      <a class="btn btn--primary" href="support/contact.html" style="width:100%; justify-content:center;">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__bg" role="img" aria-label="A lone figure standing on a rocky mountain ridge at golden hour, silhouetted against warm light — conveying independence and quiet capability"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="hero__label">Locally Hosted AI</div>
+      <h1 class="hero__headline">
+        AI that works.<br />
+        From <em>inside</em> your home.
+      </h1>
+      <p class="hero__tagline">
+        Made because AI shouldn't run your life. It should take care of the things that do.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="support/contact.html">Get in Touch</a>
+        <a class="btn btn--ghost btn--lg" href="store/home.html">Explore Howard Core</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span class="text-label" style="color:rgba(255,255,255,0.3);">Scroll</span>
+    </div>
+  </section>
+
+  <!-- WHAT HOWARD DOES -->
+  <section class="section section--light" id="what-howard-does">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <div class="section-header__label">Capabilities</div>
+        <h2 class="section-header__headline">Howard executes.<br />It doesn't suggest.</h2>
+        <p class="section-header__body">
+          Every other AI assistant will tell you what to do next. Howard does it — through its own dedicated phone number you can call or text from anywhere.
+        </p>
+      </div>
+      <div class="grid-4" style="margin-top: 0;">
+        <div class="capability-card scroll-reveal">
+          <div class="capability-card__icon"><i class="ti ti-plane" aria-hidden="true"></i></div>
+          <div class="capability-card__title">Books Flights</div>
+          <p class="capability-card__desc">Text Howard your travel dates. It searches, selects, and books — then sends you the confirmation.</p>
+        </div>
+        <div class="capability-card scroll-reveal">
+          <div class="capability-card__icon"><i class="ti ti-calendar" aria-hidden="true"></i></div>
+          <div class="capability-card__title">Manages Calendars</div>
+          <p class="capability-card__desc">Howard keeps your schedule. It schedules meetings, moves conflicts, and sends reminders without being asked.</p>
+        </div>
+        <div class="capability-card scroll-reveal">
+          <div class="capability-card__icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+          <div class="capability-card__title">Emails Clients</div>
+          <p class="capability-card__desc">Drafts, sends, and follows up on emails — in your voice, on your schedule, without you touching a keyboard.</p>
+        </div>
+        <div class="capability-card scroll-reveal">
+          <div class="capability-card__icon"><i class="ti ti-briefcase" aria-hidden="true"></i></div>
+          <div class="capability-card__title">Handles Admin</div>
+          <p class="capability-card__desc">Day-to-day administrative work handled end to end. The kind of work that eats hours. Howard takes it back.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-8); padding: var(--space-8); background: var(--color-light-bg); border-radius: var(--radius-large); display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap;" class="scroll-reveal">
+        <div style="display:flex; align-items:center; gap:var(--space-3); min-width: 240px;">
+          <i class="ti ti-device-mobile" style="font-size:32px; color:var(--color-text-primary);" aria-hidden="true"></i>
+          <div>
+            <div class="text-h4">Call or text Howard</div>
+            <p class="text-caption" style="color:var(--color-text-muted); margin-top:2px;">From any phone, anywhere in the US</p>
+          </div>
+        </div>
+        <div style="flex:1; min-width: 200px;">
+          <p class="text-body" style="color: var(--color-text-body);">Howard ships with its own dedicated phone number. No app to open, no browser tab to find. Just call or text like you would anyone else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY SECTION -->
+  <section class="section section--dark" id="privacy">
+    <div class="container">
+      <div class="privacy-split">
+        <div class="scroll-reveal">
+          <div class="section-header">
+            <div class="section-header__label" style="color:var(--color-accent);">Privacy by Architecture</div>
+            <h2 class="section-header__headline" style="color:var(--color-white);">Your data never leaves<br />the building.</h2>
+            <p class="section-header__body">
+              Not by policy. Not by terms of service. By physics. Howard runs entirely on dedicated hardware inside your home or office. There is no cloud. There is no outside server. There is nowhere for your data to go.
+            </p>
+          </div>
+          <div style="margin-top: var(--space-8); padding: var(--space-6); background: rgba(255,255,255,0.04); border-radius: var(--radius-large); border: 1px solid rgba(255,255,255,0.08);">
+            <p style="font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; font-style: italic;">
+              "Other AI products promise to protect your data. Howard makes the promise structurally impossible to break. You can't leak data that never left your property."
+            </p>
+          </div>
+        </div>
+
+        <div class="scroll-reveal">
+          <div class="comparison">
+            <div class="comparison__col">
+              <div class="comparison__header comparison__header--bad">Cloud AI</div>
+              <div class="comparison__items">
+                <div class="comparison__item comparison__item--bad">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                  Data sent to remote servers
+                </div>
+                <div class="comparison__item comparison__item--bad">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                  Processed by third parties
+                </div>
+                <div class="comparison__item comparison__item--bad">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                  May train future models
+                </div>
+                <div class="comparison__item comparison__item--bad">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                  Policy-based privacy
+                </div>
+                <div class="comparison__item comparison__item--bad">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                  Requires internet to function
+                </div>
+              </div>
+            </div>
+            <div class="comparison__col">
+              <div class="comparison__header comparison__header--good">Howard</div>
+              <div class="comparison__items">
+                <div class="comparison__item comparison__item--good">
+                  <i class="ti ti-check" aria-hidden="true"></i>
+                  Runs on your hardware
+                </div>
+                <div class="comparison__item comparison__item--good">
+                  <i class="ti ti-check" aria-hidden="true"></i>
+                  No third-party processing
+                </div>
+                <div class="comparison__item comparison__item--good">
+                  <i class="ti ti-check" aria-hidden="true"></i>
+                  Trains nothing, ever
+                </div>
+                <div class="comparison__item comparison__item--good">
+                  <i class="ti ti-check" aria-hidden="true"></i>
+                  Architecture-based privacy
+                </div>
+                <div class="comparison__item comparison__item--good">
+                  <i class="ti ti-check" aria-hidden="true"></i>
+                  Local-first, always on
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section--light" id="how-it-works">
+    <div class="container">
+      <div class="section-header section-header--center scroll-reveal">
+        <div class="section-header__label">Setup</div>
+        <h2 class="section-header__headline">Operational in 30 minutes.</h2>
+        <p class="section-header__body">
+          Howard ships directly to you as a self-install hardware product. Every component is included. No technician, no installation appointment.
+        </p>
+      </div>
+      <div class="steps scroll-reveal">
+        <div class="step">
+          <div class="step__number">01</div>
+          <div>
+            <div class="step__title">Order Howard Core</div>
+            <p class="step__desc">Ships directly to your door with everything you need inside the box. No additional hardware required.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">02</div>
+          <div>
+            <div class="step__title">Self-install in 30 minutes</div>
+            <p class="step__desc">Guided setup takes most people under half an hour from opening the box to fully operational. No technical experience needed.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">03</div>
+          <div>
+            <div class="step__title">Call or text to work</div>
+            <p class="step__desc">Howard handles it from there. Book a flight, draft an email, clear your calendar — just send a message.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-12); display:grid; grid-template-columns:1fr 1fr 1fr; gap: var(--space-6);" class="scroll-reveal">
+        <div class="card">
+          <div class="card__icon"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+          <div class="card__headline">Monthly updates</div>
+          <p class="card__body">API updates and capability improvements delivered automatically every month via the subscription.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+          <div class="card__headline">Security monitoring</div>
+          <p class="card__body">Howard's hardware and software stack is monitored continuously. You get patches before you know you need them.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><i class="ti ti-truck-delivery" aria-hidden="true"></i></div>
+          <div class="card__headline">Priority shipping warranty</div>
+          <p class="card__body">If something ever goes wrong with your unit, a replacement ships the same day. Downtime is not something Howard has patience for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="section section--gray" id="product">
+    <div class="container">
+      <div class="section-header section-header--center scroll-reveal">
+        <div class="section-header__label">The Hardware</div>
+        <h2 class="section-header__headline">One product. Everything included.</h2>
+        <p class="section-header__body">Howard Core is the launch product. It ships with every capability we market and everything needed to be up and running within the hour.</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto;" class="scroll-reveal">
+        <div class="product-card">
+          <div class="product-card__image">
+            <div class="product-card__image-placeholder">
+              <i class="ti ti-cpu" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="product-card__body">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);">
+              <div class="product-card__label">Howard Core</div>
+              <span class="badge badge--accent">Launch Edition</span>
+            </div>
+            <div class="product-card__name">Howard Core</div>
+            <p class="product-card__desc">
+              A locally hosted AI assistant that executes real tasks — from inside your home or office. Books flights, manages calendars, handles email, and handles day-to-day administrative work. Accessible via its own dedicated phone number, callable or textable from anywhere.
+            </p>
+            <div class="product-card__price-row">
+              <span class="product-card__price">$1,750</span>
+              <span class="product-card__price-note">+ monthly subscription</span>
+            </div>
+            <div class="product-card__actions">
+              <button class="btn btn--primary" disabled aria-disabled="true" aria-describedby="preorder-note">Pre-Order</button>
+              <a class="btn btn--secondary" href="store/home.html">Learn More</a>
+            </div>
+            <p id="preorder-note" class="text-caption" style="color: var(--color-text-muted); margin-top: var(--space-3);">
+              Pre-orders open soon. <a href="support/contact.html" style="color:var(--color-action);">Get in touch to be first in line.</a>
+            </p>
+            <hr class="product-card__divider" />
+            <div class="product-card__specs">
+              <div class="spec-item">
+                <div class="spec-item__label">Setup Time</div>
+                <div class="spec-item__value">Under 30 minutes</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item__label">Data Storage</div>
+                <div class="spec-item__value">On-device only</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item__label">Access Method</div>
+                <div class="spec-item__value">Dedicated phone number</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item__label">Subscription</div>
+                <div class="spec-item__value">Monthly, billed separately</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item__label">Warranty</div>
+                <div class="spec-item__value">Priority replacement shipping</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item__label">Cloud Dependency</div>
+                <div class="spec-item__value">None</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO HOWARD IS FOR -->
+  <section class="section section--light" id="who-its-for">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <div class="section-header__label">Who It's For</div>
+        <h2 class="section-header__headline">Built for households<br />and small businesses.</h2>
+        <p class="section-header__body">Howard is designed for anyone who spends meaningful time on administrative work that a capable assistant could handle better.</p>
+      </div>
+      <div class="grid-2 scroll-reveal">
+        <div class="card--elevated card">
+          <div class="card__icon"><i class="ti ti-home" aria-hidden="true"></i></div>
+          <div class="card__headline">Households</div>
+          <p class="card__body">Howard manages personal calendars, books travel, handles appointments, and takes care of the administrative friction that adds up across a day. You focus on the things that matter.</p>
+        </div>
+        <div class="card--elevated card">
+          <div class="card__icon"><i class="ti ti-building-store" aria-hidden="true"></i></div>
+          <div class="card__headline">Small Businesses</div>
+          <p class="card__body">Howard handles client emails, schedules meetings, manages follow-ups, and keeps calendars aligned — without a dedicated admin on staff. The work gets done. Your data stays on your property.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="cta-banner scroll-reveal">
+        <div class="text-label" style="color:var(--color-accent); margin-bottom:var(--space-4);">Pre-Launch</div>
+        <h2 class="cta-banner__headline">Howard isn't available yet.<br />But it will be.</h2>
+        <p class="cta-banner__body">We're preparing Howard Core for launch. If you want to be first to know — and first in line — get in touch.</p>
+        <div class="cta-banner__actions">
+          <a class="btn btn--yellow-dark btn--lg" href="support/contact.html">Get in Touch</a>
+          <a class="btn btn--ghost btn--lg" href="store/home.html">Learn About Howard Core</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="logo-light.png" alt="HowardAI" />
+          </div>
+          <p class="footer__tagline">Made because AI shouldn't run your life. It should take care of the things that do.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <div class="footer__col-title">Products</div>
+            <div class="footer__col-links">
+              <a href="store/home.html">Howard Core</a>
+              <a href="store/index.html">All Products</a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__col-title">Company</div>
+            <div class="footer__col-links">
+              <a href="about/index.html">About</a>
+              <a href="about/leadership.html">Leadership</a>
+              <a href="about/newsroom.html">Newsroom</a>
+              <a href="about/investors.html">Investors</a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__col-title">Support</div>
+            <div class="footer__col-links">
+              <a href="support/contact.html">Contact</a>
+              <a href="support/faqs.html">FAQs</a>
+              <a href="support/about-support.html">About Support</a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__col-title">Legal</div>
+            <div class="footer__col-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026 HowardAI. All rights reserved.</span>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/nav.js"></script>
+</body>
+</html>

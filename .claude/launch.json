@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "howardai",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["/Users/hendrikvangeertruyden/Desktop/HowardAI Website/assets/serve.py"],
+      "port": 8080
+    }
+  ]
+}

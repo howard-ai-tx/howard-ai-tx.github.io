@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — HowardAI</title>
+  <meta name="description" content="Get in touch with HowardAI. Every inquiry gets a direct response from our team." />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="../index.html" aria-label="HowardAI home">
+        <img src="../logo-dark.png" alt="HowardAI" />
+      </a>
+      <div class="nav__links">
+        <div class="nav__dropdown-wrap">
+          <a class="nav__link" href="../store/index.html">Products <i class="ti ti-chevron-down" aria-hidden="true"></i></a>
+          <div class="nav__dropdown">
+            <a href="../store/home.html">Howard Core</a>
+            <a href="../store/index.html">All Products</a>
+          </div>
+        </div>
+        <div class="nav__dropdown-wrap">
+          <a class="nav__link" href="../about/index.html">About <i class="ti ti-chevron-down" aria-hidden="true"></i></a>
+          <div class="nav__dropdown">
+            <a href="../about/index.html">About HowardAI</a>
+            <a href="../about/leadership.html">Leadership</a>
+            <a href="../about/newsroom.html">Newsroom</a>
+            <a href="../about/investors.html">Investors</a>
+          </div>
+        </div>
+        <div class="nav__dropdown-wrap">
+          <a class="nav__link active" href="contact.html">Support <i class="ti ti-chevron-down" aria-hidden="true"></i></a>
+          <div class="nav__dropdown">
+            <a href="contact.html">Contact</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="about-support.html">About Support</a>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn--primary nav__cta" href="contact.html">Get in Touch</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <details>
+      <summary>Products <i class="ti ti-plus" aria-hidden="true"></i></summary>
+      <div class="mobile-menu__sublinks">
+        <a href="../store/home.html">Howard Core</a>
+        <a href="../store/index.html">All Products</a>
+      </div>
+    </details>
+    <details>
+      <summary>About <i class="ti ti-plus" aria-hidden="true"></i></summary>
+      <div class="mobile-menu__sublinks">
+        <a href="../about/index.html">About HowardAI</a>
+        <a href="../about/leadership.html">Leadership</a>
+        <a href="../about/newsroom.html">Newsroom</a>
+        <a href="../about/investors.html">Investors</a>
+      </div>
+    </details>
+    <details>
+      <summary>Support <i class="ti ti-plus" aria-hidden="true"></i></summary>
+      <div class="mobile-menu__sublinks">
+        <a href="contact.html">Contact</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="about-support.html">About Support</a>
+      </div>
+    </details>
+    <div class="mobile-menu__cta">
+      <a class="btn btn--primary" href="contact.html" style="width:100%; justify-content:center;">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Contact</div>
+      <h1 class="page-hero__headline">We answer everything<br />directly.</h1>
+      <p class="page-hero__body">No bots, no ticket queues, no auto-responses that don't actually help. A person reads every message and responds to every one.</p>
+    </div>
+  </div>
+
+  <section class="section section--light" style="padding-top:0;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 400px; gap:80px; align-items:start;">
+
+        <!-- FORM -->
+        <div class="scroll-reveal">
+          <form id="contact-form" novalidate aria-label="Contact form">
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6);">
+              <div class="form-group">
+                <label class="form-label" for="first-name">First name</label>
+                <input class="form-input" type="text" id="first-name" name="first-name" placeholder="Jane" autocomplete="given-name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last-name">Last name</label>
+                <input class="form-input" type="text" id="last-name" name="last-name" placeholder="Smith" autocomplete="family-name" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reason">Reason for reaching out</label>
+              <select class="form-select" id="reason" name="reason" required>
+                <option value="" disabled selected>Select a reason</option>
+                <option value="preorder">Pre-order interest</option>
+                <option value="product">Product question</option>
+                <option value="privacy">Privacy question</option>
+                <option value="support">Customer support</option>
+                <option value="press">Press or media</option>
+                <option value="investor">Investor inquiry</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Tell us what's on your mind..." rows="6" required></textarea>
+            </div>
+
+            <div id="form-error" role="alert" aria-live="polite" style="display:none; margin-bottom:var(--space-4);">
+              <div style="display:flex; align-items:center; gap:var(--space-2); padding:var(--space-4) var(--space-4); background:#FEF2F2; border:1px solid rgba(255,59,48,0.2); border-left:4px solid var(--color-error); border-radius:var(--radius-medium);">
+                <i class="ti ti-alert-circle" style="color:var(--color-error); font-size:16px; flex-shrink:0;" aria-hidden="true"></i>
+                <span class="text-body" style="color:var(--color-error);" id="form-error-text"></span>
+              </div>
+            </div>
+
+            <div id="form-success" role="alert" aria-live="polite" style="display:none; margin-bottom:var(--space-4);">
+              <div style="display:flex; align-items:center; gap:var(--space-2); padding:var(--space-4) var(--space-4); background:#F0FDF4; border:1px solid rgba(52,199,89,0.2); border-left:4px solid var(--color-success); border-radius:var(--radius-medium);">
+                <i class="ti ti-circle-check" style="color:var(--color-success); font-size:16px; flex-shrink:0;" aria-hidden="true"></i>
+                <span class="text-body" style="color:#166534;">Message sent. We'll be in touch shortly.</span>
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--lg" type="submit" id="submit-btn">Send Message</button>
+
+          </form>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div style="display:flex; flex-direction:column; gap:var(--space-6);" class="scroll-reveal">
+
+          <div style="padding:var(--space-6); background:var(--color-dark-bg); border-radius:var(--radius-large); color:var(--color-white);">
+            <div class="text-label" style="color:var(--color-accent); margin-bottom:var(--space-4);">Pre-Launch</div>
+            <div class="text-h4" style="margin-bottom:var(--space-3);">Interested in Howard Core?</div>
+            <p class="text-body" style="color:rgba(255,255,255,0.65); margin-bottom:0;">Howard isn't available to purchase yet. Getting in touch now is the best way to be first in line when pre-orders open.</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);">
+              <i class="ti ti-clock" style="font-size:20px;" aria-hidden="true"></i>
+              <div class="text-h4">Response time</div>
+            </div>
+            <p class="text-body" style="color:var(--color-text-body);">We respond to all inquiries directly. Expect to hear back within one business day.</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);">
+              <i class="ti ti-user-check" style="font-size:20px;" aria-hidden="true"></i>
+              <div class="text-h4">Real people only</div>
+            </div>
+            <p class="text-body" style="color:var(--color-text-body);">Every message goes to a person on our team. We don't use automated responses — which, given what we build, would be an interesting choice.</p>
+          </div>
+
+          <div style="padding:var(--space-6); border:1px solid var(--color-border); border-radius:var(--radius-large);">
+            <div class="text-h4" style="margin-bottom:var(--space-2);">Have a quick question?</div>
+            <p class="text-body" style="color:var(--color-text-body); margin-bottom:var(--space-4);">The FAQs cover the most common questions about Howard, privacy, pricing, and setup.</p>
+            <a class="btn btn--secondary" href="faqs.html">Read the FAQs</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="../logo-light.png" alt="HowardAI" /></div>
+          <p class="footer__tagline">Made because AI shouldn't run your life. It should take care of the things that do.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <div class="footer__col-title">Products</div>
+            <div class="footer__col-links">
+              <a href="../store/home.html">Howard Core</a>
+              <a href="../store/index.html">All Products</a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__col-title">Company</div>
+            <div class="footer__col-links">
+              <a href="../about/index.html">About</a>
+              <a href="../about/leadership.html">Leadership</a>
+              <a href="../about/newsroom.html">Newsroom</a>
+              <a href="../about/investors.html">Investors</a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__col-title">Support</div>
+            <div class="footer__col-links">
+              <a href="contact.html">Contact</a>
+              <a href="faqs.html">FAQs</a>
+              <a href="about-support.html">About Support</a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__col-title">Legal</div>
+            <div class="footer__col-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026 HowardAI. All rights reserved.</span>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/nav.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var errorBox = document.getElementById('form-error');
+      var errorText = document.getElementById('form-error-text');
+      var successBox = document.getElementById('form-success');
+      var submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorBox.style.display = 'none';
+        successBox.style.display = 'none';
+
+        var firstName = document.getElementById('first-name').value.trim();
+        var lastName = document.getElementById('last-name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var reason = document.getElementById('reason').value;
+        var message = document.getElementById('message').value.trim();
+
+        if (!firstName || !lastName) {
+          errorText.textContent = 'Enter your first and last name.';
+          errorBox.style.display = 'block';
+          document.getElementById('first-name').focus();
+          return;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errorText.textContent = 'Enter a valid email address.';
+          errorBox.style.display = 'block';
+          document.getElementById('email').focus();
+          return;
+        }
+        if (!reason) {
+          errorText.textContent = 'Select a reason for reaching out.';
+          errorBox.style.display = 'block';
+          document.getElementById('reason').focus();
+          return;
+        }
+        if (!message) {
+          errorText.textContent = 'Include a message so we know how to help.';
+          errorBox.style.display = 'block';
+          document.getElementById('message').focus();
+          return;
+        }
+
+        /* Form is valid — show success state.
+           Wire to a real backend (Formspree, Netlify Forms, etc.) when ready. */
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        setTimeout(function () {
+          form.reset();
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          successBox.style.display = 'block';
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 800);
+      });
+    })();
+  </script>
+</body>
+</html>
