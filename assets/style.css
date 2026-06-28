@@ -205,6 +205,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav__dropdown-wrap {
   position: relative;
 }
+.nav__dropdown-wrap::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  right: -12px;
+  height: 12px;
+}
 .nav__dropdown {
   position: absolute;
   top: calc(100% + 8px);
