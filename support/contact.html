@@ -284,18 +284,40 @@
           return;
         }
 
-        /* Form is valid — show success state.
-           Wire to a real backend (Formspree, Netlify Forms, etc.) when ready. */
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
 
-        setTimeout(function () {
-          form.reset();
+        fetch('https://formspree.io/f/mlgynnyl', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            'first-name': firstName,
+            'last-name': lastName,
+            email: email,
+            reason: reason,
+            message: message
+          })
+        })
+        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (result) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send Message';
-          successBox.style.display = 'block';
-          successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 800);
+          if (result.ok) {
+            form.reset();
+            successBox.style.display = 'block';
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            var msg = (result.data.errors || []).map(function (e) { return e.message; }).join(' ') || 'Something went wrong. Please try again.';
+            errorText.textContent = msg;
+            errorBox.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          errorText.textContent = 'Could not send your message. Check your connection and try again.';
+          errorBox.style.display = 'block';
+        });
       });
     })();
   </script>
