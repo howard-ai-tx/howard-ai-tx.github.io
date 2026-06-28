@@ -103,22 +103,22 @@
 
             <details class="faq-item">
               <summary>What exactly does Howard do? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">Howard is an AI assistant that executes tasks. It books flights, manages your calendar, emails clients, and handles day-to-day administrative work — end to end, not just by suggestion. You interact with it by calling or texting its dedicated phone number from anywhere in the US.</p>
+              <p class="faq-item__body">Howard is an AI assistant built to execute tasks and expand its own capabilities over time. Out of the box it handles things like booking travel, managing your calendar, sending emails, and handling day-to-day administrative work — end to end, not just by suggestion. What makes Howard different is that it doesn't stop there. Howard builds new skills as you use it, learning what you need and developing the capabilities to do it. You interact with Howard through whatever messaging platform you prefer — configured during setup.</p>
             </details>
 
             <details class="faq-item">
               <summary>Is Howard a chatbot? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">No. A chatbot responds to questions. Howard takes action. The difference is the result: when you ask Howard to book a flight, the flight gets booked. You receive a confirmation. Howard does not suggest flights for you to book yourself.</p>
+              <p class="faq-item__body">Technically, yes — Howard is built on large language models, so it can answer questions the same way ChatGPT can. The meaningful difference is what it can do beyond that. Howard has physical capabilities: it can take real action in the world, build and execute skills, and get things done end to end. When you ask Howard to book a flight, the flight gets booked. It's a chatbot in the same way a car is a skateboard — the category is technically accurate, but it misses the point.</p>
             </details>
 
             <details class="faq-item">
               <summary>What hardware does Howard run on? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">Howard Core ships as a self-contained hardware unit with everything required for operation included in the box. It sits inside your home or office and runs entirely on that hardware. No external compute, no cloud dependency.</p>
+              <p class="faq-item__body">Howard Core ships as a self-contained hardware unit with everything required for operation included in the box. It sits inside your home or office and processes by default on that hardware. You can optionally connect API keys to route non-sensitive queries through faster cloud models — but that's your choice to make, not a requirement.</p>
             </details>
 
             <details class="faq-item">
               <summary>How do I interact with Howard? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">Howard ships with its own dedicated US phone number. You call or text it the same way you would anyone else. No app to download, no browser tab to find, no interface to learn. If you can send a text message, you can use Howard.</p>
+              <p class="faq-item__body">During setup, Howard walks you through connecting your preferred messaging platform. Most major messaging apps are supported. No new interface to learn — Howard meets you where you already communicate.</p>
             </details>
 
             <details class="faq-item">
@@ -135,22 +135,22 @@
 
             <details class="faq-item">
               <summary>Where does my data go? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">Nowhere. Howard runs entirely on hardware inside your home or office. Your data — conversations, calendar, email content, preferences — never leaves that hardware. There is no cloud server receiving it, no third party processing it, and no HowardAI server storing it.</p>
+              <p class="faq-item__body">By default, nowhere outside your building. Howard runs on hardware inside your home or office, and sensitive data never leaves it. If you choose to enable a cloud model for non-sensitive queries, Howard uses a separate classification agent to label every piece of data before any routing decision is made. Sensitive information is flagged and processed locally only. Non-sensitive information can be routed to a faster cloud model — but you configure what counts as sensitive, and the default is conservative.</p>
             </details>
 
             <details class="faq-item">
               <summary>Is my data used to train AI models? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">No. Howard does not and cannot train on your data. The training would require your data to reach a server capable of training. Your data doesn't leave your building, so the question is structurally impossible.</p>
+              <p class="faq-item__body">Howard does not train the underlying AI models — your data never reaches a training server. What Howard does do is train itself: it learns your preferences, builds new skills it will need, and improves its own security based on issues it encounters. That learning stays on your hardware. The models stay unchanged. The only thing that gets smarter is Howard's understanding of you.</p>
             </details>
 
             <details class="faq-item">
               <summary>How is Howard different from cloud AI products on privacy? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">Cloud AI products make privacy promises in policies. Howard makes the promise in hardware. When every other AI product says "we protect your data," they mean they have a policy governing how they handle it on their servers. Howard's answer is that there are no such servers. The data stays because there is nowhere else for it to go.</p>
+              <p class="faq-item__body">Cloud AI products make privacy promises in policies. Howard makes the promise in architecture. Sensitive data never leaves your hardware — there's no server to receive it. If you opt into cloud processing for non-sensitive queries, a local classification agent makes that call before any data moves. You configure the rules. The default is to keep everything local.</p>
             </details>
 
             <details class="faq-item">
               <summary>What does the monthly subscription cover? <i class="ti ti-plus" aria-hidden="true"></i></summary>
-              <p class="faq-item__body">The subscription covers API updates that keep Howard's capabilities current, security monitoring of your hardware and software stack, customer support, and a priority replacement warranty — meaning if your unit fails, a replacement ships the same day.</p>
+              <p class="faq-item__body">The subscription covers ongoing updates — primarily bug fixes and the maintenance of the runtime agents that keep Howard running correctly over time. It also includes security monitoring of your hardware and software stack, customer support, and a priority replacement warranty — meaning if your unit fails, a replacement ships the same day.</p>
             </details>
 
           </div>
