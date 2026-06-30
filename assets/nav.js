@@ -1,5 +1,12 @@
 /* HowardAI — Shared Navigation JS */
 
+/* Password gate */
+(function () {
+  if (sessionStorage.getItem('hw_auth') !== '1') {
+    window.location.replace('/password.html');
+  }
+})();
+
 (function () {
   const hamburger = document.getElementById('nav-hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
