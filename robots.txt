@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /
+
+# Flip to the lines below at launch:
+# User-agent: *
+# Disallow: /password.html
+# Allow: /
+# Sitemap: https://howardai.us/sitemap.xml
