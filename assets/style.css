@@ -1263,7 +1263,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: center;
   min-height: 200px;
-  padding: var(--space-8);
+  overflow: hidden;
 }
 .news-card--featured .news-card__media { min-height: 320px; }
 .news-card__media i {
@@ -1271,6 +1271,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--color-accent);
 }
 .news-card--featured .news-card__media i { font-size: 56px; }
+.news-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .news-card__content {
   padding: var(--space-8);
@@ -1336,6 +1342,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-8);
+  overflow: hidden;
+}
+.article-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .article-media i {
   font-size: 56px;
