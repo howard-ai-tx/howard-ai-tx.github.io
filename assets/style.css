@@ -1471,6 +1471,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   .news-card--featured { grid-template-columns: 1fr; }
   .news-grid__row { grid-template-columns: 1fr; }
+  .news-card--featured .news-card__media { min-height: 200px; }
+  .news-card--featured .news-card__media i { font-size: 40px; }
+  .news-card--featured .news-card__content { padding: var(--space-6); }
+  .news-card--featured .news-card__title { font-size: 19px; margin-bottom: var(--space-3); }
 }
 
 @media (max-width: 600px) {
