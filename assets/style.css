@@ -1266,13 +1266,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: var(--space-8);
 }
 .news-card--featured .news-card__media { min-height: 320px; }
-.news-card--secondary .news-card__media { min-height: 240px; }
 .news-card__media i {
   font-size: 40px;
   color: var(--color-accent);
 }
 .news-card--featured .news-card__media i { font-size: 56px; }
-.news-card--secondary .news-card__media i { font-size: 44px; }
 
 .news-card__content {
   padding: var(--space-8);
@@ -1299,7 +1297,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: var(--space-4);
 }
 .news-card--grid .news-card__title { font-size: 19px; margin-bottom: var(--space-3); }
-.news-card--secondary .news-card__title { font-size: 21px; }
 
 .news-card__date {
   font-size: 13px;
