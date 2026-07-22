@@ -518,24 +518,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0 auto;
   padding: calc(var(--nav-height) + 80px) 80px 96px;
 }
-.hero__label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.08em;
-  color: var(--color-accent);
-  margin-bottom: var(--space-6);
-}
-.hero__label::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 1.5px;
-  background: var(--color-accent);
-}
 .hero__headline {
   font-size: 64px;
   font-weight: 700;
@@ -562,28 +544,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   gap: var(--space-3);
   flex-wrap: wrap;
-}
-.hero__scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  color: rgba(255,255,255,0.4);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.08em;
-  z-index: 1;
-}
-.hero__scroll-line {
-  width: 1px;
-  height: 32px;
-  background: rgba(255,255,255,0.2);
-  animation: scrollPulse 2s ease-in-out infinite;
 }
 
 /* ===== SECTION HEADER ===== */
@@ -1364,11 +1324,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ===== ANIMATIONS ===== */
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.6; }
-}
-
 .scroll-reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -1391,7 +1346,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transform: none;
     transition: none;
   }
-  .hero__scroll-line { animation: none; }
 }
 
 /* ===== RESPONSIVE LAYOUT HELPERS ===== */
