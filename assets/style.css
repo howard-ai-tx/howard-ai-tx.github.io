@@ -495,7 +495,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('../hero-image.png');
+  background-image: url('../hero-image.jpg');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -505,9 +505,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(20,20,21,0.92) 0%,
-    rgba(30,30,31,0.80) 45%,
-    rgba(20,20,21,0.35) 100%
+    rgba(20,20,21,0.95) 0%,
+    rgba(20,20,21,0.88) 45%,
+    rgba(20,20,21,0.58) 100%
   );
 }
 .hero__content {
