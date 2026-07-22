@@ -144,15 +144,15 @@
   <!-- 3. NOT ANOTHER APP -->
   <section class="core-noapp" id="core-noapp-section">
     <div class="core-noapp__field" id="core-noapp-field">
-      <i class="ti ti-mail core-noapp__icon" style="top:2%; left:48%;" aria-hidden="true"></i>
-      <i class="ti ti-calendar-event core-noapp__icon" style="top:16%; left:82%;" aria-hidden="true"></i>
-      <i class="ti ti-camera core-noapp__icon" style="top:48%; left:96%;" aria-hidden="true"></i>
-      <i class="ti ti-message-circle core-noapp__icon" style="top:80%; left:82%;" aria-hidden="true"></i>
-      <i class="ti ti-bell core-noapp__icon" style="top:94%; left:48%;" aria-hidden="true"></i>
-      <i class="ti ti-map-pin core-noapp__icon" style="top:80%; left:14%;" aria-hidden="true"></i>
-      <i class="ti ti-phone core-noapp__icon" style="top:48%; left:0%;" aria-hidden="true"></i>
-      <i class="ti ti-photo core-noapp__icon" style="top:16%; left:14%;" aria-hidden="true"></i>
-      <i class="ti ti-music core-noapp__icon" style="top:34%; left:65%;" aria-hidden="true"></i>
+      <i class="ti ti-mail core-noapp__icon" style="top:2%; left:48%; --dx:0; --dy:-1;" aria-hidden="true"></i>
+      <i class="ti ti-calendar-event core-noapp__icon" style="top:16%; left:82%; --dx:0.7; --dy:-0.7;" aria-hidden="true"></i>
+      <i class="ti ti-camera core-noapp__icon" style="top:48%; left:96%; --dx:1; --dy:0;" aria-hidden="true"></i>
+      <i class="ti ti-message-circle core-noapp__icon" style="top:80%; left:82%; --dx:0.7; --dy:0.7;" aria-hidden="true"></i>
+      <i class="ti ti-bell core-noapp__icon" style="top:94%; left:48%; --dx:0; --dy:1;" aria-hidden="true"></i>
+      <i class="ti ti-map-pin core-noapp__icon" style="top:80%; left:14%; --dx:-0.7; --dy:0.7;" aria-hidden="true"></i>
+      <i class="ti ti-phone core-noapp__icon" style="top:48%; left:0%; --dx:-1; --dy:0;" aria-hidden="true"></i>
+      <i class="ti ti-photo core-noapp__icon" style="top:16%; left:14%; --dx:-0.7; --dy:-0.7;" aria-hidden="true"></i>
+      <i class="ti ti-music core-noapp__icon" style="top:34%; left:65%; --dx:0.5; --dy:-0.5;" aria-hidden="true"></i>
       <img src="../favicon.png" alt="" class="core-noapp__mark" aria-hidden="true" />
     </div>
     <h2 class="core-noapp__headline" id="core-noapp-headline">Everything else asks you to open it. Howard doesn't.</h2>
@@ -183,13 +183,12 @@
   <!-- 5. DON'T TRUST IT, UNPLUG IT -->
   <section class="core-unplug" id="core-unplug-section">
     <div class="core-unplug__content" id="core-unplug-content">
-      <button class="core-unplug__cordbtn" id="core-unplug-btn" type="button">
-        <i class="ti ti-plug-connected" aria-hidden="true"></i>
-        Pull the cord
-      </button>
+      <div class="core-unplug__icon-wrap">
+        <i class="ti ti-plug-connected core-unplug__icon core-unplug__icon--connected" aria-hidden="true"></i>
+        <i class="ti ti-plug-x core-unplug__icon core-unplug__icon--disconnected" aria-hidden="true"></i>
+      </div>
       <h2 class="core-unplug__headline">Don't trust it. Unplug it.</h2>
       <p class="core-unplug__sub">This isn't a setting you toggle. It's a cord you can pull.</p>
-      <div class="core-unplug__status" id="core-unplug-status">Powered off. Nothing is running.</div>
     </div>
   </section>
 
@@ -197,15 +196,7 @@
   <section class="section section--light">
     <div class="container">
       <div style="text-align:center; margin-bottom:var(--space-12);">
-        <div class="core-trust__lock">
-          <div class="core-trust__shackle"></div>
-          <div class="core-trust__body">
-            <div class="core-trust__tumbler" data-tumbler="0"></div>
-            <div class="core-trust__tumbler" data-tumbler="1"></div>
-            <div class="core-trust__tumbler" data-tumbler="2"></div>
-            <div class="core-trust__tumbler" data-tumbler="3"></div>
-          </div>
-        </div>
+        <i class="ti ti-lock core-trust__lock-icon" aria-hidden="true"></i>
         <h2 class="text-h1" style="margin-bottom:var(--space-3);">It doesn't start with the keys to everything.</h2>
         <p class="text-body-large" style="color:var(--color-text-body); max-width:520px; margin:0 auto;">It earns access the way anyone new would. A little at a time.</p>
       </div>
@@ -233,15 +224,11 @@
   <!-- 7. IT LEARNS YOU -->
   <section class="section section--light" style="padding-top:0;">
     <div class="container" style="text-align:center;">
-      <svg class="core-learns__visual scroll-reveal" viewBox="0 0 220 140" aria-hidden="true">
-        <line x1="30" y1="20" x2="70" y2="45" style="transform:rotate(18deg);" />
-        <line x1="150" y1="15" x2="190" y2="40" style="transform:rotate(-24deg);" />
-        <line x1="20" y1="90" x2="60" y2="70" style="transform:rotate(-12deg);" />
-        <line x1="160" y1="95" x2="200" y2="75" style="transform:rotate(16deg);" />
-        <line x1="70" y1="130" x2="110" y2="105" style="transform:rotate(8deg);" />
-        <line x1="150" y1="130" x2="110" y2="105" style="transform:rotate(-8deg);" />
-        <line x1="30" y1="20" x2="20" y2="90" style="transform:rotate(4deg);" />
-        <line x1="190" y1="40" x2="200" y2="75" style="transform:rotate(-4deg);" />
+      <svg class="core-learns__visual scroll-reveal" viewBox="0 0 200 120" aria-hidden="true">
+        <circle cx="50" cy="60" r="22" pathLength="1" />
+        <line x1="72" y1="60" x2="150" y2="60" pathLength="1" />
+        <line x1="122" y1="60" x2="122" y2="78" pathLength="1" />
+        <line x1="140" y1="60" x2="140" y2="86" pathLength="1" />
       </svg>
       <h2 class="text-h1" style="margin-bottom:var(--space-3);">It doesn't watch you to learn.</h2>
       <p class="text-body-large" style="color:var(--color-text-body); max-width:520px; margin:0 auto;">It just remembers what you told it, and builds on that.</p>
@@ -299,9 +286,9 @@
   <!-- 11. PRICING CARD -->
   <section class="section section--light" style="padding-top:0;">
     <div class="container">
-      <div class="layout-product-showcase" style="align-items:center; max-width:1000px; margin:0 auto;">
-        <div class="scroll-reveal" style="border-radius:var(--radius-large); border:1px solid var(--color-border); overflow:hidden;">
-          <img src="../howard-core.png" alt="Howard Core" style="width:100%; display:block;" />
+      <div class="layout-product-showcase" style="align-items:stretch; max-width:1000px; margin:0 auto;">
+        <div class="scroll-reveal" style="border-radius:var(--radius-large); border:1px solid var(--color-border); overflow:hidden; min-height:320px;">
+          <img src="../howard-core.png" alt="Howard Core" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
         <div class="card--elevated card scroll-reveal">
           <span class="badge badge--accent">Launch edition</span>
@@ -508,52 +495,32 @@
       }, { threshold: 0 });
       heroObserver.observe(heroSection);
 
-      /* ---------- Not another app: icons dissolve to reveal the mark ---------- */
+      /* ---------- Not another app: icons hold, then expand outward to reveal the mark ---------- */
       var noappField = document.getElementById('core-noapp-field');
       var noappHeadline = document.getElementById('core-noapp-headline');
       var noappObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            setTimeout(function () { noappField.classList.add('dissolve'); }, 900 * timeScale);
-            setTimeout(function () { noappHeadline.classList.add('show'); }, 1500 * timeScale);
+            setTimeout(function () { noappField.classList.add('expand'); }, 2000 * timeScale);
+            setTimeout(function () { noappHeadline.classList.add('show'); }, 2600 * timeScale);
             noappObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.5 });
       noappObserver.observe(document.getElementById('core-noapp-section'));
 
-      /* ---------- Unplug: click to power off, then recover ---------- */
+      /* ---------- Unplug: auto-plays once in view — dims for a beat, then lights back up ---------- */
       var unplugSection = document.getElementById('core-unplug-section');
-      var unplugBtn = document.getElementById('core-unplug-btn');
-      var unplugBusy = false;
-      unplugBtn.addEventListener('click', function () {
-        if (unplugBusy) return;
-        unplugBusy = true;
-        unplugSection.classList.add('flicker');
-        setTimeout(function () {
-          unplugSection.classList.remove('flicker');
-          unplugSection.classList.add('powered-off');
-        }, 700 * timeScale);
-        setTimeout(function () {
-          unplugSection.classList.remove('powered-off');
-          unplugBusy = false;
-        }, 700 * timeScale + 1800 * timeScale);
-      });
-
-      /* ---------- Trust ladder: light the matching tumbler as each rung reveals ---------- */
-      var trustItems = document.querySelectorAll('[data-trust-item]');
-      var tumblers = document.querySelectorAll('[data-tumbler]');
-      var trustObserver = new IntersectionObserver(function (entries) {
+      var unplugObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            var idx = entry.target.getAttribute('data-trust-item');
-            var tumbler = document.querySelector('[data-tumbler="' + idx + '"]');
-            if (tumbler) tumbler.classList.add('lit');
-            trustObserver.unobserve(entry.target);
+            setTimeout(function () { unplugSection.classList.add('dim'); }, 500 * timeScale);
+            setTimeout(function () { unplugSection.classList.remove('dim'); }, 500 * timeScale + 1000 * timeScale);
+            unplugObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.6 });
-      trustItems.forEach(function (el) { trustObserver.observe(el); });
+      }, { threshold: 0.5 });
+      unplugObserver.observe(unplugSection);
 
       /* ---------- The math: count up on scroll into view ---------- */
       function formatMoney(value, decimals, prefix) {
