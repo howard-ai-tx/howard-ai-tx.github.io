@@ -104,7 +104,7 @@
     </div>
   </div>
 
-  <!-- CINEMATIC HERO -->
+  <!-- 1. CINEMATIC HERO -->
   <section class="core-hero" id="core-hero-section" aria-label="Howard Core">
     <div class="core-hero__grain" aria-hidden="true"></div>
     <div class="core-hero__letterbox core-hero__letterbox--top" aria-hidden="true"></div>
@@ -123,7 +123,7 @@
     </div>
   </section>
 
-  <!-- MONTAGE -->
+  <!-- 2. MONTAGE -->
   <section class="core-montage" id="core-montage">
     <div class="core-montage__caption" id="core-caption">Howard, this week</div>
     <div class="core-scene" data-i="0"><span>It books flights.</span></div>
@@ -141,14 +141,31 @@
     </div>
   </section>
 
-  <!-- PRIVACY -->
+  <!-- 3. NOT ANOTHER APP -->
+  <section class="core-noapp" id="core-noapp-section">
+    <div class="core-noapp__field" id="core-noapp-field">
+      <i class="ti ti-mail core-noapp__icon" style="top:2%; left:48%;" aria-hidden="true"></i>
+      <i class="ti ti-calendar-event core-noapp__icon" style="top:16%; left:82%;" aria-hidden="true"></i>
+      <i class="ti ti-camera core-noapp__icon" style="top:48%; left:96%;" aria-hidden="true"></i>
+      <i class="ti ti-message-circle core-noapp__icon" style="top:80%; left:82%;" aria-hidden="true"></i>
+      <i class="ti ti-bell core-noapp__icon" style="top:94%; left:48%;" aria-hidden="true"></i>
+      <i class="ti ti-map-pin core-noapp__icon" style="top:80%; left:14%;" aria-hidden="true"></i>
+      <i class="ti ti-phone core-noapp__icon" style="top:48%; left:0%;" aria-hidden="true"></i>
+      <i class="ti ti-photo core-noapp__icon" style="top:16%; left:14%;" aria-hidden="true"></i>
+      <i class="ti ti-music core-noapp__icon" style="top:34%; left:65%;" aria-hidden="true"></i>
+      <img src="../favicon.png" alt="" class="core-noapp__mark" aria-hidden="true" />
+    </div>
+    <h2 class="core-noapp__headline" id="core-noapp-headline">Everything else asks you to open it. Howard doesn't.</h2>
+  </section>
+
+  <!-- 4. PRIVACY -->
   <section class="section section--dark">
     <div class="container">
-      <div class="scroll-reveal" style="text-align:center;">
-        <div class="text-label" style="color:var(--color-accent); display:flex; align-items:center; justify-content:center; gap:var(--space-2); margin-bottom:var(--space-6);">Privacy by architecture</div>
-        <h2 class="text-h1" style="color:var(--color-white); max-width:780px; margin:0 auto;">Your data never leaves the building.</h2>
-        <p class="text-body-large" style="color:rgba(255,255,255,0.55); max-width:520px; margin:var(--space-4) auto 0;">Not a policy. Physics.</p>
-        <div class="layout-capabilities" style="max-width:560px; margin:var(--space-12) auto 0; gap:var(--space-8);">
+      <div style="text-align:center;">
+        <div class="text-label scroll-reveal" style="color:var(--color-accent); display:flex; align-items:center; justify-content:center; gap:var(--space-2); margin-bottom:var(--space-6);">Privacy by architecture</div>
+        <h2 class="text-h1 core-privacy__headline scroll-reveal" style="color:var(--color-white); max-width:780px; margin:0 auto;">Your data never leaves the building.</h2>
+        <p class="text-body-large scroll-reveal" style="color:rgba(255,255,255,0.55); max-width:520px; margin:var(--space-4) auto 0;">Not a policy. Physics.</p>
+        <div class="layout-capabilities core-privacy__stats scroll-reveal" style="max-width:560px; margin:var(--space-12) auto 0; gap:var(--space-8);">
           <div style="text-align:center;">
             <div class="text-h1" style="color:var(--color-white);">0</div>
             <div class="text-caption" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.08em; margin-top:var(--space-2);">External servers used</div>
@@ -158,15 +175,88 @@
             <div class="text-caption" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.08em; margin-top:var(--space-2);">Third parties with your data</div>
           </div>
         </div>
-        <p class="text-caption" style="color:rgba(255,255,255,0.55); max-width:520px; margin:var(--space-8) auto 0;">If you enable a cloud model for non-sensitive queries, a local agent decides what can leave — and you set the rules for what counts as sensitive.</p>
+        <p class="text-caption scroll-reveal" style="color:rgba(255,255,255,0.55); max-width:520px; margin:var(--space-8) auto 0;">If you enable a cloud model for non-sensitive queries, a local agent decides what can leave — and you set the rules for what counts as sensitive.</p>
       </div>
     </div>
   </section>
 
-  <!-- SELF-INSTALLATION -->
+  <!-- 5. DON'T TRUST IT, UNPLUG IT -->
+  <section class="core-unplug" id="core-unplug-section">
+    <div class="core-unplug__content" id="core-unplug-content">
+      <button class="core-unplug__cordbtn" id="core-unplug-btn" type="button">
+        <i class="ti ti-plug-connected" aria-hidden="true"></i>
+        Pull the cord
+      </button>
+      <h2 class="core-unplug__headline">Don't trust it. Unplug it.</h2>
+      <p class="core-unplug__sub">This isn't a setting you toggle. It's a cord you can pull.</p>
+      <div class="core-unplug__status" id="core-unplug-status">Powered off. Nothing is running.</div>
+    </div>
+  </section>
+
+  <!-- 6. TRUST LADDER -->
+  <section class="section section--light">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:var(--space-12);">
+        <div class="core-trust__lock">
+          <div class="core-trust__shackle"></div>
+          <div class="core-trust__body">
+            <div class="core-trust__tumbler" data-tumbler="0"></div>
+            <div class="core-trust__tumbler" data-tumbler="1"></div>
+            <div class="core-trust__tumbler" data-tumbler="2"></div>
+            <div class="core-trust__tumbler" data-tumbler="3"></div>
+          </div>
+        </div>
+        <h2 class="text-h1" style="margin-bottom:var(--space-3);">It doesn't start with the keys to everything.</h2>
+        <p class="text-body-large" style="color:var(--color-text-body); max-width:520px; margin:0 auto;">It earns access the way anyone new would. A little at a time.</p>
+      </div>
+      <div class="core-trust__list">
+        <div class="core-trust__item scroll-reveal" data-trust-item="0">
+          <div class="core-trust__dot"></div>
+          <p class="text-body-large">At first, it can see your calendar — nothing else.</p>
+        </div>
+        <div class="core-trust__item scroll-reveal" data-trust-item="1">
+          <div class="core-trust__dot"></div>
+          <p class="text-body-large">Once it's proven reliable, it can draft a reply for you to send.</p>
+        </div>
+        <div class="core-trust__item scroll-reveal" data-trust-item="2">
+          <div class="core-trust__dot"></div>
+          <p class="text-body-large">With more trust, it can send routine messages on its own.</p>
+        </div>
+        <div class="core-trust__item scroll-reveal" data-trust-item="3">
+          <div class="core-trust__dot"></div>
+          <p class="text-body-large">Eventually, it can book, pay, and follow through — because you told it to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. IT LEARNS YOU -->
+  <section class="section section--light" style="padding-top:0;">
+    <div class="container" style="text-align:center;">
+      <svg class="core-learns__visual scroll-reveal" viewBox="0 0 220 140" aria-hidden="true">
+        <line x1="30" y1="20" x2="70" y2="45" style="transform:rotate(18deg);" />
+        <line x1="150" y1="15" x2="190" y2="40" style="transform:rotate(-24deg);" />
+        <line x1="20" y1="90" x2="60" y2="70" style="transform:rotate(-12deg);" />
+        <line x1="160" y1="95" x2="200" y2="75" style="transform:rotate(16deg);" />
+        <line x1="70" y1="130" x2="110" y2="105" style="transform:rotate(8deg);" />
+        <line x1="150" y1="130" x2="110" y2="105" style="transform:rotate(-8deg);" />
+        <line x1="30" y1="20" x2="20" y2="90" style="transform:rotate(4deg);" />
+        <line x1="190" y1="40" x2="200" y2="75" style="transform:rotate(-4deg);" />
+      </svg>
+      <h2 class="text-h1" style="margin-bottom:var(--space-3);">It doesn't watch you to learn.</h2>
+      <p class="text-body-large" style="color:var(--color-text-body); max-width:520px; margin:0 auto;">It just remembers what you told it, and builds on that.</p>
+    </div>
+  </section>
+
+  <!-- 8. THE MOMENT IT BECOMES YOURS (unboxing) — pending real photography/video; not built yet -->
+
+  <!-- 9. SELF-INSTALLATION -->
   <section class="section section--light">
     <div class="container">
       <div class="text-label" style="text-align:center; margin-bottom:var(--space-12);">Designed for self-installation</div>
+      <div class="core-steps-line scroll-reveal" style="max-width:1040px; margin-left:auto; margin-right:auto;">
+        <div class="core-steps-line__fill"></div>
+      </div>
       <div class="grid-3" style="max-width:1040px; margin:0 auto;">
         <div class="scroll-reveal">
           <div class="core-step-num">1</div>
@@ -187,54 +277,88 @@
     </div>
   </section>
 
-  <!-- PRICING CARD -->
+  <!-- 10. THE MATH -->
+  <section class="section section--dark" id="core-math-section">
+    <div class="container" style="text-align:center;">
+      <div class="text-label scroll-reveal" style="color:var(--color-accent);">The math</div>
+      <div class="core-math__row">
+        <div>
+          <div class="core-math__num" id="core-math-human" data-target="70000" data-prefix="$">$0</div>
+          <div class="core-math__label">Human EA, per year</div>
+        </div>
+        <div class="core-math__vs">vs.</div>
+        <div>
+          <div class="core-math__num core-math__num--accent" id="core-math-howard" data-target="2999.99" data-prefix="$" data-decimals="2">$0</div>
+          <div class="core-math__label">Howard Core, one time</div>
+        </div>
+      </div>
+      <p class="text-body-large scroll-reveal" style="color:rgba(255,255,255,0.7); max-width:480px; margin:0 auto;">For a $300/hr professional, Howard pays for itself in under two weeks.</p>
+    </div>
+  </section>
+
+  <!-- 11. PRICING CARD -->
   <section class="section section--light" style="padding-top:0;">
-    <div class="container" style="display:flex; justify-content:center;">
-      <div class="card--elevated card scroll-reveal" style="max-width:480px; width:100%;">
-        <span class="badge badge--accent">Launch edition</span>
-        <div class="text-h3" style="margin-top:var(--space-4); margin-bottom:var(--space-2);">Howard Core</div>
-        <div style="display:flex; align-items:baseline; gap:var(--space-2); margin-bottom:var(--space-4);">
-          <span style="font-size:40px; font-weight:700; letter-spacing:-0.02em; line-height:1;">$2,999.99</span>
-          <span class="text-caption" style="color:var(--color-text-muted);">one-time</span>
+    <div class="container">
+      <div class="layout-product-showcase" style="align-items:center; max-width:1000px; margin:0 auto;">
+        <div class="scroll-reveal" style="border-radius:var(--radius-large); border:1px solid var(--color-border); overflow:hidden;">
+          <img src="../howard-core.png" alt="Howard Core" style="width:100%; display:block;" />
         </div>
-        <p class="text-caption" style="color:var(--color-text-muted); margin-bottom:var(--space-3);">Monthly subscription billed separately. Covers updates, security monitoring, customer support, and priority replacement warranty.</p>
-        <p style="font-size:14px; font-weight:700; color:var(--color-text-primary); margin-bottom:var(--space-6);">For a $300/hr professional, Howard pays for itself in under two weeks.</p>
+        <div class="card--elevated card scroll-reveal">
+          <span class="badge badge--accent">Launch edition</span>
+          <div class="text-h3" style="margin-top:var(--space-4); margin-bottom:var(--space-2);">Howard Core</div>
+          <div style="display:flex; align-items:baseline; gap:var(--space-2); margin-bottom:var(--space-4);">
+            <span style="font-size:40px; font-weight:700; letter-spacing:-0.02em; line-height:1;">$2,999.99</span>
+            <span class="text-caption" style="color:var(--color-text-muted);">one-time</span>
+          </div>
+          <p class="text-caption" style="color:var(--color-text-muted); margin-bottom:var(--space-3);">Monthly subscription billed separately. Covers updates, security monitoring, customer support, and priority replacement warranty.</p>
+          <p style="font-size:14px; font-weight:700; color:var(--color-text-primary); margin-bottom:var(--space-6);">For a $300/hr professional, Howard pays for itself in under two weeks.</p>
 
-        <div style="display:flex; flex-direction:column; gap:var(--space-3); margin-bottom:var(--space-6);">
-          <a href="coming-soon.html" class="btn btn--primary" style="width:100%; text-align:center;" aria-describedby="pricing-preorder-note">Pre-order Howard Core</a>
-          <a class="btn btn--secondary" href="../support/contact.html" style="width:100%; text-align:center;">Get in touch</a>
-        </div>
-        <p id="pricing-preorder-note" class="text-caption" style="color:var(--color-text-muted); text-align:center; margin-bottom:var(--space-6);">Pre-orders aren't open yet. <a href="../support/contact.html" style="color:var(--color-action);">Contact us to get notified.</a></p>
+          <div style="display:flex; flex-direction:column; gap:var(--space-3); margin-bottom:var(--space-6);">
+            <a href="coming-soon.html" class="btn btn--primary" style="width:100%; text-align:center;" aria-describedby="pricing-preorder-note">Pre-order Howard Core</a>
+            <a class="btn btn--secondary" href="../support/contact.html" style="width:100%; text-align:center;">Get in touch</a>
+          </div>
+          <p id="pricing-preorder-note" class="text-caption" style="color:var(--color-text-muted); text-align:center; margin-bottom:var(--space-6);">Pre-orders aren't open yet. <a href="../support/contact.html" style="color:var(--color-action);">Contact us to get notified.</a></p>
 
-        <hr style="border:none; border-top:1px solid var(--color-border); margin-bottom:var(--space-6);" />
+          <hr style="border:none; border-top:1px solid var(--color-border); margin-bottom:var(--space-6);" />
 
-        <div style="display:flex; flex-direction:column; gap:var(--space-4);">
-          <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
-            <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
-            <span class="text-body" style="color:var(--color-text-body);">All hardware included</span>
-          </div>
-          <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
-            <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
-            <span class="text-body" style="color:var(--color-text-body);">Guided self-installation, no technician needed</span>
-          </div>
-          <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
-            <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
-            <span class="text-body" style="color:var(--color-text-body);">Connect your preferred messaging platform</span>
-          </div>
-          <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
-            <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
-            <span class="text-body" style="color:var(--color-text-body);">Sensitive data stays local by default</span>
-          </div>
-          <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
-            <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
-            <span class="text-body" style="color:var(--color-text-body);">Priority replacement shipping</span>
+          <div style="display:flex; flex-direction:column; gap:var(--space-4);">
+            <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
+              <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
+              <span class="text-body" style="color:var(--color-text-body);">All hardware included</span>
+            </div>
+            <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
+              <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
+              <span class="text-body" style="color:var(--color-text-body);">Guided self-installation, no technician needed</span>
+            </div>
+            <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
+              <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
+              <span class="text-body" style="color:var(--color-text-body);">Connect your preferred messaging platform</span>
+            </div>
+            <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
+              <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
+              <span class="text-body" style="color:var(--color-text-body);">Sensitive data stays local by default</span>
+            </div>
+            <div style="display:flex; gap:var(--space-3); align-items:flex-start;">
+              <i class="ti ti-check" style="color:var(--color-success); font-size:16px; margin-top:2px; flex-shrink:0;" aria-hidden="true"></i>
+              <span class="text-body" style="color:var(--color-text-body);">Priority replacement shipping</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- 12. QUIET DIG -->
+  <section class="core-montage" id="core-quiet-section" style="min-height:90vh;">
+    <div class="core-quiet-phone" id="core-quiet-phone">
+      <div class="core-phone">
+        <div class="core-phone__screen" id="core-quiet-screen"></div>
+      </div>
+      <p class="core-quiet__coda" id="core-quiet-coda">Nothing here is trying to be opened.</p>
+    </div>
+  </section>
+
+  <!-- 13. FINAL CTA -->
   <section class="section section--light" style="padding-top:0;">
     <div class="container">
       <div class="cta-banner scroll-reveal">
@@ -249,6 +373,7 @@
     </div>
   </section>
 
+  <!-- 14. FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__top">
@@ -306,7 +431,7 @@
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var timeScale = reduceMotion ? 0.1 : 1;
 
-      /* Montage: scene cuts -> phone burst -> coda */
+      /* ---------- Montage: scene cuts -> phone burst -> coda ---------- */
       var scenes = document.querySelectorAll('.core-scene');
       var phoneStage = document.getElementById('core-phone-stage');
       var caption = document.getElementById('core-caption');
@@ -367,7 +492,7 @@
       }, { threshold: 0.35 });
       montageObserver.observe(document.getElementById('core-montage'));
 
-      /* Subheader: shows once the hero scrolls out of view, hides on scroll back up */
+      /* ---------- Subheader: shows once the hero scrolls out of view ---------- */
       var subheader = document.getElementById('core-subheader');
       var heroSection = document.getElementById('core-hero-section');
       var heroObserver = new IntersectionObserver(function (entries) {
@@ -382,6 +507,129 @@
         });
       }, { threshold: 0 });
       heroObserver.observe(heroSection);
+
+      /* ---------- Not another app: icons dissolve to reveal the mark ---------- */
+      var noappField = document.getElementById('core-noapp-field');
+      var noappHeadline = document.getElementById('core-noapp-headline');
+      var noappObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setTimeout(function () { noappField.classList.add('dissolve'); }, 900 * timeScale);
+            setTimeout(function () { noappHeadline.classList.add('show'); }, 1500 * timeScale);
+            noappObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      noappObserver.observe(document.getElementById('core-noapp-section'));
+
+      /* ---------- Unplug: click to power off, then recover ---------- */
+      var unplugSection = document.getElementById('core-unplug-section');
+      var unplugBtn = document.getElementById('core-unplug-btn');
+      var unplugBusy = false;
+      unplugBtn.addEventListener('click', function () {
+        if (unplugBusy) return;
+        unplugBusy = true;
+        unplugSection.classList.add('flicker');
+        setTimeout(function () {
+          unplugSection.classList.remove('flicker');
+          unplugSection.classList.add('powered-off');
+        }, 700 * timeScale);
+        setTimeout(function () {
+          unplugSection.classList.remove('powered-off');
+          unplugBusy = false;
+        }, 700 * timeScale + 1800 * timeScale);
+      });
+
+      /* ---------- Trust ladder: light the matching tumbler as each rung reveals ---------- */
+      var trustItems = document.querySelectorAll('[data-trust-item]');
+      var tumblers = document.querySelectorAll('[data-tumbler]');
+      var trustObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var idx = entry.target.getAttribute('data-trust-item');
+            var tumbler = document.querySelector('[data-tumbler="' + idx + '"]');
+            if (tumbler) tumbler.classList.add('lit');
+            trustObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      trustItems.forEach(function (el) { trustObserver.observe(el); });
+
+      /* ---------- The math: count up on scroll into view ---------- */
+      function formatMoney(value, decimals, prefix) {
+        var fixed = value.toFixed(decimals || 0);
+        var parts = fixed.split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return prefix + parts.join('.');
+      }
+      function countUp(el) {
+        var target = parseFloat(el.getAttribute('data-target'));
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var duration = 1400 * timeScale;
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = formatMoney(target * eased, decimals, prefix);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      var mathObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            countUp(document.getElementById('core-math-human'));
+            countUp(document.getElementById('core-math-howard'));
+            mathObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      mathObserver.observe(document.getElementById('core-math-section'));
+
+      /* ---------- Quiet dig: notifications stack, then dissolve to stillness ---------- */
+      var quietNotifs = [
+        'Reply now', 'You have 12 unread', 'New comment', 'Someone liked this',
+        'Trending near you', 'Your weekly summary', 'Open to continue', 'Don\'t miss out'
+      ];
+      var quietScreen = document.getElementById('core-quiet-screen');
+      var quietCoda = document.getElementById('core-quiet-coda');
+      function runQuietDig() {
+        var delay = 150 * timeScale;
+        var created = [];
+        quietNotifs.forEach(function (text, i) {
+          setTimeout(function () {
+            var n = document.createElement('div');
+            n.className = 'core-notif';
+            n.textContent = text;
+            n.style.top = (8 + (i % 5) * 18) + '%';
+            n.style.left = (i % 2 === 0 ? 8 : 42) + '%';
+            n.style.setProperty('--rot', (i % 2 === 0 ? -1 : 1) * (4 + i) + 'deg');
+            quietScreen.appendChild(n);
+            requestAnimationFrame(function () { n.classList.add('show'); });
+            created.push(n);
+          }, delay);
+          delay += 180 * timeScale;
+        });
+        setTimeout(function () {
+          created.forEach(function (n) { n.classList.add('fade-out'); });
+          quietScreen.style.transition = 'background 1s ease';
+          quietScreen.style.background = 'var(--color-cinema-black)';
+        }, delay + 500 * timeScale);
+        setTimeout(function () {
+          quietCoda.classList.add('show');
+        }, delay + 1400 * timeScale);
+      }
+      var quietObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            runQuietDig();
+            quietObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      quietObserver.observe(document.getElementById('core-quiet-section'));
     })();
   </script>
 </body>
