@@ -158,10 +158,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   right: 0;
   z-index: 1000;
   height: var(--nav-height);
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(196, 196, 196, 0.04);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.05);
 }
 .nav__inner {
   display: flex;
