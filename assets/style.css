@@ -228,7 +228,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 14px;
   transition: transform var(--dur-micro) ease-out;
 }
-.nav__link:hover .ti { transform: rotate(180deg); }
+.nav__dropdown-wrap:hover .nav__link .ti,
+.nav__dropdown-wrap:focus-within .nav__link .ti { transform: rotate(180deg); }
 
 /* Navigation dropdown */
 .nav__dropdown-wrap {
