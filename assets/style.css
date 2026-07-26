@@ -208,6 +208,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav__link.active {
   color: rgba(0,0,0,1);
 }
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-micro) ease-out;
+}
+.nav__dropdown-wrap:hover .nav__link::after,
+.nav__dropdown-wrap:focus-within .nav__link::after {
+  transform: scaleX(1);
+}
 .nav__link .ti {
   font-size: 14px;
   transition: transform var(--dur-micro) ease-out;
