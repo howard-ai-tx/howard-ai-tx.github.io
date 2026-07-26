@@ -45,7 +45,9 @@
   --dur-short: 250ms;
   --dur-medium: 350ms;
   --dur-long: 500ms;
-  --nav-height: 72px;
+  --nav-bar-height: 72px;
+  --nav-top-gap: 16px;
+  --nav-height: calc(var(--nav-bar-height) + var(--nav-top-gap));
 }
 
 /* ===== RESET ===== */
@@ -153,16 +155,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ===== NAVIGATION ===== */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: var(--nav-top-gap);
+  left: 16px;
+  right: 16px;
   z-index: 1000;
-  height: var(--nav-height);
-  background: rgba(255, 255, 255, 0.62);
+  height: var(--nav-bar-height);
+  border-radius: var(--radius-large);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transition: border-radius var(--dur-medium) ease, box-shadow var(--dur-medium) ease, border-color var(--dur-medium) ease;
+}
+/* Flush bottom corners so the nav blends directly into a subheader once it slides in (e.g. Howard Core) */
+.nav--flush-bottom {
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  border-bottom-color: transparent;
+  box-shadow: none;
 }
 .nav__inner {
   display: flex;
@@ -1397,12 +1407,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* Subheader */
 .core-subheader {
   position: fixed;
-  top: var(--nav-height);
-  left: 0;
-  right: 0;
+  top: calc(var(--nav-height) - 1px);
+  left: 16px;
+  right: 16px;
   z-index: 900;
   background: var(--color-cinema-black);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: none;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
   transform: translateY(-120%);
   transition: transform var(--dur-medium) cubic-bezier(.16,1,.3,1);
 }

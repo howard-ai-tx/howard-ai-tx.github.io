@@ -481,15 +481,20 @@
 
       /* ---------- Subheader: shows once the hero scrolls out of view ---------- */
       var subheader = document.getElementById('core-subheader');
+      var navEl = document.querySelector('.nav');
       var heroSection = document.getElementById('core-hero-section');
+      function setSubheaderVisible(visible) {
+        subheader.classList.toggle('show', visible);
+        navEl.classList.toggle('nav--flush-bottom', visible);
+      }
       var heroObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            subheader.classList.remove('show');
+            setSubheaderVisible(false);
           } else if (entry.boundingClientRect.top < 0) {
-            subheader.classList.add('show');
+            setSubheaderVisible(true);
           } else {
-            subheader.classList.remove('show');
+            setSubheaderVisible(false);
           }
         });
       }, { threshold: 0 });
