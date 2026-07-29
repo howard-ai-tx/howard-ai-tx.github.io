@@ -1489,7 +1489,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .core-hero__title {
   font-size: clamp(56px, 10vw, 128px);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  /* Exception to the IDL heading scale: tracks like the "Howard Core" wordmark
+     (as used everywhere else the product name appears as text) instead of the
+     tighter -0.03em the size would normally call for. */
+  letter-spacing: normal;
   line-height: 1.05;
 }
 .core-hero__tagline {
@@ -1617,7 +1620,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 36%;
   height: 75.3%;
   background: var(--color-white);
-  border-radius: 7% / 4.5%;
+  border-radius: 15% / 7.2%;
   display: flex;
   flex-direction: column;
   padding: 8% 6% 4%;
