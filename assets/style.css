@@ -1611,7 +1611,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: var(--shadow-card);
 }
 
-.core-phone-photo { position: relative; display: inline-block; max-width: 320px; width: 100%; }
+.core-phone-photo { position: relative; display: inline-block; max-width: 420px; width: 100%; }
 .core-phone-photo img { width: 100%; display: block; }
 .core-phone-photo__screen {
   position: absolute;
@@ -1640,12 +1640,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   flex-direction: column;
   gap: 6%;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   flex: 1;
-  justify-content: flex-end;
+  /* No justify-content: flex-end here — a flex column can't create real
+     scrollable overflow for content that grows past its start edge, so a
+     bottom-anchored flex box silently traps the overflow instead of letting
+     it scroll. Bubbles stack from the top instead; play() scrolls to the
+     latest message as it arrives. */
 }
+.core-phone-photo__bubbles::-webkit-scrollbar { display: none; }
 .core-capability__bubble {
-  max-width: 82%;
+  max-width: 92%;
   padding: 6% 8%;
   border-radius: 12px;
   font-size: 10px;

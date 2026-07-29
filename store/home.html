@@ -382,47 +382,53 @@
 
         var prompts = [
           {
-            label: "Book me a flight to Austin next Thurs, back Sunday",
+            label: "My flight got cancelled, fix it",
             exchange: [
-              { from: 'user', text: "Book me a flight to Austin next Thurs, back Sunday" },
-              { from: 'howard', text: "Found a 7:10am direct on Southwest, $214. Want me to book it?" },
-              { from: 'user', text: "Yes" },
-              { from: 'howard', text: "Booked. Confirmation #H29X, added to your calendar." }
+              { from: 'user', text: "My flight got cancelled, fix it" },
+              { from: 'howard', text: "Rebooked on the 6:40pm direct — lands 40 min earlier than your original connection. Moved your 8pm dinner to 8:30 so you're not rushing." },
+              { from: 'user', text: "perfect, thanks" },
+              { from: 'howard', text: "anytime." }
             ]
           },
           {
-            label: "Move my 2pm to tomorrow, same time",
+            label: "Did that wire request from The Whitfield Office actually come from them?",
             exchange: [
-              { from: 'user', text: "Move my 2pm to tomorrow, same time" },
-              { from: 'howard', text: "Done. I let the other attendees know and sent an updated invite." }
+              { from: 'user', text: "Did that wire request from The Whitfield Office actually come from them?" },
+              { from: 'howard', text: "Doesn't look like it. It came from a different email than they've used before, and it's asking you to skip your usual verification step. I'd hold off and call them directly to confirm." },
+              { from: 'user', text: "good catch, hold everything" },
+              { from: 'howard', text: "Nothing's moved. I'll wait for you." }
             ]
           },
           {
-            label: "Reply to Sarah, tell her the report's coming Friday",
+            label: "I haven't checked email since Monday, what did I miss",
             exchange: [
-              { from: 'user', text: "Reply to Sarah, tell her the report's coming Friday" },
-              { from: 'howard', text: "Sent: “Hi Sarah, the report will be ready by Friday. Let me know if that works.”" }
+              { from: 'user', text: "I haven't checked email since Monday, what did I miss" },
+              { from: 'howard', text: "Two invoices went out on schedule, one vendor confirmed delivery, and Sarah moved Thursday's call to Friday. One email needs a real decision from you — it's at the top." }
             ]
           },
           {
-            label: "File this expense report for the Austin trip",
+            label: "Cancel whatever this week doesn't actually need me",
             exchange: [
-              { from: 'user', text: "File this expense report for the Austin trip" },
-              { from: 'howard', text: "Filed. $214 flight and $86 in meals logged under Travel, October." }
+              { from: 'user', text: "Cancel whatever this week doesn't actually need me" },
+              { from: 'howard', text: "Two recurring calls look skippable based on the last month — I'll decline both with a short note. Everything else stays, none of it looked optional." },
+              { from: 'user', text: "which two" },
+              { from: 'howard', text: "Tuesday's vendor check-in and Thursday's internal sync — both went ahead without you the last three times." }
             ]
           },
           {
-            label: "Remind me about the dentist Friday morning",
+            label: "Move the Denver trip, my wife's flying in that weekend",
             exchange: [
-              { from: 'user', text: "Remind me about the dentist Friday morning" },
-              { from: 'howard', text: "Set for 8am Friday. I'll text you an hour before." }
+              { from: 'user', text: "Move the Denver trip, my wife's flying in that weekend" },
+              { from: 'howard', text: "Shifted it to the following week, same days. Flight and hotel both rebooked with no change fee — your original fare had a free-change window." }
             ]
           },
           {
-            label: "What's on my calendar tomorrow?",
+            label: "Tell the new client I'll have the retainer agreement to them by Friday",
             exchange: [
-              { from: 'user', text: "What's on my calendar tomorrow?" },
-              { from: 'howard', text: "9am client call, 1pm dentist, and a 4pm flight to Austin." }
+              { from: 'user', text: "Tell the new client I'll have the retainer agreement to them by Friday" },
+              { from: 'howard', text: "Sent. I also noticed your standard retainer template hasn't been updated since your rate change in March — want me to swap in the current version before it goes out again?" },
+              { from: 'user', text: "yes, do that from now on" },
+              { from: 'howard', text: "Done — I'll use the updated template going forward." }
             ]
           }
         ];
