@@ -96,7 +96,7 @@
   <!-- SUBHEADER (hidden until hero scrolls out of view) -->
   <div class="core-subheader" id="core-subheader">
     <div class="core-subheader__inner">
-      <span class="core-subheader__name">Howard Core</span>
+      <span class="core-subheader__name">Howard <span class="core-gradient">Core</span></span>
       <div class="core-subheader__right">
         <span class="core-subheader__price">$2,999.99</span>
         <a href="coming-soon.html" class="btn btn--primary">Buy</a>
@@ -104,201 +104,123 @@
     </div>
   </div>
 
-  <!-- 1. CINEMATIC HERO -->
+  <!-- 1. HERO -->
   <section class="core-hero" id="core-hero-section" aria-label="Howard Core">
-    <div class="core-hero__grain" aria-hidden="true"></div>
-    <div class="core-hero__letterbox core-hero__letterbox--top" aria-hidden="true"></div>
-    <div class="core-hero__letterbox core-hero__letterbox--bottom" aria-hidden="true"></div>
-    <div class="core-hero__inner">
-      <div class="core-hero__presents">HowardAI presents:</div>
-      <div class="core-hero__title-wrap">
-        <h1 class="core-hero__title">HOWARD CORE</h1>
-        <div class="core-hero__sweep" aria-hidden="true"></div>
-      </div>
-      <div class="core-hero__line" aria-hidden="true"></div>
-      <div class="core-hero__price-row">
-        <span class="core-hero__price">Starting at $2,999.99</span>
-        <a href="coming-soon.html" class="btn btn--primary">Buy</a>
-      </div>
+    <h1 class="core-hero__title">Howard <span class="core-gradient">Core</span></h1>
+    <div class="core-hero__tagline">The Everyday, <span class="core-accent--teal">Handled</span></div>
+    <img class="core-hero__img" src="../hero-image-core.png" alt="Howard Core hardware unit shown from three angles" />
+    <div class="core-hero__price-line">Starting at $2,999.99</div>
+    <div class="core-hero__ctas">
+      <a href="coming-soon.html" class="btn btn--primary">Buy</a>
+      <a href="../support/contact.html" class="btn btn--secondary">Get in touch</a>
     </div>
   </section>
 
-  <!-- 2. MONTAGE -->
-  <section class="core-montage" id="core-montage">
-    <div class="core-montage__caption" id="core-caption">Howard, this week</div>
-    <div class="core-scene" data-i="0"><span>It books flights.</span></div>
-    <div class="core-scene" data-i="1"><span>It moves meetings.</span></div>
-    <div class="core-scene" data-i="2"><span>It answers clients.</span></div>
-    <div class="core-scene" data-i="3"><span>It clears the inbox.</span></div>
-    <div class="core-phone-stage" id="core-phone-stage">
-      <div class="core-phone">
-        <div class="core-phone__screen">
-          <div class="core-phone__header">Howard</div>
-          <div class="core-bubbles" id="core-bubbles"></div>
-        </div>
-      </div>
-      <div class="core-coda" id="core-coda">The hours come back.</div>
-    </div>
+  <!-- 1b. FULL-SCREEN PINNED TAGLINES (scroll captured by JS — see script at bottom) -->
+  <section class="core-scrollpoints" id="core-scrollpoints" aria-label="Howard Core, at a glance">
+    <div class="core-scrollpoint-item is-active" data-index="0"><span><b class="core-accent--teal">Privacy</b> by architecture.</span></div>
+    <div class="core-scrollpoint-item" data-index="1"><span>Set up in <b class="core-accent--amber">one afternoon</b>.</span></div>
+    <div class="core-scrollpoint-item" data-index="2"><span>Pays for itself in <b class="core-accent--coral">two weeks</b>.</span></div>
+    <div class="core-scrollpoint-item" data-index="3"><span>It meets you <b class="core-accent--blue">where you are</b>.</span></div>
   </section>
 
-  <!-- 3. NOT ANOTHER APP -->
-  <section class="core-noapp" id="core-noapp-section">
-    <div class="core-noapp__field" id="core-noapp-field">
-      <i class="ti ti-mail core-noapp__icon" style="top:2%; left:48%; --dx:0; --dy:-1;" aria-hidden="true"></i>
-      <i class="ti ti-calendar-event core-noapp__icon" style="top:16%; left:82%; --dx:0.7; --dy:-0.7;" aria-hidden="true"></i>
-      <i class="ti ti-camera core-noapp__icon" style="top:48%; left:96%; --dx:1; --dy:0;" aria-hidden="true"></i>
-      <i class="ti ti-message-circle core-noapp__icon" style="top:80%; left:82%; --dx:0.7; --dy:0.7;" aria-hidden="true"></i>
-      <i class="ti ti-bell core-noapp__icon" style="top:94%; left:48%; --dx:0; --dy:1;" aria-hidden="true"></i>
-      <i class="ti ti-map-pin core-noapp__icon" style="top:80%; left:14%; --dx:-0.7; --dy:0.7;" aria-hidden="true"></i>
-      <i class="ti ti-phone core-noapp__icon" style="top:48%; left:0%; --dx:-1; --dy:0;" aria-hidden="true"></i>
-      <i class="ti ti-photo core-noapp__icon" style="top:16%; left:14%; --dx:-0.7; --dy:-0.7;" aria-hidden="true"></i>
-      <i class="ti ti-music core-noapp__icon" style="top:34%; left:65%; --dx:0.5; --dy:-0.5;" aria-hidden="true"></i>
-      <img src="../favicon.png" alt="" class="core-noapp__mark" aria-hidden="true" />
-    </div>
-    <h2 class="core-noapp__headline" id="core-noapp-headline">Everything else asks you to open it. Howard doesn't.</h2>
-  </section>
-
-  <!-- 4. PRIVACY -->
-  <section class="section section--dark">
+  <!-- 2. IT DOESN'T WAIT TO BE ASKED (+ works-with platforms) -->
+  <section class="section section--light core-chapter" id="core-chapter-2">
     <div class="container">
-      <div style="text-align:center;">
-        <div class="text-label scroll-reveal" style="color:var(--color-accent); display:flex; align-items:center; justify-content:center; gap:var(--space-2); margin-bottom:var(--space-6);">Privacy by architecture</div>
-        <h2 class="text-h1 core-privacy__headline scroll-reveal" style="color:var(--color-white); max-width:780px; margin:0 auto;">Your data never leaves the building.</h2>
-        <p class="text-body-large scroll-reveal" style="color:rgba(255,255,255,0.55); max-width:520px; margin:var(--space-4) auto 0;">Not a policy. Physics.</p>
-        <div class="layout-capabilities core-privacy__stats scroll-reveal" style="max-width:560px; margin:var(--space-12) auto 0; gap:var(--space-8);">
-          <div style="text-align:center;">
-            <div class="text-h1" style="color:var(--color-white);">0</div>
-            <div class="text-caption" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.08em; margin-top:var(--space-2);">External servers used</div>
+      <div style="max-width:920px; margin:0 auto;">
+        <h2 class="text-h1 scroll-reveal">It doesn't wait to be <span class="core-accent--coral">asked</span>.</h2>
+        <p class="text-body-large scroll-reveal" style="color:var(--color-text-body); max-width:560px; margin-top:var(--space-4);">No app to open, no dashboard to check. You text it the way you'd text anyone else, and it handles the rest — booking, moving, replying, filing — then tells you what it did.</p>
+        <div class="core-asym scroll-reveal" id="core-capability">
+          <div class="core-asym__text">
+            <div class="core-capability__prompts" id="core-capability-prompts"></div>
           </div>
-          <div style="text-align:center;">
-            <div class="text-h1" style="color:var(--color-white);">0</div>
-            <div class="text-caption" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.08em; margin-top:var(--space-2);">Third parties with your data</div>
+          <div class="core-asym__media">
+            <div class="core-phone-photo">
+              <img src="../howard-phone-hero.png" alt="Howard replying to a text conversation" />
+              <div class="core-phone-photo__screen">
+                <div class="core-phone-photo__header">Howard</div>
+                <div class="core-phone-photo__bubbles" id="core-capability-bubbles"></div>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="text-caption scroll-reveal" style="color:rgba(255,255,255,0.55); max-width:520px; margin:var(--space-8) auto 0;">If you enable a cloud model for non-sensitive queries, a local agent decides what can leave — and you set the rules for what counts as sensitive.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. DON'T TRUST IT, UNPLUG IT -->
-  <section class="core-unplug" id="core-unplug-section">
-    <div class="core-unplug__content" id="core-unplug-content">
-      <div class="core-unplug__icon-wrap">
-        <i class="ti ti-plug-connected core-unplug__icon core-unplug__icon--connected" aria-hidden="true"></i>
-        <i class="ti ti-plug-x core-unplug__icon core-unplug__icon--disconnected" aria-hidden="true"></i>
-      </div>
-      <h2 class="core-unplug__headline">Don't trust it. Unplug it.</h2>
-      <p class="core-unplug__sub">This isn't a setting you toggle. It's a cord you can pull.</p>
-    </div>
-  </section>
-
-  <!-- 6. TRUST LADDER -->
-  <section class="section section--light">
-    <div class="container">
-      <div style="text-align:center; margin-bottom:var(--space-12);">
-        <i class="ti ti-lock core-trust__lock-icon" aria-hidden="true"></i>
-        <h2 class="text-h1" style="margin-bottom:var(--space-3);">It doesn't start with the keys to everything.</h2>
-        <p class="text-body-large" style="color:var(--color-text-body); max-width:520px; margin:0 auto;">It earns access the way anyone new would. A little at a time.</p>
-      </div>
-      <div class="core-trust__list">
-        <div class="core-trust__item scroll-reveal" data-trust-item="0">
-          <div class="core-trust__dot"></div>
-          <p class="text-body-large">At first, it can see your calendar — nothing else.</p>
-        </div>
-        <div class="core-trust__item scroll-reveal" data-trust-item="1">
-          <div class="core-trust__dot"></div>
-          <p class="text-body-large">Once it's proven reliable, it can draft a reply for you to send.</p>
-        </div>
-        <div class="core-trust__item scroll-reveal" data-trust-item="2">
-          <div class="core-trust__dot"></div>
-          <p class="text-body-large">With more trust, it can send routine messages on its own.</p>
-        </div>
-        <div class="core-trust__item scroll-reveal" data-trust-item="3">
-          <div class="core-trust__dot"></div>
-          <p class="text-body-large">Eventually, it can book, pay, and follow through — because you told it to.</p>
+        <div style="margin-top:var(--space-24); text-align:center;">
+          <h2 class="text-h3 scroll-reveal">Compatibility, at its finest.</h2>
+          <div class="core-platform-list scroll-reveal">
+            <span>iMessage</span><span class="core-platform-dot">·</span><span>WhatsApp</span><span class="core-platform-dot">·</span><span>Messenger</span><span class="core-platform-dot">·</span><span>Google Messages</span><span class="core-platform-dot">·</span><span>Outlook</span><span class="core-platform-dot">·</span><span>Gmail</span><span class="core-platform-dot">·</span><span>Apple Mail</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. IT LEARNS YOU -->
-  <section class="section section--light" style="padding-top:0;">
+  <!-- 3. PRIVACY -->
+  <section class="section section--light core-chapter">
     <div class="container" style="text-align:center;">
-      <svg class="core-learns__visual scroll-reveal" viewBox="0 0 200 120" aria-hidden="true">
-        <circle cx="50" cy="60" r="22" pathLength="1" />
-        <line x1="72" y1="60" x2="150" y2="60" pathLength="1" />
-        <line x1="122" y1="60" x2="122" y2="78" pathLength="1" />
-        <line x1="140" y1="60" x2="140" y2="86" pathLength="1" />
-      </svg>
-      <h2 class="text-h1" style="margin-bottom:var(--space-3);">It doesn't watch you to learn.</h2>
-      <p class="text-body-large" style="color:var(--color-text-body); max-width:520px; margin:0 auto;">It just remembers what you told it, and builds on that.</p>
+      <h2 class="text-h1 scroll-reveal">Your data never <span class="core-accent--teal">leaves the building</span>.</h2>
+      <p class="text-body-large scroll-reveal" style="color:var(--color-text-body); max-width:560px; margin:var(--space-4) auto 0;">Howard Core runs on dedicated hardware inside your home or office. Not a policy — physics. If it's not plugged in, it isn't running.</p>
+      <div class="core-stat-cards scroll-reveal" style="max-width:480px; margin-left:auto; margin-right:auto;">
+        <div class="core-stat-card"><div class="core-stat-card__num core-stat-card__num--teal">0</div><div class="core-stat-card__label">External servers used</div></div>
+        <div class="core-stat-card"><div class="core-stat-card__num core-stat-card__num--teal">0</div><div class="core-stat-card__label">Third parties with your data</div></div>
+      </div>
+      <div class="core-info-card scroll-reveal" style="max-width:640px; margin-left:auto; margin-right:auto;">
+        <p>If you enable a cloud model for non-sensitive queries, a local agent decides what can leave — and you set the rules for what counts as sensitive.</p>
+        <p><b>It doesn't start with the keys to everything.</b> It earns access the way anyone new would — calendar, then messages, then email, a little at a time. Payment access is never automatic.</p>
+      </div>
     </div>
   </section>
 
-  <!-- 8. THE MOMENT IT BECOMES YOURS (unboxing) — pending real photography/video; not built yet -->
-
-  <!-- 9. SELF-INSTALLATION -->
-  <section class="section section--light">
+  <!-- 4. SELF-INSTALLATION -->
+  <section class="section section--light core-chapter">
     <div class="container">
-      <div class="text-label" style="text-align:center; margin-bottom:var(--space-12);">Designed for self-installation</div>
-      <div class="core-steps-line scroll-reveal" style="max-width:1040px; margin-left:auto; margin-right:auto;">
-        <div class="core-steps-line__fill"></div>
+      <h2 class="text-h1 scroll-reveal" style="text-align:center;">Set up by lunch, <span class="core-accent--amber">not by a technician</span>.</h2>
+      <div class="core-asym core-asym--rev scroll-reveal">
+        <div class="core-asym__text">
+          <p class="text-body-large" style="color:var(--color-text-body);">Unbox it, follow the guided setup, and connect the messaging app you already use. Every step is walked through in plain language — no manual, no call to support, no one standing in your kitchen with a toolkit.</p>
+        </div>
+        <div class="core-asym__media">
+          <div class="core-placeholder-photo">Real photo needed: actual Howard Core unboxing sequence — box, cable, first setup screen</div>
+        </div>
       </div>
-      <div class="grid-3" style="max-width:1040px; margin:0 auto;">
-        <div class="scroll-reveal">
-          <div class="core-step-num">1</div>
-          <h3 class="text-h4" style="margin-bottom:var(--space-2);">Unbox</h3>
-          <p class="text-body" style="color:var(--color-text-body);">Everything you need is in the box. No trip to the hardware store.</p>
-        </div>
-        <div class="scroll-reveal">
-          <div class="core-step-num">2</div>
-          <h3 class="text-h4" style="margin-bottom:var(--space-2);">Follow the guided setup</h3>
-          <p class="text-body" style="color:var(--color-text-body);">Every step is walked through in plain language. No manual, no technician, no guesswork.</p>
-        </div>
-        <div class="scroll-reveal">
-          <div class="core-step-num">3</div>
-          <h3 class="text-h4" style="margin-bottom:var(--space-2);">Connect and start</h3>
-          <p class="text-body" style="color:var(--color-text-body);">During setup, Howard connects to whatever you already text on. No new app to learn — it meets you where you are.</p>
-        </div>
+      <div class="core-stat-cards scroll-reveal">
+        <div class="core-stat-card"><div class="core-stat-card__num core-stat-card__num--amber">30 min</div><div class="core-stat-card__label">Typical setup time</div></div>
+        <div class="core-stat-card"><div class="core-stat-card__num core-stat-card__num--amber">1</div><div class="core-stat-card__label">Cable, everything included</div></div>
+        <div class="core-stat-card"><div class="core-stat-card__num core-stat-card__num--amber">0</div><div class="core-stat-card__label">Technicians needed</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 10. THE MATH -->
-  <section class="section section--dark" id="core-math-section">
+  <!-- 5. THE MATH -->
+  <section class="section section--light core-chapter" id="core-math-section">
     <div class="container" style="text-align:center;">
-      <div class="text-label scroll-reveal" style="color:var(--color-accent);">The math</div>
+      <h2 class="text-h1 scroll-reveal">The <span class="core-accent--coral">math</span>.</h2>
       <div class="core-math__row">
-        <div>
-          <div class="core-math__num" id="core-math-human" data-target="70000" data-prefix="$">$0</div>
+        <div class="core-math__col">
           <div class="core-math__label">Human EA, per year</div>
+          <div class="core-math__num" id="core-math-ea">$0</div>
         </div>
-        <div class="core-math__vs">vs.</div>
-        <div>
-          <div class="core-math__num core-math__num--accent" id="core-math-howard" data-target="2999.99" data-prefix="$" data-decimals="2">$0</div>
-          <div class="core-math__label">Howard Core, one time</div>
+        <div class="core-math__vs">vs</div>
+        <div class="core-math__col">
+          <div class="core-math__label">Howard Core, once</div>
+          <div class="core-math__num core-math__num--win">$2,999.99</div>
         </div>
       </div>
-      <p class="text-body-large scroll-reveal" style="color:rgba(255,255,255,0.7); max-width:480px; margin:0 auto;">For a $300/hr professional, Howard pays for itself in under two weeks.</p>
+      <p class="text-body-large scroll-reveal" style="margin-top:var(--space-6); font-weight:700; color:var(--color-text-primary);">For a $300/hr professional, Howard pays for itself in under two weeks.</p>
     </div>
   </section>
 
-  <!-- 11. PRICING CARD -->
+  <!-- 6. PRICING CARD -->
   <section class="section section--light" style="padding-top:0;">
     <div class="container">
-      <div class="layout-product-showcase" style="align-items:stretch; max-width:1000px; margin:0 auto;">
-        <div class="scroll-reveal" style="border-radius:var(--radius-large); border:1px solid var(--color-border); overflow:hidden; min-height:320px;">
-          <img src="../howard-core.png" alt="Howard Core" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
+      <div style="max-width:460px; margin:0 auto;">
         <div class="card--elevated card scroll-reveal">
           <span class="badge badge--accent">Launch edition</span>
-          <div class="text-h3" style="margin-top:var(--space-4); margin-bottom:var(--space-2);">Howard Core</div>
+          <div class="text-h3" style="margin-top:var(--space-4); margin-bottom:var(--space-2);">Howard <span class="core-gradient">Core</span></div>
           <div style="display:flex; align-items:baseline; gap:var(--space-2); margin-bottom:var(--space-4);">
             <span style="font-size:40px; font-weight:700; letter-spacing:-0.02em; line-height:1;">$2,999.99</span>
             <span class="text-caption" style="color:var(--color-text-muted);">one-time</span>
           </div>
-          <p class="text-caption" style="color:var(--color-text-muted); margin-bottom:var(--space-3);">Monthly subscription billed separately. Covers updates, security monitoring, customer support, and priority replacement warranty.</p>
-          <p style="font-size:14px; font-weight:700; color:var(--color-text-primary); margin-bottom:var(--space-6);">For a $300/hr professional, Howard pays for itself in under two weeks.</p>
+          <p class="text-caption" style="color:var(--color-text-muted); margin-bottom:var(--space-6);">Monthly subscription billed separately. Covers updates, security monitoring, customer support, and priority replacement warranty.</p>
 
           <div style="display:flex; flex-direction:column; gap:var(--space-3); margin-bottom:var(--space-6);">
             <a href="coming-soon.html" class="btn btn--primary" style="width:100%; text-align:center;" aria-describedby="pricing-preorder-note">Pre-order Howard Core</a>
@@ -335,32 +257,43 @@
     </div>
   </section>
 
-  <!-- 12. QUIET DIG -->
-  <section class="core-montage" id="core-quiet-section" style="min-height:90vh;">
-    <div class="core-quiet-phone" id="core-quiet-phone">
-      <div class="core-phone">
-        <div class="core-phone__screen" id="core-quiet-screen"></div>
-      </div>
-      <p class="core-quiet__coda" id="core-quiet-coda">Nothing here is trying to be opened.</p>
-    </div>
-  </section>
-
-  <!-- 13. FINAL CTA -->
+  <!-- 7. OUR APPROACH LEADS THE WAY -->
   <section class="section section--light" style="padding-top:0;">
     <div class="container">
-      <div class="cta-banner scroll-reveal">
-        <div class="text-label" style="color:var(--color-accent); margin-bottom:var(--space-4);">Pre-launch</div>
-        <h2 class="cta-banner__headline">Have questions before launch?</h2>
-        <p class="cta-banner__body">Ask anything. We'll respond directly — no ticket number, no bot.</p>
-        <div class="cta-banner__actions">
-          <a class="btn btn--yellow-dark btn--lg" href="../support/contact.html">Get in touch</a>
-          <a class="btn btn--ghost btn--lg" href="../support/faqs.html">Read the FAQs</a>
+      <h2 class="text-h2 scroll-reveal" style="text-align:center; margin-bottom:var(--space-12);">Our approach leads the way.</h2>
+      <div class="grid-3">
+        <div class="card scroll-reveal">
+          <div class="card__headline" style="font-size:18px;">Privacy by architecture</div>
+          <p class="card__body">Every product is designed so your data stays on hardware you own — not a policy we could change later.</p>
+        </div>
+        <div class="card scroll-reveal">
+          <div class="card__headline" style="font-size:18px;">Trust, earned gradually</div>
+          <p class="card__body">Howard doesn't start with full access. It earns more the same way any new hire would.</p>
+        </div>
+        <div class="card scroll-reveal">
+          <div class="card__headline" style="font-size:18px;">Built for one household</div>
+          <p class="card__body">Not sold to millions. Each Howard Core is provisioned for the specific people who own it.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 14. FOOTER -->
+  <!-- 8. FINAL CTA -->
+  <section class="section section--light" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-banner cta-banner--light scroll-reveal">
+        <div class="text-label" style="color:var(--color-accent); margin-bottom:var(--space-4);">Pre-launch</div>
+        <h2 class="cta-banner__headline">Have questions before launch?</h2>
+        <p class="cta-banner__body">Ask anything. We'll respond directly — no ticket number, no bot.</p>
+        <div class="cta-banner__actions">
+          <a class="btn btn--yellow btn--lg" href="../support/contact.html">Get in touch</a>
+          <a class="btn btn--secondary btn--lg" href="../support/faqs.html">Read the FAQs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__top">
@@ -418,67 +351,6 @@
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var timeScale = reduceMotion ? 0.1 : 1;
 
-      /* ---------- Montage: scene cuts -> phone burst -> coda ---------- */
-      var scenes = document.querySelectorAll('.core-scene');
-      var phoneStage = document.getElementById('core-phone-stage');
-      var caption = document.getElementById('core-caption');
-      var bubbleWrap = document.getElementById('core-bubbles');
-      var coda = document.getElementById('core-coda');
-
-      var tasks = [
-        'Flight to Austin — <b>booked</b>.',
-        "Thursday's meeting — <b>moved to 3pm</b>.",
-        'Reply to Sarah — <b>sent</b>.',
-        'Expense report — <b>filed</b>.',
-        'Dentist reminder — <b>set</b>.'
-      ];
-
-      function runBurst() {
-        var delay = 200 * timeScale;
-        tasks.forEach(function (t) {
-          setTimeout(function () {
-            var b = document.createElement('div');
-            b.className = 'core-bubble';
-            b.innerHTML = t;
-            bubbleWrap.appendChild(b);
-            requestAnimationFrame(function () { b.classList.add('show'); });
-          }, delay);
-          delay += 380 * timeScale;
-        });
-        setTimeout(function () {
-          coda.classList.add('show');
-        }, delay + 300 * timeScale);
-      }
-
-      function runMontage() {
-        var i = 0;
-        function nextScene() {
-          scenes.forEach(function (s) { s.classList.remove('active'); });
-          if (i < scenes.length) {
-            scenes[i].classList.add('active');
-            i++;
-            setTimeout(nextScene, 550 * timeScale);
-          } else {
-            setTimeout(function () {
-              caption.classList.add('show');
-              phoneStage.classList.add('show');
-              runBurst();
-            }, 250 * timeScale);
-          }
-        }
-        nextScene();
-      }
-
-      var montageObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            runMontage();
-            montageObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.35 });
-      montageObserver.observe(document.getElementById('core-montage'));
-
       /* ---------- Subheader: shows once the hero scrolls out of view ---------- */
       var subheader = document.getElementById('core-subheader');
       var navEl = document.querySelector('.nav');
@@ -500,108 +372,306 @@
       }, { threshold: 0 });
       heroObserver.observe(heroSection);
 
-      /* ---------- Not another app: icons hold, then expand outward to reveal the mark ---------- */
-      var noappField = document.getElementById('core-noapp-field');
-      var noappHeadline = document.getElementById('core-noapp-headline');
-      var noappObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setTimeout(function () { noappField.classList.add('expand'); }, 2000 * timeScale);
-            setTimeout(function () { noappHeadline.classList.add('show'); }, 2600 * timeScale);
-            noappObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      noappObserver.observe(document.getElementById('core-noapp-section'));
+      /* ---------- Capability widget: click a prompt, watch it play out on the phone ---------- */
+      (function () {
+        var section = document.getElementById('core-capability');
+        if (!section) return;
+        var listEl = document.getElementById('core-capability-prompts');
+        var bubblesEl = document.getElementById('core-capability-bubbles');
 
-      /* ---------- Unplug: auto-plays once in view — dims for a beat, then lights back up ---------- */
-      var unplugSection = document.getElementById('core-unplug-section');
-      var unplugObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setTimeout(function () { unplugSection.classList.add('dim'); }, 500 * timeScale);
-            setTimeout(function () { unplugSection.classList.remove('dim'); }, 500 * timeScale + 1000 * timeScale);
-            unplugObserver.unobserve(entry.target);
+        var prompts = [
+          {
+            label: "Book me a flight to Austin next Thurs, back Sunday",
+            exchange: [
+              { from: 'user', text: "Book me a flight to Austin next Thurs, back Sunday" },
+              { from: 'howard', text: "Found a 7:10am direct on Southwest, $214. Want me to book it?" },
+              { from: 'user', text: "Yes" },
+              { from: 'howard', text: "Booked. Confirmation #H29X, added to your calendar." }
+            ]
+          },
+          {
+            label: "Move my 2pm to tomorrow, same time",
+            exchange: [
+              { from: 'user', text: "Move my 2pm to tomorrow, same time" },
+              { from: 'howard', text: "Done. I let the other attendees know and sent an updated invite." }
+            ]
+          },
+          {
+            label: "Reply to Sarah, tell her the report's coming Friday",
+            exchange: [
+              { from: 'user', text: "Reply to Sarah, tell her the report's coming Friday" },
+              { from: 'howard', text: "Sent: “Hi Sarah, the report will be ready by Friday. Let me know if that works.”" }
+            ]
+          },
+          {
+            label: "File this expense report for the Austin trip",
+            exchange: [
+              { from: 'user', text: "File this expense report for the Austin trip" },
+              { from: 'howard', text: "Filed. $214 flight and $86 in meals logged under Travel, October." }
+            ]
+          },
+          {
+            label: "Remind me about the dentist Friday morning",
+            exchange: [
+              { from: 'user', text: "Remind me about the dentist Friday morning" },
+              { from: 'howard', text: "Set for 8am Friday. I'll text you an hour before." }
+            ]
+          },
+          {
+            label: "What's on my calendar tomorrow?",
+            exchange: [
+              { from: 'user', text: "What's on my calendar tomorrow?" },
+              { from: 'howard', text: "9am client call, 1pm dentist, and a 4pm flight to Austin." }
+            ]
+          }
+        ];
+
+        var timers = [];
+        var runToken = 0;
+
+        function wordCount(text) {
+          return text.trim().split(/\s+/).filter(Boolean).length;
+        }
+        function readingMs(text) {
+          return wordCount(text) / 250 * 60000;
+        }
+
+        function clearTimers() {
+          timers.forEach(clearTimeout);
+          timers = [];
+        }
+        function after(ms, fn) {
+          timers.push(setTimeout(fn, ms * timeScale));
+        }
+
+        function addBubble(from, text) {
+          var b = document.createElement('div');
+          b.className = 'core-capability__bubble core-capability__bubble--' + from;
+          b.textContent = text;
+          bubblesEl.appendChild(b);
+          requestAnimationFrame(function () { b.classList.add('show'); });
+          bubblesEl.scrollTop = bubblesEl.scrollHeight;
+        }
+
+        function addTyping() {
+          var t = document.createElement('div');
+          t.className = 'core-capability__typing';
+          t.innerHTML = '<span></span><span></span><span></span>';
+          bubblesEl.appendChild(t);
+          requestAnimationFrame(function () { t.classList.add('show'); });
+          bubblesEl.scrollTop = bubblesEl.scrollHeight;
+        }
+
+        // Bug in the original mockup: clicking a new prompt while the previous exchange was
+        // still playing left its old setTimeouts running, so they'd inject stale bubbles into
+        // the new conversation. runToken invalidates every pending callback from a previous
+        // play() the instant a new one starts.
+        function play(index) {
+          var token = ++runToken;
+          clearTimers();
+          Array.prototype.forEach.call(listEl.children, function (b, i) {
+            b.classList.toggle('is-active', i === index);
+          });
+
+          var existing = Array.prototype.slice.call(bubblesEl.children);
+          existing.forEach(function (el) { el.classList.remove('show'); });
+
+          after(existing.length ? 260 : 0, function () {
+            if (token !== runToken) return;
+            bubblesEl.innerHTML = '';
+            var delay = 150;
+            var exchange = prompts[index].exchange;
+            var appearAt = [];
+            exchange.forEach(function (m, i) {
+              // From the 3rd message on, don't send until the previous message
+              // has had time to be read at ~250 WPM.
+              if (i >= 2) {
+                var readGate = appearAt[i - 1] + readingMs(exchange[i - 1].text);
+                if (delay < readGate) delay = readGate;
+              }
+              if (m.from === 'user') {
+                after(delay, function () {
+                  if (token !== runToken) return;
+                  addBubble('user', m.text);
+                });
+                appearAt[i] = delay;
+                delay += 500;
+              } else {
+                // Longer replies get a slightly longer "typing" beat, within reason.
+                var typingFor = Math.min(1100, Math.max(500, m.text.length * 18));
+                after(delay, function () {
+                  if (token !== runToken) return;
+                  addTyping();
+                });
+                after(delay + typingFor, function () {
+                  if (token !== runToken) return;
+                  var typing = bubblesEl.querySelector('.core-capability__typing');
+                  if (typing) typing.remove();
+                  addBubble('howard', m.text);
+                });
+                appearAt[i] = delay + typingFor;
+                delay = appearAt[i] + 450;
+              }
+            });
+          });
+        }
+
+        prompts.forEach(function (p, i) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'core-capability__prompt' + (i === 0 ? ' is-active' : '');
+          btn.textContent = p.label;
+          btn.addEventListener('click', function () { play(i); });
+          listEl.appendChild(btn);
+        });
+
+        var played = false;
+        var capabilityObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !played) {
+              played = true;
+              play(0);
+              capabilityObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        capabilityObserver.observe(section);
+      })();
+
+      /* ---------- Scrollpoints: real scroll capture, so no gesture can skip through it ----------
+         Real document scroll is frozen the instant this section reaches the top of the
+         viewport. While frozen, wheel/touch/keyboard input drives the crossfade directly.
+         Progress is driven by accumulated scroll distance (so continuous scrolling keeps
+         advancing normally, the way a user actually scrolls through short text), but each
+         step also requires a minimum real-time gap since the last one — so the whole
+         4-panel sequence can never be finished in less than ~1.5s no matter how hard or
+         continuously someone scrolls. Scroll is only handed back to the browser once the
+         sequence is exhausted in that direction, at the exact position it was frozen at,
+         so there's no scrollY left to overshoot with. */
+      (function () {
+        var section = document.getElementById('core-scrollpoints');
+        var items = section.querySelectorAll('.core-scrollpoint-item');
+        var n = items.length;
+        var idx = 0;
+        var engaged = false;
+        var prevTop = null;
+        var accum = 0;
+        var threshold = 220;
+        var minStepGapMs = 450 * timeScale;
+        var lastStepAt = 0;
+
+        function setActive(i) {
+          idx = i;
+          items.forEach(function (item, j) {
+            item.classList.toggle('is-active', j === idx);
+          });
+        }
+
+        function engage(top) {
+          engaged = true;
+          window.scrollTo(0, window.scrollY + top);
+          // Native momentum scrolling isn't driven by wheel events, so preventDefault() on
+          // wheel can't stop it once it's coasting — overflow:hidden is what actually kills
+          // it outright (there's nothing left for it to scroll). Held for the whole engaged
+          // duration; a brief on/off pulse here previously seemed to let momentum resume
+          // partway through, which made things worse rather than better. Trade-off: the
+          // scrollbar is hidden while this section is active.
+          document.documentElement.style.overflow = 'hidden';
+        }
+
+        function disengage() {
+          engaged = false;
+          document.documentElement.style.overflow = '';
+          accum = 0;
+          // The freeze held the section's top at exactly 0 the whole time, so that's
+          // still where scrolling resumes from — record it, or the next tick compares
+          // against a stale pre-freeze value and can misfire a spurious re-engage.
+          prevTop = 0;
+        }
+
+        function step(dir) {
+          var next = idx + dir;
+          if (next < 0 || next > n - 1) {
+            disengage();
+            return;
+          }
+          setActive(next);
+          lastStepAt = performance.now();
+        }
+
+        function consume(delta) {
+          accum += delta;
+          if (performance.now() - lastStepAt < minStepGapMs) return;
+          if (accum >= threshold) {
+            accum = 0;
+            step(1);
+          } else if (accum <= -threshold) {
+            accum = 0;
+            step(-1);
+          }
+        }
+
+        window.addEventListener('scroll', function () {
+          if (engaged) return;
+          var top = section.getBoundingClientRect().top;
+          if (prevTop !== null && ((prevTop > 0 && top <= 0) || (prevTop < 0 && top >= 0))) {
+            engage(top);
+          }
+          prevTop = top;
+        }, { passive: true });
+
+        window.addEventListener('wheel', function (e) {
+          if (!engaged) return;
+          e.preventDefault();
+          consume(e.deltaY);
+        }, { passive: false });
+
+        var touchStartY = null;
+        window.addEventListener('touchstart', function (e) {
+          if (!engaged) return;
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        window.addEventListener('touchmove', function (e) {
+          if (!engaged || touchStartY === null) return;
+          e.preventDefault();
+          var y = e.touches[0].clientY;
+          consume(touchStartY - y);
+          touchStartY = y;
+        }, { passive: false });
+        window.addEventListener('touchend', function () { touchStartY = null; }, { passive: true });
+
+        window.addEventListener('keydown', function (e) {
+          if (!engaged) return;
+          var tag = document.activeElement && document.activeElement.tagName;
+          if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON' || tag === 'A') return;
+          if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+            e.preventDefault();
+            if (performance.now() - lastStepAt >= minStepGapMs) step(1);
+          } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            if (performance.now() - lastStepAt >= minStepGapMs) step(-1);
           }
         });
-      }, { threshold: 0.5 });
-      unplugObserver.observe(unplugSection);
+      })();
 
       /* ---------- The math: count up on scroll into view ---------- */
-      function formatMoney(value, decimals, prefix) {
-        var fixed = value.toFixed(decimals || 0);
-        var parts = fixed.split('.');
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        return prefix + parts.join('.');
-      }
-      function countUp(el) {
-        var target = parseFloat(el.getAttribute('data-target'));
-        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
-        var prefix = el.getAttribute('data-prefix') || '';
-        var duration = 1400 * timeScale;
-        var start = null;
-        function step(ts) {
-          if (!start) start = ts;
-          var progress = Math.min((ts - start) / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = formatMoney(target * eased, decimals, prefix);
-          if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      }
+      var eaNumEl = document.getElementById('core-math-ea');
       var mathObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            countUp(document.getElementById('core-math-human'));
-            countUp(document.getElementById('core-math-howard'));
+            var end = 68000, dur = 1200 * timeScale, start = null;
+            function step(ts) {
+              if (!start) start = ts;
+              var p = Math.min((ts - start) / dur, 1);
+              eaNumEl.textContent = '$' + Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString();
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
             mathObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.5 });
-      mathObserver.observe(document.getElementById('core-math-section'));
-
-      /* ---------- Quiet dig: notifications stack, then dissolve to stillness ---------- */
-      var quietNotifs = [
-        'Reply now', 'You have 12 unread', 'New comment', 'Someone liked this',
-        'Trending near you', 'Your weekly summary', 'Open to continue', 'Don\'t miss out'
-      ];
-      var quietScreen = document.getElementById('core-quiet-screen');
-      var quietCoda = document.getElementById('core-quiet-coda');
-      function runQuietDig() {
-        var delay = 150 * timeScale;
-        var created = [];
-        quietNotifs.forEach(function (text, i) {
-          setTimeout(function () {
-            var n = document.createElement('div');
-            n.className = 'core-notif';
-            n.textContent = text;
-            n.style.top = (8 + (i % 5) * 18) + '%';
-            n.style.left = (i % 2 === 0 ? 8 : 42) + '%';
-            n.style.setProperty('--rot', (i % 2 === 0 ? -1 : 1) * (4 + i) + 'deg');
-            quietScreen.appendChild(n);
-            requestAnimationFrame(function () { n.classList.add('show'); });
-            created.push(n);
-          }, delay);
-          delay += 180 * timeScale;
-        });
-        setTimeout(function () {
-          created.forEach(function (n) { n.classList.add('fade-out'); });
-          quietScreen.style.transition = 'background 1s ease';
-          quietScreen.style.background = 'var(--color-cinema-black)';
-        }, delay + 500 * timeScale);
-        setTimeout(function () {
-          quietCoda.classList.add('show');
-        }, delay + 1400 * timeScale);
-      }
-      var quietObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            runQuietDig();
-            quietObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      quietObserver.observe(document.getElementById('core-quiet-section'));
+      mathObserver.observe(eaNumEl);
     })();
   </script>
 </body>
