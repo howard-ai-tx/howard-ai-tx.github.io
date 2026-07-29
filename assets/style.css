@@ -1574,6 +1574,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: var(--space-6);
 }
 
+.core-unbox-photo {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-card);
+  display: block;
+}
+
 /* Interactive capability widget (chapter 2): click a prompt, watch it play out on the phone */
 .core-capability__prompts {
   display: flex;
