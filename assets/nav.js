@@ -3,7 +3,7 @@
 /* Password gate */
 (function () {
   if (sessionStorage.getItem('hw_auth') !== '1') {
-    window.location.replace('/password.html');
+    window.location.replace('/password/');
   }
 })();
 
