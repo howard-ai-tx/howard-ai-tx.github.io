@@ -1,3 +1,9 @@
 import http.server, os
 os.chdir("/Users/hendrikvangeertruyden/Desktop/HowardAI Website")
-http.server.test(HandlerClass=http.server.SimpleHTTPRequestHandler, port=8080, bind="127.0.0.1")
+
+class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+        super().end_headers()
+
+http.server.test(HandlerClass=NoCacheHandler, port=8080, bind="127.0.0.1")
