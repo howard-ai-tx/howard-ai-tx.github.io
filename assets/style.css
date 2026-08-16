@@ -1135,13 +1135,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ===== PAGE HERO (inner pages) ===== */
 .page-hero {
-  padding: calc(var(--nav-height) + 64px) 0 64px;
+  padding: calc(var(--nav-height) + 64px) 0 40px;
   background: var(--color-white);
 }
 .page-hero--dark {
-  padding: calc(var(--nav-height) + 64px) 0 64px;
+  padding: calc(var(--nav-height) + 64px) 0 40px;
   background: var(--color-dark-bg);
   color: var(--color-white);
+}
+.page-hero + .section,
+.page-hero--dark + .section {
+  padding-top: var(--space-12);
 }
 .page-hero__label {
   display: inline-flex;
