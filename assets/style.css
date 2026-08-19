@@ -2037,7 +2037,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 600px) {
   .hero__headline { font-size: 32px; }
-  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .hero__actions { flex-direction: column; align-items: center; }
   .grid-4 { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr; }
   .layout-name-row { grid-template-columns: 1fr; }
