@@ -592,6 +592,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: clamp(48px, 7.5vw, 108px);
   line-height: 0.94;
 }
+/* Homepage-only accent. Deliberately NOT .core-gradient — that class is shared
+   with the Howard Core page's wordmark and must keep rendering as-is. */
+.hero__accent { color: var(--color-accent); }
 .hero__tagline {
   font-size: 19px;
   font-weight: 400;
@@ -799,6 +802,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: gap var(--dur-micro) ease-out;
 }
 .make__link:hover { gap: var(--space-3); }
+.make__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
 @media (max-width: 860px) {
   .make { grid-template-columns: 1fr; gap: var(--space-8); }
   .make__media { padding: var(--space-6); }
@@ -896,29 +905,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .path__track { grid-auto-flow: row; grid-auto-columns: auto; gap: var(--space-3); padding: 0 var(--space-4); }
   .path__toggle { margin-bottom: var(--space-12); display: flex; width: 100%; }
   .path__btn { flex: 1; padding: 10px var(--space-3); font-size: 14px; }
-}
-
-/* ===== CLOSER (send them to the product) ===== */
-.closer { text-align: center; max-width: 720px; margin: 0 auto; }
-.closer__headline {
-  font-size: clamp(34px, 5vw, 64px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
-  margin-bottom: var(--space-6);
-}
-.closer__body {
-  font-size: clamp(17px, 1.8vw, 20px);
-  line-height: 1.5;
-  color: var(--color-text-body);
-  margin-bottom: var(--space-8);
-}
-.closer__actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  flex-wrap: wrap;
 }
 
 /* ===== PRIVACY SECTION ===== */
