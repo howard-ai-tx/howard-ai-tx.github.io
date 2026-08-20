@@ -484,15 +484,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .card--featured:hover { box-shadow: var(--shadow-card-hover); }
 
+/* Formerly a dark panel. Now an accent card that still reads as "lifted"
+   against a white section, without reintroducing the dark grey. */
 .card--dark {
-  background: var(--color-dark-bg);
-  border: 1px solid #4A4A4B;
+  background: var(--color-light-bg);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-large);
   padding: var(--space-6);
-  color: var(--color-white);
+  color: var(--color-text-primary);
   transition: border-color var(--dur-micro) ease-out;
 }
-.card--dark:hover { border-color: #6B6B6B; }
+.card--dark:hover { border-color: var(--color-border-hover); }
 
 /* Card anatomy */
 .card__icon {
@@ -513,7 +515,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.4;
   color: var(--color-text-body);
 }
-.card--dark .card__body { color: rgba(255,255,255,0.65); }
+.card--dark .card__body { color: var(--color-text-body); }
 
 /* ===== HERO (photographic) ===== */
 /* Sticky, so the sections below scroll up over it instead of pushing it away.
@@ -1159,23 +1161,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ===== CTA BANNER ===== */
+/* Light by default. Geometry is unchanged so .cta-banner--light, which already
+   forced these colors, still renders identically wherever it is used. */
 .cta-banner {
-  background: var(--color-dark-bg);
+  background: var(--color-light-bg);
   border-radius: var(--radius-large);
   padding: 64px 80px;
   text-align: center;
 }
+/* Type scale deliberately left at 40px: .cta-banner--light is used on the
+   Howard Core page, and changing this would alter that page's rendering. */
 .cta-banner__headline {
   font-size: 40px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--color-white);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-4);
 }
 .cta-banner__body {
   font-size: 18px;
-  color: rgba(255,255,255,0.65);
+  color: var(--color-text-body);
   max-width: 480px;
   margin: 0 auto var(--space-8);
 }
@@ -1265,10 +1271,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: calc(var(--nav-height) + 64px) 0 40px;
   background: var(--color-white);
 }
+/* Kept as an alias so any stray usage stays light; dark inner-page heroes are
+   retired — only the photographic homepage hero and the footer go dark now. */
 .page-hero--dark {
   padding: calc(var(--nav-height) + 64px) 0 40px;
-  background: var(--color-dark-bg);
-  color: var(--color-white);
+  background: var(--color-white);
 }
 .page-hero + .section,
 .page-hero--dark + .section {
@@ -1285,12 +1292,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--color-text-muted);
   margin-bottom: var(--space-4);
 }
-.page-hero--dark .page-hero__label { color: rgba(255,255,255,0.4); }
 .page-hero__headline {
-  font-size: 40px;
+  font-size: clamp(40px, 5.2vw, 68px);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
   margin-bottom: var(--space-4);
 }
 .page-hero__body {
@@ -1299,7 +1305,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--color-text-body);
   max-width: 560px;
 }
-.page-hero--dark .page-hero__body { color: rgba(255,255,255,0.65); }
 
 /* ===== DIVIDER ===== */
 .divider {
@@ -1513,7 +1518,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .news-card__media {
-  background: var(--color-dark-bg);
+  background: var(--color-light-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1523,7 +1528,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .news-card--featured .news-card__media { min-height: 320px; }
 .news-card__media i {
   font-size: 40px;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 .news-card--featured .news-card__media i { font-size: 56px; }
 .news-card__media img {
@@ -1590,7 +1595,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .article-media {
-  background: var(--color-dark-bg);
+  background: var(--color-light-bg);
   border-radius: var(--radius-large);
   min-height: 320px;
   display: flex;
@@ -1607,7 +1612,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .article-media i {
   font-size: 56px;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .article-body { max-width: 720px; }
@@ -2065,7 +2070,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(ellipse 70% 60% at 50% 40%, #2B2B2C, var(--color-cinema-black) 75%);
+  background: var(--color-white);
   padding: calc(var(--nav-height) + 64px) 24px 96px;
 }
 .core-coming-soon__inner { max-width: 640px; margin: 0 auto; }
@@ -2077,30 +2082,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   flex-wrap: wrap;
 }
 .core-coming-soon__input {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   padding: 11px 18px;
-  color: var(--color-white);
+  color: var(--color-text-primary);
   font-family: inherit;
   font-size: 14px;
   width: 260px;
   max-width: 100%;
   outline: none;
 }
-.core-coming-soon__input::placeholder { color: rgba(255,255,255,0.4); }
+.core-coming-soon__input::placeholder { color: var(--color-text-muted); }
 .core-coming-soon__input:focus {
-  border-color: rgba(255,255,255,0.4);
+  border-color: var(--color-border-hover);
 }
 .core-coming-soon__back {
   display: inline-block;
   margin-top: var(--space-8);
-  color: rgba(255,255,255,0.45);
+  color: var(--color-text-body);
   font-size: 14px;
   text-decoration: none;
   transition: color var(--dur-micro) ease-out;
 }
-.core-coming-soon__back:hover { color: rgba(255,255,255,0.7); }
+.core-coming-soon__back:hover { color: var(--color-text-primary); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
