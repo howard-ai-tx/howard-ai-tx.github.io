@@ -1881,53 +1881,59 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: var(--shadow-card);
 }
 
-.core-phone-photo { position: relative; display: inline-block; max-width: 420px; width: 100%; }
-.core-phone-photo img { width: 100%; display: block; }
+.core-phone-photo { position: relative; display: inline-block; max-width: 300px; width: 100%; }
+/* The mockup's screen is a transparent cutout, so the thread is painted BEHIND
+   the PNG. The frame, header and composer bar then mask it, which is what makes
+   the messages read as part of the app instead of sitting on top of it.
+   Insets below are measured from the artwork: window = 3.89%/3.77%/14.34%/17.17%. */
+.core-phone-photo__frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: block;
+  pointer-events: none;
+}
+/* White fill, deliberately oversized so it tucks under the opaque frame and
+   no hairline gap can show along the cutout edge. */
 .core-phone-photo__screen {
   position: absolute;
-  left: 32.55%;
-  top: 16.35%;
-  width: 36%;
-  height: 75.3%;
+  left: 2%;
+  right: 2%;
+  top: 12%;
+  bottom: 15%;
   background: var(--color-white);
-  border-radius: 15% / 7.2%;
-  display: flex;
-  flex-direction: column;
-  padding: 8% 6% 4%;
-  overflow: hidden;
-}
-.core-phone-photo__header {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  text-align: center;
-  padding-bottom: 6%;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 6%;
-  flex-shrink: 0;
+  z-index: 0;
 }
 .core-phone-photo__bubbles {
+  position: absolute;
+  left: 3.89%;
+  right: 3.77%;
+  top: 14.34%;
+  bottom: 17.17%;
+  z-index: 0;
   display: flex;
   flex-direction: column;
-  gap: 6%;
+  gap: 7px;
+  padding: 10px 11px 12px;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  flex: 1;
   /* No justify-content: flex-end here — a flex column can't create real
      scrollable overflow for content that grows past its start edge, so a
      bottom-anchored flex box silently traps the overflow instead of letting
-     it scroll. Bubbles stack from the top instead; play() scrolls to the
-     latest message as it arrives. */
+     it scroll. margin-top:auto on the first child gets the same bottom
+     anchoring a real thread has, but collapses to 0 once the messages
+     overflow, so scrolling still works. */
 }
+.core-phone-photo__bubbles > :first-child { margin-top: auto; }
 .core-phone-photo__bubbles::-webkit-scrollbar { display: none; }
 .core-capability__bubble {
-  max-width: 92%;
-  padding: 6% 8%;
-  border-radius: 12px;
-  font-size: 10px;
-  line-height: 1.35;
+  max-width: 78%;
+  padding: 8px 11px;
+  border-radius: 15px;
+  font-size: 12px;
+  line-height: 1.42;
   opacity: 0;
   transform: translateY(6px) scale(0.96);
   transition: opacity 0.3s cubic-bezier(.2,1.4,.4,1), transform 0.3s cubic-bezier(.2,1.4,.4,1);
@@ -1939,20 +1945,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-self: flex-end;
   background: var(--color-action);
   color: var(--color-white);
-  border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 4px;
 }
 .core-capability__bubble--howard {
   align-self: flex-start;
-  background: #EFEFEF;
+  background: #E9E9EB;
   color: var(--color-text-primary);
-  border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 4px;
 }
 .core-capability__typing {
   align-self: flex-start;
-  background: #EFEFEF;
-  border-bottom-left-radius: 3px;
-  border-radius: 12px;
-  padding: 7% 8%;
+  background: #E9E9EB;
+  border-bottom-left-radius: 4px;
+  border-radius: 15px;
+  padding: 10px 12px;
   display: flex;
   gap: 4px;
   align-items: center;
