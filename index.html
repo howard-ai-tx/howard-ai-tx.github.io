@@ -105,130 +105,128 @@
 
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
-    <div class="hero__content">
-      <h1 class="hero__headline">
-        <span class="hero__line hero__line--lead">We build</span>
-        <span class="hero__line hero__line--statement">AI that <span class="core-gradient">stays local</span>.</span>
-      </h1>
-      <p class="hero__tagline">
-        Not a data center. Your building.
-      </p>
-      <div class="hero__actions">
-        <a class="btn btn--primary btn--lg" href="/support/contact/">Get in Touch</a>
-        <a class="btn btn--secondary btn--lg" href="/products/howard-core/">See Howard Core</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT HOWARD DOES -->
-  <section class="section section--light" id="what-howard-does">
-    <div class="container" style="max-width:920px;">
-      <div class="section-header scroll-reveal">
-        <div class="section-header__label">Capabilities</div>
-        <h2 class="section-header__headline">Howard executes.<br />It doesn't suggest.</h2>
-      </div>
-      <div class="capability-list scroll-reveal">
-        <div class="capability-row">
-          <span class="capability-row__num">01</span>
-          <span class="capability-row__title">Books flights</span>
-          <span class="capability-row__desc">Text your dates. It books and confirms.</span>
-        </div>
-        <div class="capability-row">
-          <span class="capability-row__num">02</span>
-          <span class="capability-row__title">Manages calendars</span>
-          <span class="capability-row__desc">Schedules, reschedules, reminds — unasked.</span>
-        </div>
-        <div class="capability-row">
-          <span class="capability-row__num">03</span>
-          <span class="capability-row__title">Emails clients</span>
-          <span class="capability-row__desc">Writes and sends in your voice.</span>
-        </div>
-        <div class="capability-row">
-          <span class="capability-row__num">04</span>
-          <span class="capability-row__title">Handles admin</span>
-          <span class="capability-row__desc">The busywork, gone.</span>
-        </div>
-        <div class="capability-row">
-          <span class="capability-row__num">05</span>
-          <span class="capability-row__title">Builds new skills</span>
-          <span class="capability-row__desc">Gains new skills as it goes.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRIVACY SECTION -->
-  <section class="section section--gray" id="privacy">
-    <div class="container" style="max-width:760px; text-align:center;">
-      <div class="section-header section-header--center scroll-reveal">
-        <div class="section-header__label" style="color:var(--core-teal);">Privacy by Architecture</div>
-        <h2 class="section-header__headline">Your data never leaves<br />the building.</h2>
-        <p class="section-header__body" style="color:var(--color-text-body); margin:0 auto;">
-          Not a policy. A property line. Sensitive data runs on hardware you own, and stays there.
+    <img class="hero__media" src="/hero-environment.jpg" alt="" onerror="this.style.display='none'" />
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__dim" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__headline">
+          <span class="hero__line hero__line--lead">We build</span>
+          <span class="hero__line hero__line--statement">AI that <span class="core-gradient">stays local</span>.</span>
+        </h1>
+        <p class="hero__tagline">
+          Not a data center. Your building.
         </p>
-      </div>
-      <div class="privacy-contrast scroll-reveal">
-        <span class="privacy-contrast__bad">Sent to a server.</span>
-        <span class="privacy-contrast__arrow">becomes</span>
-        <span class="privacy-contrast__good">Stays on your hardware.</span>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="/support/contact/">Get in Touch</a>
+          <a class="btn btn--ghost btn--lg" href="/products/howard-core/">See Howard Core</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT -->
+  <!-- 1. WHAT HOWARDAI IS -->
+  <section class="section section--light" id="what-we-are">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <div class="section-header__label">What HowardAI is</div>
+      </div>
+      <div class="scroll-reveal">
+        <p class="answer__lead">
+          We build AI that runs <span class="mark">locally</span>, on hardware you <span class="mark">own</span>, <span class="mark">inside</span> of your building.
+        </p>
+        <div class="answer__facts">
+          <div class="answer__fact">
+            <div class="answer__fact-rule"></div>
+            <div class="answer__fact-title">It stays local</div>
+            <p class="answer__fact-desc">The machine doing the work is the one in your building.</p>
+          </div>
+          <div class="answer__fact">
+            <div class="answer__fact-rule"></div>
+            <div class="answer__fact-title">It executes</div>
+            <p class="answer__fact-desc">Howard finishes the task. It doesn't hand you suggestions.</p>
+          </div>
+          <div class="answer__fact">
+            <div class="answer__fact-rule"></div>
+            <div class="answer__fact-title">You own it</div>
+            <p class="answer__fact-desc">You buy the hardware. The subscription covers upkeep, not access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WHY IT'S USEFUL -->
+  <section class="section section--gray" id="why">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <div class="section-header__label">Why it's useful</div>
+        <h2 class="section-header__headline">Follow where your request goes.</h2>
+      </div>
+
+      <div class="path scroll-reveal">
+        <div class="path__toggle" role="tablist" aria-label="Compare where requests are processed">
+          <button class="path__btn is-active" role="tab" aria-selected="true" data-mode="cloud" id="path-btn-cloud" aria-controls="path-stage">Typical cloud AI</button>
+          <button class="path__btn" role="tab" aria-selected="false" data-mode="local" id="path-btn-local" aria-controls="path-stage" tabindex="-1">Howard</button>
+        </div>
+
+        <div class="path__stage" id="path-stage" role="tabpanel" aria-live="polite">
+          <div class="path__building" aria-hidden="true">
+            <span class="path__building-label">Your building</span>
+          </div>
+          <ol class="path__track">
+            <li class="path__node">
+              <div class="path__node-step">01</div>
+              <div class="path__node-title">You send a request</div>
+            </li>
+            <li class="path__node">
+              <div class="path__node-step">02</div>
+              <div class="path__node-title">It leaves for a data center</div>
+            </li>
+            <li class="path__node">
+              <div class="path__node-step">03</div>
+              <div class="path__node-title">It runs on hardware you don't control</div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. WHAT WE MAKE -->
   <section class="section section--light" id="product">
     <div class="container">
-      <div class="section-header section-header--center scroll-reveal">
-        <div class="section-header__label">The Hardware</div>
-        <h2 class="section-header__headline">One product. Everything included.</h2>
+      <div class="section-header scroll-reveal">
+        <div class="section-header__label">What we make</div>
       </div>
-
-      <div style="max-width: 800px; margin: 0 auto;" class="scroll-reveal">
-        <div class="product-card">
-          <div class="product-card__image" style="border:1px solid var(--color-border); overflow:hidden;">
-            <img src="/hero-image-core.png" alt="Howard Core" style="width:100%; height:100%; object-fit:contain; display:block;" />
+      <div class="make scroll-reveal">
+        <div class="make__media">
+          <img src="/hero-image-core.png" alt="Howard Core" />
+        </div>
+        <div>
+          <div class="make__name">Howard Core</div>
+          <p class="make__desc">One machine, set up in your home or office. You text it like a person; it comes back done.</p>
+          <div class="make__does">
+            <span>Books flights</span>
+            <span>Manages calendars</span>
+            <span>Emails clients</span>
+            <span>Handles admin</span>
           </div>
-          <div class="product-card__body">
-            <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);">
-              <div class="product-card__label" style="margin-bottom:0;">Howard Core</div>
-              <span class="badge badge--accent">Launch Edition</span>
-            </div>
-            <div class="product-card__name">Howard Core</div>
-            <p class="product-card__desc">
-              A locally hosted AI assistant that executes real tasks — from dedicated hardware inside your home or office.
-            </p>
-            <div class="product-card__price-row">
-              <span class="product-card__price">$2,999</span>
-              <span class="product-card__price-note">+ monthly subscription</span>
-            </div>
-            <div class="product-card__actions">
-              <button class="btn btn--primary" disabled aria-disabled="true" aria-describedby="preorder-note">Pre-Order</button>
-              <a class="btn btn--secondary" href="/products/howard-core/">Learn More</a>
-            </div>
-            <p id="preorder-note" class="text-caption" style="color: var(--color-text-muted); margin-top: var(--space-3);">
-              Pre-orders open soon. <a href="/support/contact/" style="color:var(--color-action);">Get in touch to be first in line.</a>
-            </p>
-          </div>
+          <a class="make__link" href="/products/howard-core/">See the full spec <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHO HOWARD IS FOR -->
-  <section class="section section--gray" id="who-its-for">
-    <div class="container" style="max-width:920px;">
-      <div class="section-header scroll-reveal">
-        <div class="section-header__label">Who It's For</div>
-        <h2 class="section-header__headline">Built for households<br />and small businesses.</h2>
-      </div>
-      <div class="audience-split scroll-reveal">
-        <div class="audience-split__col">
-          <div class="audience-split__title">Households</div>
-          <p class="audience-split__desc">Calendars, travel, appointments — handled, so you can focus on what matters.</p>
-        </div>
-        <div class="audience-split__col">
-          <div class="audience-split__title">Small Businesses</div>
-          <p class="audience-split__desc">Client emails, scheduling, follow-ups — without a dedicated admin.</p>
+  <!-- CLOSER -->
+  <section class="section section--gray" id="closer">
+    <div class="container">
+      <div class="closer scroll-reveal">
+        <h2 class="closer__headline">Meet Howard Core.</h2>
+        <p class="closer__body">The launch product. Hardware, software, and the number you reach it on.</p>
+        <div class="closer__actions">
+          <a class="btn btn--primary btn--lg" href="/products/howard-core/">See Howard Core</a>
+          <a class="btn btn--secondary btn--lg" href="/support/contact/">Get in Touch</a>
         </div>
       </div>
     </div>
@@ -289,6 +287,116 @@
   </footer>
 
   <script src="/assets/nav.js"></script>
+  <script>
+    /* Hero dims as the sections scroll up over it. */
+    (function () {
+      var hero = document.querySelector('.hero');
+      var dim = hero && hero.querySelector('.hero__dim');
+      if (!dim) return;
+      var MAX = 0.6;
+      var ticking = false;
+
+      function update() {
+        ticking = false;
+        var h = hero.offsetHeight || 1;
+        var p = Math.min(Math.max(window.scrollY / h, 0), 1);
+        dim.style.opacity = (p * MAX).toFixed(3);
+      }
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+    })();
+
+    /* Data path — the dashed "your building" boundary is the whole argument,
+       so it is measured from the real nodes rather than hard-coded. */
+    (function () {
+      var stage = document.getElementById('path-stage');
+      if (!stage) return;
+      var building = stage.querySelector('.path__building');
+      var nodes = Array.prototype.slice.call(stage.querySelectorAll('.path__node'));
+      var btns = Array.prototype.slice.call(document.querySelectorAll('.path__btn'));
+
+      var MODES = {
+        cloud: {
+          inside: 1,
+          nodes: [
+            { step: '01', title: 'You send a request' },
+            { step: '02', title: 'It leaves for a data center' },
+            { step: '03', title: "It runs on hardware you don't control" }
+          ]
+        },
+        local: {
+          inside: 3,
+          nodes: [
+            { step: '01', title: 'You send a request' },
+            { step: '02', title: 'Howard runs it on your hardware' },
+            { step: '03', title: 'You get your answer' }
+          ]
+        }
+      };
+
+      var mode = 'cloud';
+
+      /* animate: only when the visitor toggles modes. On resize the box would
+         otherwise tween from a stale pixel width and briefly overhang the viewport. */
+      function layout(animate) {
+        var cfg = MODES[mode];
+        var last = nodes[cfg.inside - 1];
+        var sRect = stage.getBoundingClientRect();
+        var lRect = last.getBoundingClientRect();
+        if (!animate) building.style.transition = 'none';
+        if (window.matchMedia('(max-width: 760px)').matches) {
+          building.style.bottom = 'auto';
+          building.style.width = '100%';
+          building.style.height = (lRect.bottom - sRect.top + 20) + 'px';
+        } else {
+          building.style.bottom = '0';
+          building.style.height = '';
+          building.style.width = (lRect.right - sRect.left + 24) + 'px';
+        }
+        if (!animate) {
+          building.offsetHeight;
+          building.style.transition = '';
+        }
+      }
+
+      function render(animate) {
+        var cfg = MODES[mode];
+        nodes.forEach(function (node, i) {
+          node.querySelector('.path__node-step').textContent = cfg.nodes[i].step;
+          node.querySelector('.path__node-title').textContent = cfg.nodes[i].title;
+          node.classList.toggle('path__node--outside', i >= cfg.inside);
+        });
+        btns.forEach(function (b) {
+          var on = b.dataset.mode === mode;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+          b.tabIndex = on ? 0 : -1;
+          if (on) stage.setAttribute('aria-labelledby', b.id);
+        });
+        layout(animate);
+      }
+
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (mode === b.dataset.mode) return;
+          mode = b.dataset.mode;
+          render(true);
+        });
+      });
+
+      window.addEventListener('resize', function () { layout(false); });
+      render(false);
+      /* Web fonts can reflow the nodes after first paint. */
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(false); });
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

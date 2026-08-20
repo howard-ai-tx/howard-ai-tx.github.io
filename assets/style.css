@@ -52,8 +52,10 @@
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { overflow-x: hidden;
+/* clip, not hidden: `overflow-x: hidden` makes these scroll containers, which
+   silently disables position:sticky for descendants (the sticky hero). */
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { overflow-x: clip;
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.4;
@@ -513,78 +515,63 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .card--dark .card__body { color: rgba(255,255,255,0.65); }
 
-/* ===== HERO (abstract, no photography) ===== */
+/* ===== HERO (photographic) ===== */
+/* Sticky, so the sections below scroll up over it instead of pushing it away.
+   Everything after the hero is lifted a layer and painted opaque to cover it. */
 .hero {
-  position: relative;
-  min-height: 92vh;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  min-height: 94vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--color-white);
+  background: var(--color-dark-bg);
 }
-.hero__field {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.hero__blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.16;
-  will-change: transform;
-}
-.hero__blob--coral {
-  width: 480px; height: 480px;
-  top: -140px; left: -100px;
-  background: var(--core-coral);
-  animation: heroBlobDriftA 22s ease-in-out infinite;
-}
-.hero__blob--amber {
-  width: 460px; height: 460px;
-  bottom: -160px; right: -100px;
-  background: var(--core-amber);
-  opacity: 0.14;
-  animation: heroBlobDriftB 26s ease-in-out infinite;
-}
-.hero__blob--teal {
-  width: 400px; height: 400px;
-  top: 30%; right: 10%;
-  background: var(--core-teal);
-  opacity: 0.11;
-  animation: heroBlobDriftC 19s ease-in-out infinite;
-}
-@keyframes heroBlobDriftA {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-40px, 30px) scale(1.08); }
-}
-@keyframes heroBlobDriftB {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -30px) scale(1.05); }
-}
-@keyframes heroBlobDriftC {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-20px, -40px) scale(1.1); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero__blob { animation: none; }
-}
-.hero__content {
+.hero ~ .section,
+.hero ~ .footer {
   position: relative;
   z-index: 1;
+}
+.hero__media {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: calc(var(--nav-height) + 40px) 40px 96px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 34%, rgba(0,0,0,0.08) 64%),
+    linear-gradient(0deg, rgba(0,0,0,0.3) 0%, transparent 40%);
+}
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+/* Sits above the hero copy so the whole hero recedes as content covers it.
+   Opacity is driven by scroll progress in index.html. */
+.hero__dim {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+.hero__content {
+  width: 100%;
+  max-width: 620px;
+  padding: calc(var(--nav-height) + 40px) 0 96px;
 }
 .hero__headline {
   font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--color-text-primary);
+  letter-spacing: -0.045em;
+  color: var(--color-white);
   margin: 0;
 }
 .hero__headline .hero__line {
@@ -595,28 +582,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: normal;
-  color: var(--color-text-body);
-  margin-bottom: 0.2em;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.25em;
 }
 @media (max-width: 900px) {
   .hero__headline .hero__line--lead { font-size: 17px; }
 }
 .hero__headline .hero__line--statement {
-  font-size: clamp(52px, 9vw, 128px);
-  line-height: 0.98;
+  font-size: clamp(48px, 7.5vw, 108px);
+  line-height: 0.94;
 }
 .hero__tagline {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 400;
-  line-height: 1.4;
-  color: var(--color-text-body);
-  max-width: 480px;
-  margin: var(--space-8) 0 var(--space-8);
+  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+  max-width: 460px;
+  margin: var(--space-6) 0 var(--space-8);
 }
 .hero__actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-3);
   flex-wrap: wrap;
 }
@@ -703,81 +690,235 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.4;
 }
 
-/* ===== CAPABILITY LIST (editorial, not a card grid) ===== */
-.capability-list {
-  margin-top: var(--space-12);
-  border-top: 1px solid var(--color-border);
-}
-.capability-row {
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
-  align-items: baseline;
-  gap: var(--space-6);
-  padding: var(--space-6) 0;
-  border-bottom: 1px solid var(--color-border);
-  transition: padding-left var(--dur-micro) ease-out;
-}
-.capability-row:hover { padding-left: var(--space-3); }
-.capability-row__num {
-  font-size: 14px;
+/* ===== ANSWER BLOCK (what HowardAI is) ===== */
+.answer__lead {
+  font-size: clamp(26px, 3.4vw, 44px);
   font-weight: 700;
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
-}
-.capability-row__title {
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.capability-row__desc {
-  font-size: 16px;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   color: var(--color-text-body);
-  text-align: right;
-  max-width: 280px;
+  max-width: 940px;
 }
-@media (max-width: 700px) {
-  .capability-row { grid-template-columns: 32px 1fr; }
-  .capability-row__desc { grid-column: 1 / -1; text-align: left; max-width: none; margin-top: var(--space-2); }
+.answer__lead strong { font-weight: 700; color: var(--color-text-primary); }
+/* Marker-pen highlight that strokes in left-to-right on reveal.
+   Black on #EBC736 is ~12.6:1, so the marked words stay the most legible text here. */
+.mark {
+  color: var(--color-text-primary);
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-repeat: no-repeat;
+  background-position: 0 84%;
+  background-size: 0% 0.5em;
+  transition: background-size 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scroll-reveal.visible .mark { background-size: 100% 0.5em; }
+.answer__lead .mark:nth-of-type(1) { transition-delay: 120ms; }
+.answer__lead .mark:nth-of-type(2) { transition-delay: 300ms; }
+.answer__lead .mark:nth-of-type(3) { transition-delay: 480ms; }
+.answer__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+}
+.answer__fact-rule {
+  height: 2px;
+  width: 0;
+  background: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scroll-reveal.visible .answer__fact-rule { width: 100%; }
+.answer__fact:nth-child(2) .answer__fact-rule { transition-delay: 120ms; }
+.answer__fact:nth-child(3) .answer__fact-rule { transition-delay: 240ms; }
+.answer__fact-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-2);
+}
+.answer__fact-desc { font-size: 16px; line-height: 1.5; color: var(--color-text-body); }
+@media (max-width: 760px) {
+  .answer__facts { grid-template-columns: 1fr; gap: var(--space-8); margin-top: var(--space-12); }
 }
 
-/* ===== PRIVACY CONTRAST (typographic, not a comparison table) ===== */
-.privacy-contrast {
+/* ===== WHAT WE MAKE (product, stated not sold) ===== */
+.make {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
   margin-top: var(--space-12);
+}
+.make__media {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--color-white);
+  padding: var(--space-8);
+  overflow: hidden;
+}
+.make__media img { width: 100%; height: auto; display: block; }
+.make__name {
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+.make__desc {
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.5;
+  color: var(--color-text-body);
+  margin-bottom: var(--space-8);
+}
+.make__does {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-8);
+}
+.make__does span {
+  padding: 8px var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-body);
+}
+.make__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-text-primary);
+  padding-bottom: 2px;
+  transition: gap var(--dur-micro) ease-out;
+}
+.make__link:hover { gap: var(--space-3); }
+@media (max-width: 860px) {
+  .make { grid-template-columns: 1fr; gap: var(--space-8); }
+  .make__media { padding: var(--space-6); }
+}
+
+/* ===== DATA PATH (where your request actually goes) ===== */
+.path { margin-top: var(--space-12); }
+.path__toggle {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-16);
+}
+.path__btn {
+  padding: 10px var(--space-6);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--color-text-body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur-short) ease-out, color var(--dur-short) ease-out;
+}
+.path__btn:hover { color: var(--color-text-primary); }
+.path__btn.is-active { background: var(--color-text-primary); color: var(--color-white); }
+.path__btn:focus-visible { outline: 2px solid var(--color-action); outline-offset: 2px; }
+
+.path__stage { position: relative; padding: var(--space-8) 0; }
+.path__building {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: 1.5px dashed var(--color-border-hover);
+  border-radius: var(--radius-large);
+  transition: width 520ms cubic-bezier(0.22, 1, 0.36, 1), height 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.path__building-label {
+  position: absolute;
+  top: -10px;
+  left: var(--space-6);
+  padding: 0 var(--space-3);
+  /* must match the section fill so it cuts the dashed border cleanly */
+  background: var(--color-light-bg);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-body);
+  white-space: nowrap;
+}
+.path__track {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--space-6);
+}
+.path__node {
+  padding: var(--space-6);
+  border-radius: var(--radius-medium);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--dur-short) ease-out, background var(--dur-short) ease-out;
+}
+.path__node-step {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-body);
+  margin-bottom: var(--space-2);
+}
+.path__node-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text-primary);
+}
+/* Coral is a graphic cue here (3:1 holds for non-text), never small text.
+   Inside nodes are solid white; outside ones drop back to the section fill. */
+.path__node--outside {
+  border-color: var(--core-coral);
+  border-style: dashed;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  .path__track { grid-auto-flow: row; grid-auto-columns: auto; gap: var(--space-3); padding: 0 var(--space-4); }
+  .path__toggle { margin-bottom: var(--space-12); display: flex; width: 100%; }
+  .path__btn { flex: 1; padding: 10px var(--space-3); font-size: 14px; }
+}
+
+/* ===== CLOSER (send them to the product) ===== */
+.closer { text-align: center; max-width: 720px; margin: 0 auto; }
+.closer__headline {
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: var(--space-6);
+}
+.closer__body {
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.5;
+  color: var(--color-text-body);
+  margin-bottom: var(--space-8);
+}
+.closer__actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-6);
+  gap: var(--space-3);
   flex-wrap: wrap;
-  text-align: center;
-  font-size: clamp(24px, 3.6vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.privacy-contrast__bad {
-  color: var(--color-text-muted);
-  text-decoration: line-through;
-  text-decoration-color: var(--color-error);
-  text-decoration-thickness: 2px;
-}
-.privacy-contrast__good { color: var(--color-text-primary); }
-.privacy-contrast__arrow {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--color-text-muted);
-}
-
-/* ===== AUDIENCE SPLIT (plain editorial columns, not icon cards) ===== */
-.audience-split {
-  margin-top: var(--space-12);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-}
-.audience-split__col { border-top: 2px solid var(--color-text-primary); padding-top: var(--space-4); }
-.audience-split__title { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: var(--space-2); }
-.audience-split__desc { font-size: 16px; color: var(--color-text-body); }
-@media (max-width: 700px) {
-  .audience-split { grid-template-columns: 1fr; gap: var(--space-8); }
 }
 
 /* ===== PRIVACY SECTION ===== */
@@ -2036,6 +2177,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 @media (max-width: 600px) {
+  .hero { min-height: 78vh; }
+  .hero__media { object-position: 72% 55%; }
   .hero__headline { font-size: 32px; }
   .hero__actions { flex-direction: column; align-items: center; }
   .grid-4 { grid-template-columns: 1fr; }
