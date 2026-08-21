@@ -1913,7 +1913,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   z-index: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 16px;
   padding: 10px 11px 12px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1928,50 +1928,58 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .core-phone-photo__bubbles > :first-child { margin-top: auto; }
 .core-phone-photo__bubbles::-webkit-scrollbar { display: none; }
-.core-capability__bubble {
+/* Shared fade-in for every message, bubble or not. */
+.core-capability__bubble,
+.core-capability__msg {
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transition: opacity 0.3s cubic-bezier(.2,1.4,.4,1), transform 0.3s cubic-bezier(.2,1.4,.4,1);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.core-capability__bubble.show,
+.core-capability__msg.show { opacity: 1; transform: translateY(0) scale(1); }
+/* User: still a bubble, just grey now instead of blue — same surface as Howard's
+   text gets, so neither side reads as "the app's brand color" vs "the other guy". */
+.core-capability__bubble--user {
+  align-self: flex-end;
   max-width: 78%;
   padding: 8px 11px;
   border-radius: 15px;
   font-size: 15px;
   line-height: 1.35;
-  opacity: 0;
-  transform: translateY(6px) scale(0.96);
-  transition: opacity 0.3s cubic-bezier(.2,1.4,.4,1), transform 0.3s cubic-bezier(.2,1.4,.4,1);
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-.core-capability__bubble.show { opacity: 1; transform: translateY(0) scale(1); }
-.core-capability__bubble--user {
-  align-self: flex-end;
-  background: var(--color-action);
-  color: var(--color-white);
-  border-bottom-right-radius: 4px;
-}
-.core-capability__bubble--howard {
-  align-self: flex-start;
   background: #E9E9EB;
   color: var(--color-text-primary);
-  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* Howard: no bubble at all — full-width plain text, the way ChatGPT/Claude render
+   assistant replies. Only the user's own messages get a contained shape. */
+.core-capability__msg {
+  align-self: stretch;
+  width: 100%;
+}
+.core-capability__msg p {
+  font-size: 15px;
+  line-height: 1.42;
+  color: var(--color-text-primary);
+  margin: 0;
 }
 .core-capability__typing {
   align-self: flex-start;
-  background: #E9E9EB;
-  border-bottom-left-radius: 4px;
-  border-radius: 15px;
-  padding: 10px 12px;
+  padding: 4px 0;
   display: flex;
   gap: 4px;
   align-items: center;
   opacity: 0;
-  transform: translateY(6px) scale(0.96);
+  transform: translateY(4px);
   transition: opacity 0.3s cubic-bezier(.2,1.4,.4,1), transform 0.3s cubic-bezier(.2,1.4,.4,1);
 }
-.core-capability__typing.show { opacity: 1; transform: translateY(0) scale(1); }
+.core-capability__typing.show { opacity: 1; transform: translateY(0); }
 .core-capability__typing span {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: #999;
+  background: var(--color-text-muted);
   animation: coreTypingBounce 1s ease-in-out infinite;
 }
 .core-capability__typing span:nth-child(2) { animation-delay: 0.15s; }
@@ -1980,6 +1988,64 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
   30% { transform: translateY(-3px); opacity: 1; }
 }
+
+/* ===== RICH CONTENT (flights, flagged mail, digests) ===== */
+.core-rich {
+  margin-top: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-white);
+  overflow: hidden;
+}
+/* Two rows, not one: at ~255px card width a single icon+title+status row has no
+   room left for real airline names and status text without wrapping into itself. */
+.core-rich-flight { padding: 9px 11px; }
+.core-rich-flight__top { display: flex; align-items: center; gap: 7px; }
+.core-rich-flight__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--core-teal);
+  font-size: 11px;
+}
+.core-rich-flight__title {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.core-rich-flight__status {
+  flex-shrink: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-success);
+  white-space: nowrap;
+}
+.core-rich-flight__meta {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  padding-left: 29px;
+}
+.core-rich-alert { display: flex; gap: 9px; padding: 10px 11px; border-left: 3px solid var(--color-error); }
+.core-rich-alert__icon { flex-shrink: 0; margin-top: 1px; color: var(--color-error); font-size: 15px; }
+.core-rich-alert__body { min-width: 0; }
+.core-rich-alert__title { font-size: 12.5px; font-weight: 700; color: var(--color-text-primary); }
+.core-rich-alert__detail { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; line-height: 1.4; }
+.core-rich-list__row { display: flex; align-items: flex-start; gap: 7px; padding: 7px 11px; }
+.core-rich-list__row + .core-rich-list__row { border-top: 1px solid var(--color-border); }
+.core-rich-list__row i { flex-shrink: 0; margin-top: 2px; font-size: 12px; color: var(--color-success); }
+.core-rich-list__row--flag i { color: var(--color-error); }
+.core-rich-list__row span { font-size: 12px; line-height: 1.4; color: var(--color-text-primary); }
 
 /* Platform list */
 .core-platform-list {

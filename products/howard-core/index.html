@@ -383,7 +383,8 @@
             label: "My flight got cancelled, fix it",
             exchange: [
               { from: 'user', text: "My flight got cancelled, fix it" },
-              { from: 'howard', text: "Rebooked on the 6:40pm direct — lands 40 min earlier than your original connection. Moved your 8pm dinner to 8:30 so you're not rushing." },
+              { from: 'howard', text: "Rebooked on the direct — lands 40 min earlier than your original connection. Moved your 8pm dinner to 8:30 so you're not rushing.",
+                rich: { type: 'flight', icon: 'ti-plane', title: 'United', meta: 'Direct · 6:40 PM – 9:47 PM', status: 'Rebooked' } },
               { from: 'user', text: "Perfect, thanks" },
               { from: 'howard', text: "Anytime." }
             ]
@@ -392,7 +393,8 @@
             label: "Did that wire request from The Whitfield Office actually come from them?",
             exchange: [
               { from: 'user', text: "Did that wire request from The Whitfield Office actually come from them?" },
-              { from: 'howard', text: "Doesn't look like it. It came from a different email than they've used before, and it's asking you to skip your usual verification step. I'd hold off and call them directly to confirm." },
+              { from: 'howard', text: "Doesn't look like it. It's asking you to skip your usual verification step. I'd hold off and call them directly to confirm.",
+                rich: { type: 'alert', icon: 'ti-alert-triangle', title: "Sender doesn't match", detail: 'billing@whitfield-office.co — not the domain they normally use' } },
               { from: 'user', text: "Good catch, hold everything" },
               { from: 'howard', text: "Nothing's moved. I'll wait for you." }
             ]
@@ -401,7 +403,13 @@
             label: "I haven't checked email since Monday, what did I miss",
             exchange: [
               { from: 'user', text: "I haven't checked email since Monday, what did I miss" },
-              { from: 'howard', text: "Two invoices went out on schedule, one vendor confirmed delivery, and Sarah moved Thursday's call to Friday. One email needs a real decision from you — it's at the top." }
+              { from: 'howard', text: "Two invoices went out, a vendor confirmed delivery, and Sarah moved Thursday's call. One email needs a real decision from you — it's at the top.",
+                rich: { type: 'list', items: [
+                  { icon: 'ti-circle-check', text: '2 invoices sent on schedule' },
+                  { icon: 'ti-circle-check', text: 'Vendor confirmed delivery' },
+                  { icon: 'ti-circle-check', text: "Thursday's call moved to Friday" },
+                  { icon: 'ti-flag-3', text: '1 email needs your decision', flag: true }
+                ] } }
             ]
           },
           {
@@ -417,7 +425,8 @@
             label: "Move the Denver trip, my wife's flying in that weekend",
             exchange: [
               { from: 'user', text: "Move the Denver trip, my wife's flying in that weekend" },
-              { from: 'howard', text: "Shifted it to the following week, same days. Flight and hotel both rebooked with no change fee — your original fare had a free-change window." }
+              { from: 'howard', text: "Shifted it to the following week, same days. Flight and hotel both rebooked with no change fee — your original fare had a free-change window.",
+                rich: { type: 'flight', icon: 'ti-plane', title: 'Delta', meta: 'Round trip · shifted +1 week', status: 'No fee' } }
             ]
           },
           {
@@ -449,12 +458,55 @@
           timers.push(setTimeout(fn, ms * timeScale));
         }
 
-        function addBubble(from, text) {
-          var b = document.createElement('div');
-          b.className = 'core-capability__bubble core-capability__bubble--' + from;
-          b.textContent = text;
-          bubblesEl.appendChild(b);
-          requestAnimationFrame(function () { b.classList.add('show'); });
+        function buildRich(rich) {
+          var card = document.createElement('div');
+          card.className = 'core-rich core-rich-' + rich.type;
+          if (rich.type === 'flight') {
+            card.innerHTML =
+              '<div class="core-rich-flight__top">' +
+                '<span class="core-rich-flight__icon"><i class="ti ' + rich.icon + '" aria-hidden="true"></i></span>' +
+                '<span class="core-rich-flight__title">' + rich.title + '</span>' +
+                '<span class="core-rich-flight__status">' + rich.status + '</span>' +
+              '</div>' +
+              '<div class="core-rich-flight__meta">' + rich.meta + '</div>';
+          } else if (rich.type === 'alert') {
+            card.innerHTML =
+              '<i class="core-rich-alert__icon ti ' + rich.icon + '" aria-hidden="true"></i>' +
+              '<span class="core-rich-alert__body">' +
+                '<span class="core-rich-alert__title">' + rich.title + '</span>' +
+                '<span class="core-rich-alert__detail">' + rich.detail + '</span>' +
+              '</span>';
+          } else if (rich.type === 'list') {
+            rich.items.forEach(function (it) {
+              var row = document.createElement('div');
+              row.className = 'core-rich-list__row' + (it.flag ? ' core-rich-list__row--flag' : '');
+              row.innerHTML = '<i class="ti ' + it.icon + '" aria-hidden="true"></i><span>' + it.text + '</span>';
+              card.appendChild(row);
+            });
+          }
+          return card;
+        }
+
+        // Howard never gets a bubble — full-width plain text, the way ChatGPT/Claude
+        // render assistant replies. Only the user's own messages are a contained shape.
+        function addBubble(from, text, rich) {
+          var el;
+          if (from === 'user') {
+            el = document.createElement('div');
+            el.className = 'core-capability__bubble core-capability__bubble--user';
+            el.textContent = text;
+          } else {
+            el = document.createElement('div');
+            el.className = 'core-capability__msg';
+            if (text) {
+              var p = document.createElement('p');
+              p.textContent = text;
+              el.appendChild(p);
+            }
+            if (rich) el.appendChild(buildRich(rich));
+          }
+          bubblesEl.appendChild(el);
+          requestAnimationFrame(function () { el.classList.add('show'); });
           bubblesEl.scrollTop = bubblesEl.scrollHeight;
         }
 
@@ -491,7 +543,8 @@
               // From the 3rd message on, don't send until the previous message
               // has had time to be read at ~250 WPM.
               if (i >= 2) {
-                var readGate = appearAt[i - 1] + readingMs(exchange[i - 1].text);
+                // A rich card takes longer to scan than its caption alone accounts for.
+                var readGate = appearAt[i - 1] + readingMs(exchange[i - 1].text) + (exchange[i - 1].rich ? 900 : 0);
                 if (delay < readGate) delay = readGate;
               }
               if (m.from === 'user') {
@@ -512,10 +565,10 @@
                   if (token !== runToken) return;
                   var typing = bubblesEl.querySelector('.core-capability__typing');
                   if (typing) typing.remove();
-                  addBubble('howard', m.text);
+                  addBubble('howard', m.text, m.rich);
                 });
                 appearAt[i] = delay + typingFor;
-                delay = appearAt[i] + 450;
+                delay = appearAt[i] + (m.rich ? 800 : 450);
               }
             });
           });
